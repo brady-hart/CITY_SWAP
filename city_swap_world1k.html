@@ -161,6 +161,7 @@
 <!--CONTROLS-->
     <style>
         #cityswap-logo-dark {
+            cursor: pointer;
             position: absolute;
             display: block;
             width: 130px;
@@ -1983,6 +1984,8 @@
         unitedkingdom: `./assets/pin_sets/${pinTheme}/regions/world/region_unitedkingdom.png`,
     } 
 
+    // Site logo
+    const cityswapLogoDark = document.getElementById("cityswap-logo-dark")
 
     // SCORE TRACKING VARIABLES
     const mainElement = document.getElementById("main")
@@ -2016,7 +2019,7 @@
     const startScreenHint = document.getElementById("hint-display");
     const hints = [
         `💡Hint: 🔍Inspector pins give you a free identification on any scoring pin.`,
-        `💡Hint: Not all regions are clearable. They must have at least 7 ranking cities.`,
+        `💡Hint: Not all regions are clearable. They must have at least 7 cities.`,
         `💡Hint: You cannot play 🔍inspector pins or 🌈wild pins on an item pin (small pins).`,
         '💡Hint: A 🌈wild pin turns ANY scoring pin 🌈wild.',
         '💡Hint: When you clear a region, all of its pins become locked and you lose any unplayed pins.',
@@ -2476,12 +2479,16 @@
         window.open('https://www.bradyhartcreates.com/aboutme');
     })
 
+    cityswapLogoDark.addEventListener('click', () => {
+        window.location.href = "index.html";
+    })
+
     playAgainBtn.addEventListener('click', () => {
         location.reload();
     })
 
     exitBtn.addEventListener('click', () => {
-        window.location.href = "city_swap_main.html";
+        window.location.href = "index.html";
     })
 
     // IDENTIFY LOGIC
