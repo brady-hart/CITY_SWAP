@@ -7,6 +7,12 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    } 
     #map {
       height: 100vh;
     }
@@ -20,7 +26,7 @@
     
         <div id="controls">
             <input type="text" id="input-field" placeholder="Type city name" />
-            <button id="about-creator-btn">About the creator -></button>
+            <button id="about-creator-btn">Copyright © 2025 Brady Hart LLC. All rights reserved.</button>
         </div>
         
 
@@ -159,8 +165,8 @@
             display: block;
             width: 130px;
             height: auto;
-            top: 10px;
-            left: 50px;
+            top: 0px;
+            left: 75px;
             z-index: 20;
         }
         #cityswap-logo-light {
@@ -276,8 +282,8 @@
             display: flex;
             align-items: center;
             flex-direction: column;
-            gap: 15px;
-            bottom: 30px;
+            bottom: 5px;
+            left: 5px;
             width: 100%;
             display: flex;
             justify-content: center;
@@ -302,6 +308,7 @@
         }
         #input-field {
             display: flex;
+            margin-bottom: 40px; /* moves it up inside #controls */
             text-align: center;
             font-size: 16px;
             font-family: Helvetica, Arial, sans-serif;
