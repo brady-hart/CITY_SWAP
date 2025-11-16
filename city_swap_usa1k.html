@@ -1,0 +1,2890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>City Swap 🇺🇸 USA 1K</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 100vh;
+    }
+  </style>
+</head>
+
+
+<body>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+    
+        <div id="controls">
+            <input type="text" id="input-field" placeholder="Type city name"/>
+            <button id="about-creator-btn">About the creator</button>
+        </div>
+
+        <div id="map" ></div>
+
+        <!-- scoreboard and feature bar-->
+        <div id="main">
+            <img id="cityswap-logo-dark" src="cityswap_logo_dark.png" alt="City Swap Logo">
+            <div id="scoreboard">
+                <div id="map-title-wrapper">
+                    <img id="ui-map-icon" class="ui-icon" title="Map" src = "",>
+                    <div id="map-display">🇺🇸 USA 1K</div>
+                </div>
+                
+                <span style="padding: 3px"></span>
+
+                <div id="regions-tally-bar-wrapper" class="scoreboard-element">
+                    <img id="ui-region-icon" class="ui-icon" title="Regions Cleared" src = "">
+                    <img id="region-tally-1" class="region-tally" src="" alt="Region tally icon"/>
+                    <img id="region-tally-2" class="region-tally" src="" alt="Region tally icon"/>
+                    <img id="region-tally-3" class="region-tally" src="" alt="Region tally icon"/>
+                    <img id="region-tally-4" class="region-tally" src="" alt="Region tally icon"/>
+                    <img id="region-tally-5" class="region-tally" src="" alt="Region tally icon"/>
+                    <div id="regions-cleared-display"></div>
+                </div>
+                
+                <span style="padding: 3px"></span>
+                
+                <div id="identified-count-wrapper" class="scoreboard-element">
+                    <img id="ui-identified-icon" class="ui-icon" title="Pins Identified" src = "",>
+                    <div id="pins-identified-display"></div>
+                </div>
+
+                <span style="padding: 3px"></span>    
+                
+                <div id="swap-count-wrapper" class="scoreboard-element">
+                  <img id="ui-swap-icon" class="ui-icon" title="Swaps" src = "",>
+                  <div id="swap-count-display">0</div>
+                </div>
+            </div>
+
+            <div id="timer-wrapper">
+                <div id="timer-display">00:00</div>
+            </div>
+
+            <!--start screen-->
+            <div id="start-screen">
+                
+                <div id="start-bar">
+                    <div id="hint-display"></div>
+                    <div id="start-game-prompt">Press start to begin</div>
+                </div>
+
+                <span style="gap: 25px"></span>
+                
+                <button id="start-btn">START</button>
+
+                
+            </div>
+
+            <!--game over screen-->
+            <div id="game-over-box">
+                <div id="end-screen-map-title-display">You won!</div>
+                
+                <span style="padding: 15px"></span>
+
+                <div id="mode-container">
+                    <img id="gameoverbox-logo" src="cityswap_logo_light.png" alt="City Swap Logo">
+                </div>
+
+                <span style="padding: 20px"></span>
+                
+                <!--scoreboard gets inserted here upon gameover-->
+        
+                <div id="final-stats-bar">
+                    <div id="final-score-container">
+                        <div id="final-score-display">0</div>
+                        <span style="transform: translateY(-10px); text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: rgba(255, 255, 255, 0.756);">SWAPS</span>
+                    </div>
+
+                    <div id="final-time-container">
+                        <div id="final-time-display">0</div>
+                        <span style="transform: translateY(-10px); text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: rgba(255, 255, 255, 0.756);">TIME</span>
+                    </div>
+
+                    <div id="final-identified-container">
+                        <div id="final-identified-display">0</div>
+                        <span style="transform: translateY(-10px); text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: rgba(255, 255, 255, 0.756);">IDENTIFIED</span>
+                    </div>
+
+
+                </div>
+                
+                <span style="padding: 15px"></span>
+
+                <div id="btns-container">
+                  <button id="play-again-btn">PLAY AGAIN</button>
+                  <button id="exit-btn">EXIT</button>
+                </div>
+                
+                <span style="padding: 20px"></span>
+
+                <button id="space-key-prompt">SPACE</button>
+            </div>
+
+
+            <div id="result-message" style="transform: translateY(60px); font-family: 'Helvetica', 'Arial', sans-serif; color: rgba(255, 255, 255, 0.784); padding: 5px; font-size: 14px;"></div>
+    
+
+            <!--AUDIO-->
+            <audio id="click-wood-tone-1" src="sounds/click-wood-tone-1.wav"></audio>
+            <audio id="beep-low-1" src="sounds/beep-low.mp3"></audio>
+            <audio id="beep-low-2" src="sounds/beep-low-2.m4a"></audio>
+            <audio id="marimba-note-C4" src="sounds/marimba-C4.m4a"></audio>
+            <audio id="marimba-scale-d" src="sounds/scale-marimba-d.m4a"></audio>
+            <audio id="woosh-1" src="sounds/woosh-1.wav"></audio>
+            <audio id="tone-pleasant-1" src="sounds/tone-pleasant-1.m4a"></audio>
+            <audio id="tone-simple-1" src="sounds/tone-simple-1.m4a"></audio>
+            <audio id="tone-long-1" src="sounds/tone-long-1.mp3"></audio>
+            <audio id="tone-bright-1" src="sounds/tone-bright-1.mp3"></audio>
+            <audio id="tone-glass-low" src="sounds/tone-glass-low.m4a"></audio>
+            <audio id="tone-glass-high" src="sounds/tone-glass-high.wav"></audio>
+            <audio id="tone-achievement" src="sounds/tone-achievement.wav"></audio>
+
+        </div>
+
+        <!--Held Pin Display-->
+        <div id="held-pin-display">
+            <img id="held-pin-img" src="" alt="Held pin image"/>
+        </div>
+
+<!--CONTROLS-->
+    <style>
+        #cityswap-logo-dark {
+            position: absolute;
+            display: block;
+            width: 130px;
+            height: auto;
+            top: 10px;
+            left: 50px;
+            z-index: 20;
+        }
+        #cityswap-logo-light {
+            position: absolute;
+            display: block;
+            width: 130px;
+            height: auto;
+            top: 10px;
+            left: 50px;
+            z-index: 20;
+        }
+        #gameoverbox-logo {
+            position: block;
+            display: flex;
+            width: 200px;
+            height: auto;
+            top: 10px;
+            left: 50px;
+            z-index: 20;
+        }
+
+
+        #map {
+            position: relative;
+            width:  100%;
+            height: 100vh; /* full screen height */
+            z-index: 0;
+        }
+        #start-screen {
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 350px;
+            left: 50%;
+            transform: translate(-50%, 100%);
+            background: linear-gradient(to right, #3a404ef3, #4a4f4beb); /* Set your gradient colors */
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 6px 8px 20px #00000094;
+        }
+        #start-screen-elements-container {
+            display: flex;
+            flex-direction: row;
+            gap: 50px;
+        }
+        #start-screen-map-title-wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 0px 0px 0px 0px;
+            gap: 10px;
+            border-radius: 20px;
+            background-color: #1e1f21df;
+        }
+        .step-by-step-box {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            max-width: 350px;
+            gap: 20px;
+        }
+        .step-by-step-title {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+        }
+        .step-by-step-art {
+            border-radius: 20px;
+            max-width: 250px;
+            max-height: 100px;
+            box-shadow: 0 11px 15px -7px rgb(0 0 0 / 30%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
+        }
+        .game-description {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+            color: white;
+            padding: 10px 0px 10px 0px;
+        }
+        #start-btn {
+            cursor: pointer;
+            min-width: 160px;
+            max-width: 160px;
+            background: linear-gradient(to right, #ffffff30, #ffffff12, #ffffff23); /* Set your gradient colors */
+            border-radius: 40px;
+            padding: 5px 40px 5px;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            border: 1px solid #ffffffaa;
+            border-bottom: 1px solid #b4b4b49f;
+            color: #ffffff8d;
+            line-height: 26px;
+            /* drop shadow */
+            box-shadow: 0 11px 15px -7px rgb(0 0 0 / 30%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
+            z-index: 10; 
+        }
+        #start-btn:hover {
+            box-shadow: 0px 6px 30px rgb(0 0 0 / 30%);
+            box-shadow: 0 0 8px #77a5e9, 0 0 16px #77a5e9, 0 0 32px #77a5e9; /* Multiple layers for stronger glow */
+            background: linear-gradient(to right, #ffffff95, #ffffff4d, #ffffffae); /* Set your gradient colors */
+            border: 1px solid #ffffffaa;
+            border-width: 10;
+            border-bottom: 1px solid #b4b4b49f;
+            font-size: 19px;
+            color: #ffffff;
+        }
+        #controls {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 5px;
+            bottom: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 1000; /* Ensure it's above the map */
+            padding: 10px;
+            border-radius: 5px;
+        }
+        #about-creator-btn {
+            display: block;
+            position: absolute;
+            left: 3%;
+            bottom: 30%;
+            cursor: pointer;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 12px;
+            color: #b7b7b7;
+            background: none;
+            border: none;
+        }
+        #about-creator-btn:hover {
+            color: #71a8c7;
+        }
+        #input-field {
+            display: flex;
+            text-align: center;
+            font-size: 16px;
+            font-family: Helvetica, Arial, sans-serif;
+            color: #585858;
+            width: 200px;
+            border: none;
+            border-radius: 15px;
+            padding: 10px 3px 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 10, 0.25);
+        }
+        .feature-name-label {
+            font-size: 14px;
+            font-family: Helvetica, Arial, sans-serif;
+            font-weight: 400;
+            background: none;
+            border: none;
+            padding: 0;
+            text-align: center;
+            pointer-events: none;
+            color: #3a404f;
+            box-shadow: none;
+            text-shadow: 0px 0px 5px white;
+        }
+        /* TO OVERRIDE LEAFLET'S TEXT STYLE */
+        .stat-label {
+            text-align: center;
+            font-size: 32px;
+            color: #3a404f;
+            font-weight: 700;
+            font-family: Helvetica, Arial, sans-serif;
+            text-shadow: 2px 0px 0px white, 0px 2px 0px white, 0px -2px 0px white, -2px 0px 0px white;
+        }
+        .stat-label.clicked {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: cener;
+            pointer-events: none;
+            text-align: center;
+            color: #3a404f;
+            z-index: 100;
+        }
+        .stat-label.identified {
+            position: relative;
+            display: none;
+        }
+        .stat-label.neutral {
+            position: relative;
+            display: none;
+        }
+        </style>
+
+<!--MAIN TOOLBAR-->
+    <style>
+        /* Main container */
+        #main {
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            top: 20px;
+            width: 100%;
+            justify-content: center; /* Center the toolbar in its container */
+            align-items: center;
+            gap: 10px;
+            padding: 4px;
+            z-index: 1000px;
+        }
+        #held-pin-display {
+            position: absolute;
+            top: 8%;
+            right: 5%;
+            
+            display: none;
+            flex-direction: row;
+            align-items: center;
+
+            background-color: #8d8d8d56;
+            border-radius: 18px;
+            padding: 2px 10px 10px 10px;
+        }
+        #held-pin-img {
+            max-width: 120px;
+            max-height: 120px;
+        }
+    </style>
+
+
+    <!--END SCREEN-->
+    <style>
+        #game-over-box {
+            position: absolute;
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            height: 550px;
+            left: 50%;
+            transform: translate(-50%, 60%);
+            background: linear-gradient(to right, #3a404ef0, #4a4f4bef); /* Set your gradient colors */
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0px 20px 0px;
+            box-shadow: 6px 8px 20px #00000094;
+        }
+        #final-stats-bar {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            gap: 50px;
+            background-color: none;
+        }
+        #btns-container {
+            display: flex;
+            transform: translateX(35px);
+            justify-content: space-between; /* or `justify-content: flex-start;` */
+            gap: 15px; /* Optional: adds spacing between buttons */
+        }
+        #mode-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between; /* or `justify-content: flex-start;` */
+            gap: 15px; /* Optional: adds spacing between buttons */
+        }
+        #final-score-container, #final-identified-container, #final-time-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* or `justify-content: flex-start;` */
+            gap: 10px; /* Optional: adds spacing between buttons */
+        }
+
+        #start-bar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+        #start-game-prompt {
+            cursor: auto;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            font-size: 18px;
+            font-weight: 200;
+            padding: 0px, 10px, 10px, 0px;
+            color: white;
+            background-color: none;
+            border: none;
+            border-radius: 11px;
+        }
+        #hint-display {
+            cursor: auto;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            font-size: 32px;
+            font-weight: 400;
+            padding: 0px, 10px, 10px, 0px;
+            color: white;
+            background-color: none;
+            border: none;
+            border-radius: 11px;
+        }
+        #end-screen-map-title-display {
+            cursor: auto;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            padding: 0px, 10px, 10px, 0px;
+            color: white;
+            background-color: none;
+            border: none;
+            border-radius: 11px;
+        }
+        #final-score-display {
+            display: block;
+            text-align: center;
+            min-width: 100px;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 104px;
+            font-weight: 700;
+            color: #ffffff;
+            /* glow */
+            text-shadow: 0 0 8px #a2c7ff;
+            /* OLD: text-shadow: 0 0 8px #0064ff, 0 0 16px #0064ff, 0 0 32px #267dff;*/
+        }
+        #final-identified-display, #final-time-display {
+            display: block;
+            text-align: center;
+            min-width: 100px;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 72px;
+            font-weight: 700;
+            color: #ffffff;
+            /* glow */
+            text-shadow: 0 0 8px #a2c7ff;
+            /* OLD: text-shadow: 0 0 8px #0064ff, 0 0 16px #0064ff, 0 0 32px #267dff;*/
+        }
+        #play-again-btn {
+            cursor: pointer;
+            min-width: 160px;
+            max-width: 260px;
+            background: linear-gradient(to right, #ffffff30, #ffffff12, #ffffff23); /* Set your gradient colors */
+            border-radius: 40px;
+            padding: 5px 40px 5px;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            border: 1px solid #ffffffaa;
+            border-bottom: 1px solid #b4b4b49f;
+            color: #ffffff8d;
+            line-height: 26px;
+            /* drop shadow */
+            box-shadow: 0 11px 15px -7px rgb(0 0 0 / 30%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
+            z-index: 10; 
+        }
+        #play-again-btn:hover {
+            box-shadow: 0px 6px 30px rgb(0 0 0 / 30%);
+            box-shadow: 0 0 8px #77a5e9, 0 0 16px #77a5e9, 0 0 32px #77a5e9; /* Multiple layers for stronger glow */
+            background: linear-gradient(to right, #ffffff95, #ffffff4d, #ffffffae); /* Set your gradient colors */
+            border: 1px solid #ffffffaa;
+            border-width: 10;
+            border-bottom: 1px solid #b4b4b49f;
+            font-size: 19px;
+            color: #ffffff;
+        }
+        #exit-btn {
+            cursor: pointer;
+            min-width: 160;
+            border: transparent;
+            background: #2c2f339e; /* Set your gradient colors */
+            border-radius: 22px;
+            padding: 5px 10px 5px;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: #b2bcebc3;
+            line-height: 26px;
+            /* drop shadow */
+            box-shadow: 0 11px 15px -7px rgb(0 0 0 / 30%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
+            z-index: 10;
+        }
+        #exit-btn:hover {
+            font-size: 17px;
+        }
+        #space-key-prompt {
+            display: none;
+            position: fixed;
+            background: none;
+            min-width: 100px;
+            left: 50%;
+            bottom: 50px;
+            color: rgba(255, 255, 255, .3);
+            border: 1px solid rgba(255, 255, 255, .3);
+            border-radius: 5px;
+            transform: translate(-50%, -50%);
+            z-index: 11;
+        }
+    </style>
+
+<!--SCOREBOARD-->
+    <style>
+        /* SCOREBOARD */
+        #scoreboard {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            /* background: linear-gradient(to right, #3a404f, #b3bcb4); /* Set your gradient colors */
+            background: linear-gradient(to right, #ffffff30, #ffffff12, #ffffff23); /* Set your gradient colors */
+            outline: solid 1px #ffffff;
+            border-radius: 25px;
+            gap: 0px;
+            padding: 0px 0px 0px 0px;
+            box-shadow: 6px 8px 20px #0000007d;
+        }
+        #map-title-wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 0px 20px 0px 20px;
+            gap: 10px;
+            border-radius: 20px;
+            background-color: #1e1f21df;
+        }
+        .scoreboard-wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items:flex-end;
+            padding: 0px 20px 0px 20px;
+            gap: 5px;
+            background-color: #2b3c5d93;
+        }
+        .scoreboard-element {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 0px 20px 0px 20px;
+            gap: 5px;
+            border: none;
+            border-radius: 20px;
+            background-color: #2a3344cd;
+        }
+        #regions-tally-bar-wrapper {
+            background-color: #c0d0f0cd;
+        }
+        #identified-count-wrapper {
+            background-color: #aeb4bacd;
+        }
+        #swap-count-wrapper {
+            background-color: #6e85b37b;
+        }
+        #regions-cleared-display {
+            display: none;
+            cursor: auto;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            text-align: center;
+            color: #e9eaf1;
+            font-size: 28px;
+            font-weight: 1000;
+        }
+        #map-display {
+            cursor: auto;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            text-align: center;
+            padding: 0px, 0px, 10px;
+            background-color: none;
+            border: none;
+            color: #ece3ef;
+            font-size: 14px;
+            font-weight: 700;
+        }
+        #pins-identified-display, #swap-count-display {
+            cursor: auto;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            text-align: center;
+            color: #1e1f21;
+            /* glow */
+            text-shadow: 0 0 8px #a2c7ff, 0 0 16px #cde1ff;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        #timer-display {
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            text-align: center;
+            color: #1e1f21ba;
+            font-size: 14px;
+            font-weight: 200;
+        }
+        .region-tally {
+            max-width: 36px;
+            max-height: 36px;
+        }
+        .ui-icon {
+            max-width: 40px;
+            max-height: 40px;
+        }
+        </style>
+
+
+  <script>
+    
+    let gameStartTime = null;
+    let gameTimerInterval = null;
+
+
+    // Initialize the map
+    //setView([32.8872, 13.1914], 3); // Centered on world (Tripoli)
+    const map = L.map('map').setView([41.2627, -96.0529], 5); // Centered on USA (Omaha, Nebraska)
+
+    // Add OpenStreetMap tiles
+    // Other map styles: 
+    // default: https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
+    // light: https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png
+    // dark: https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png
+    // light no labels: https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png
+    // dark no labels: https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png
+    // topo: https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png
+    // esri physical: https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}
+    
+    // NEEDS API KEY:
+    // Stamen terrain: https://tiles.stadiamaps.com/tiles/stamen_terrain_background/{z}/{x}/{y}{r}.{ext}
+    // Stamen watercolor: https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.{ext}
+
+    var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+	    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+    });
+
+    var Esri_WorldTerrain = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}', {
+	    attribution: 'Tiles &copy; Esri &mdash; Source: USGS, Esri, TANA, DeLorme, and NPS',
+	    maxZoom: 13
+    });
+
+    var Esri_WorldShadedRelief = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}', {
+	    attribution: 'Tiles &copy; Esri &mdash; Source: Esri',
+	    maxZoom: 13
+    });
+
+    var Esri_WorldPhysical = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}', {
+	    attribution: 'Tiles &copy; Esri &mdash; Source: US National Park Service',
+	    maxZoom: 8
+    });
+
+    var Esri_OceanBasemap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}', {
+	    attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri',
+	    maxZoom: 13
+    });
+
+    var NASAGIBS_ViirsEarthAtNight2012 = L.tileLayer('https://map1.vis.earthdata.nasa.gov/wmts-webmerc/VIIRS_CityLights_2012/default/{time}/{tilematrixset}{maxZoom}/{z}/{y}/{x}.{format}', {
+	    attribution: 'Imagery provided by services from the Global Imagery Browse Services (GIBS), operated by the NASA/GSFC/Earth Science Data and Information System (<a href="https://earthdata.nasa.gov">ESDIS</a>) with funding provided by NASA/HQ.',
+	    bounds: [[-85.0511287776, -179.999999975], [85.0511287776, 179.999999975]],
+	    minZoom: 1,
+	    maxZoom: 8,
+	    format: 'jpg',
+	    time: '',
+	    tilematrixset: 'GoogleMapsCompatible_Level'
+    });
+
+    var OSM_LightNoLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+        attribution: '© OpenStreetMap contributors'
+    })
+
+    var OSM_DarkNoLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
+        attribution: '© OpenStreetMap contributors'
+    })
+    
+    OSM_LightNoLabels.addTo(map);
+
+    // 'default' gets /3 division factor
+    const pinTheme = 'triangles';
+
+    // SIZE NORMAL                                      SIZE SMALL                                      SIZE X-SMALL
+    // (icon height - 4)                                (small icon height - 4)                         (small icon height - 4)
+    const iconSizeX = 108;                              const smallIconSizeX = 108;                     const xSmallIconSizeX = 72;
+    const iconSizeY = 220;                              const smallIconSizeY = 108;                     const xSmallIconSizeY = 72;
+    
+    const anchorX = 54;                                                                                 const xSmallAnchorX = 36;
+    const divisionFactor = 2.25;
+
+    // ICONS (anchor y coordinate has been lowered by 4px)
+    // UTILITY and BASE
+    const baseIcon = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/base.png`,
+        iconSize: [smallIconSizeX/divisionFactor, smallIconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, smallIconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const baseHoverIcon = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/base-hov.png`,
+        iconSize: [smallIconSizeX/divisionFactor, smallIconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, smallIconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const base2Icon = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/base-2.png`,
+        iconSize: [xSmallIconSizeX/divisionFactor, xSmallIconSizeY/divisionFactor],
+        iconAnchor: [xSmallAnchorX/divisionFactor, xSmallIconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const base2HoverIcon = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/base-2-hov.png`,
+        iconSize: [xSmallIconSizeX/divisionFactor, xSmallIconSizeY/divisionFactor],
+        iconAnchor: [xSmallAnchorX/divisionFactor, xSmallIconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const emptyIcon = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/empty.png`,
+        iconSize: [xSmallIconSizeX/divisionFactor, xSmallIconSizeY/divisionFactor],
+        iconAnchor: [xSmallAnchorX/divisionFactor, xSmallIconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const emptyHoverIcon = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/empty-hov.png`,
+        iconSize: [xSmallIconSizeX/divisionFactor, xSmallIconSizeY/divisionFactor],
+        iconAnchor: [xSmallAnchorX/divisionFactor, xSmallIconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const wildIcon = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/utility_wild.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const wildHoverIcon = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/utility_wild-hov.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const rainbowIcon1 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/rainbow-1.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const rainbowIcon2 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/rainbow-2.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const rainbowIcon3 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/rainbow-3.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const rainbowIcon4 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/rainbow-4.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const rainbowIcon5 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/rainbow-5.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const rainbowIcon6 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/rainbow-6.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const rainbowIcon7 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/rainbow-7.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const rainbowIcon8 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/rainbow-8.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const rainbowIcon9 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/rainbow-9.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const rainbowIcon10 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/rainbow-10.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    // WILD HOVER
+    const wildHoverIcon1 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_rainbow-1.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const wildHoverIcon2 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_rainbow-2.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const wildHoverIcon3 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_rainbow-3.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const wildHoverIcon4 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_rainbow-4.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const wildHoverIcon5 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_rainbow-5.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const wildHoverIcon6 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_rainbow-6.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const wildHoverIcon7 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_rainbow-7.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const wildHoverIcon8 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_rainbow-8.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const wildHoverIcon9 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_rainbow-9.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const wildHoverIcon10 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_rainbow-10.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+
+
+
+    const inspectorIcon = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/utility_inspector.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const inspectorHoverIcon = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/utility_inspector-hov.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const clearedIcon = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/utility_cleared.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+    const placeholderIcon = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/held-pin-placeholder.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    })
+
+
+    // RED
+    const redIcon1 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/red-1.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const redIcon2 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/red-2.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const redIcon3 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/red-3.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const redIcon4 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/red-4.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const redIcon5 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/red-5.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const redIcon6 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/red-6.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const redIcon7 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/red-7.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const redIcon8 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/red-8.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const redIcon9 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/red-9.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const redIcon10 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/red-10.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    // WHITE
+    const whiteIcon1 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/white-1.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const whiteIcon2 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/white-2.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const whiteIcon3 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/white-3.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const whiteIcon4 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/white-4.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const whiteIcon5 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/white-5.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const whiteIcon6 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/white-6.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const whiteIcon7 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/white-7.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const whiteIcon8 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/white-8.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const whiteIcon9 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/white-9.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const whiteIcon10 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/white-10.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    // YELLOW
+    const yellowIcon1 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/yellow-1.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const yellowIcon2 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/yellow-2.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const yellowIcon3 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/yellow-3.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const yellowIcon4 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/yellow-4.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const yellowIcon5 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/yellow-5.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const yellowIcon6 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/yellow-6.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const yellowIcon7 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/yellow-7.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const yellowIcon8 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/yellow-8.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const yellowIcon9 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/yellow-9.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const yellowIcon10 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/yellow-10.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    // orange
+    const orangeIcon1 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/orange-1.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const orangeIcon2 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/orange-2.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const orangeIcon3 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/orange-3.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const orangeIcon4 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/orange-4.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const orangeIcon5 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/orange-5.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const orangeIcon6 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/orange-6.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const orangeIcon7 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/orange-7.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const orangeIcon8 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/orange-8.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const orangeIcon9 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/orange-9.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const orangeIcon10 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/orange-10.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    // GREEN
+    const greenIcon1 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/green-1.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const greenIcon2 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/green-2.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const greenIcon3 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/green-3.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const greenIcon4 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/green-4.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const greenIcon5 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/green-5.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const greenIcon6 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/green-6.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const greenIcon7 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/green-7.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const greenIcon8 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/green-8.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const greenIcon9 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/green-9.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const greenIcon10 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/green-10.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    // BLUE
+    const blueIcon1 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/blue-1.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const blueIcon2 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/blue-2.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const blueIcon3 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/blue-3.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const blueIcon4 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/blue-4.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const blueIcon5 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/blue-5.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const blueIcon6 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/blue-6.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const blueIcon7 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/blue-7.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const blueIcon8 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/blue-8.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const blueIcon9 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/blue-9.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const blueIcon10 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/blue-10.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    // PURPLE
+    const purpleIcon1 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/purple-1.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const purpleIcon2 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/purple-2.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const purpleIcon3 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/purple-3.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const purpleIcon4 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/purple-4.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const purpleIcon5 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/purple-5.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const purpleIcon6 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/purple-6.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const purpleIcon7 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/purple-7.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const purpleIcon8 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/purple-8.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const purpleIcon9 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/purple-9.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const purpleIcon10 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/purple-10.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+
+
+
+    // HOVER ICONS HOVER ICONS
+    // RED
+    const redHoverIcon1 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_red-1.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const redHoverIcon2 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_red-2.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const redHoverIcon3 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_red-3.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const redHoverIcon4 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_red-4.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const redHoverIcon5 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_red-5.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const redHoverIcon6 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_red-6.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const redHoverIcon7 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_red-7.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const redHoverIcon8 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_red-8.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const redHoverIcon9 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_red-9.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const redHoverIcon10 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_red-10.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    // WHITE
+    const whiteHoverIcon1 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_white-1.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const whiteHoverIcon2 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_white-2.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const whiteHoverIcon3 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_white-3.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const whiteHoverIcon4 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_white-4.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const whiteHoverIcon5 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_white-5.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const whiteHoverIcon6 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_white-6.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const whiteHoverIcon7 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_white-7.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const whiteHoverIcon8 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_white-8.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const whiteHoverIcon9 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_white-9.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const whiteHoverIcon10 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_white-10.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    // YELLOW
+    const yellowHoverIcon1 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_yellow-1.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const yellowHoverIcon2 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_yellow-2.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const yellowHoverIcon3 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_yellow-3.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const yellowHoverIcon4 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_yellow-4.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const yellowHoverIcon5 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_yellow-5.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const yellowHoverIcon6 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_yellow-6.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const yellowHoverIcon7 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_yellow-7.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const yellowHoverIcon8 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_yellow-8.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const yellowHoverIcon9 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_yellow-9.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const yellowHoverIcon10 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_yellow-10.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    // orange
+    const orangeHoverIcon1 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_orange-1.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const orangeHoverIcon2 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_orange-2.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const orangeHoverIcon3 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_orange-3.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const orangeHoverIcon4 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_orange-4.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const orangeHoverIcon5 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_orange-5.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const orangeHoverIcon6 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_orange-6.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const orangeHoverIcon7 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_orange-7.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const orangeHoverIcon8 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_orange-8.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const orangeHoverIcon9 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_orange-9.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const orangeHoverIcon10 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_orange-10.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    // GREEN
+    const greenHoverIcon1 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_green-1.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const greenHoverIcon2 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_green-2.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const greenHoverIcon3 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_green-3.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const greenHoverIcon4 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_green-4.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const greenHoverIcon5 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_green-5.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const greenHoverIcon6 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_green-6.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const greenHoverIcon7 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_green-7.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const greenHoverIcon8 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_green-8.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const greenHoverIcon9 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_green-9.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const greenHoverIcon10 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_green-10.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    // BLUE
+    const blueHoverIcon1 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_blue-1.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const blueHoverIcon2 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_blue-2.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const blueHoverIcon3 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_blue-3.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const blueHoverIcon4 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_blue-4.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const blueHoverIcon5 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_blue-5.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const blueHoverIcon6 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_blue-6.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const blueHoverIcon7 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_blue-7.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const blueHoverIcon8 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_blue-8.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const blueHoverIcon9 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_blue-9.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const blueHoverIcon10 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_blue-10.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    // PURPLE
+    const purpleHoverIcon1 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_purple-1.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const purpleHoverIcon2 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_purple-2.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const purpleHoverIcon3 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_purple-3.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const purpleHoverIcon4 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_purple-4.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const purpleHoverIcon5 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_purple-5.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const purpleHoverIcon6 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_purple-6.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const purpleHoverIcon7 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_purple-7.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const purpleHoverIcon8 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_purple-8.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const purpleHoverIcon9 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_purple-9.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+    const purpleHoverIcon10 = L.icon({
+        iconUrl: `./assets/pin_sets/${pinTheme}/pins/hover_purple-10.png`,
+        iconSize: [iconSizeX/divisionFactor, iconSizeY/divisionFactor],
+        iconAnchor: [anchorX/divisionFactor, iconSizeY/divisionFactor],
+        className: `custom-icon`
+    });
+
+    // color pins array
+    const pinIconsArray = {
+        red: [null, redIcon1, redIcon2, redIcon3, redIcon4, redIcon5, redIcon6, redIcon7, redIcon8, redIcon9, redIcon10],
+        yellow: [null, yellowIcon1, yellowIcon2, yellowIcon3, yellowIcon4, yellowIcon5, yellowIcon6, yellowIcon7, yellowIcon8, yellowIcon9, yellowIcon10],
+        green: [null, greenIcon1, greenIcon2, greenIcon3, greenIcon4, greenIcon5, greenIcon6, greenIcon7, greenIcon8, greenIcon9, greenIcon10],
+        blue: [null, blueIcon1, blueIcon2, blueIcon3, blueIcon4, blueIcon5, blueIcon6, blueIcon7, blueIcon8, blueIcon9, blueIcon10],
+        purple: [null, purpleIcon1, purpleIcon2, purpleIcon3, purpleIcon4, purpleIcon5, purpleIcon6, purpleIcon7, purpleIcon8, purpleIcon9, purpleIcon10],
+    };
+    // color pins HOVER array
+    const pinHoverIconsArray = {
+        red: [null, redHoverIcon1, redHoverIcon2, redHoverIcon3, redHoverIcon4, redHoverIcon5, redHoverIcon6, redHoverIcon7, redHoverIcon8, redHoverIcon9, redHoverIcon10],
+        yellow: [null, yellowHoverIcon1, yellowHoverIcon2, yellowHoverIcon3, yellowHoverIcon4, yellowHoverIcon5, yellowHoverIcon6, yellowHoverIcon7, yellowHoverIcon8, yellowHoverIcon9, yellowHoverIcon10],
+        green: [null, greenHoverIcon1, greenHoverIcon2, greenHoverIcon3, greenHoverIcon4, greenHoverIcon5, greenHoverIcon6, greenHoverIcon7, greenHoverIcon8, greenHoverIcon9, greenHoverIcon10],
+        blue: [null, blueHoverIcon1, blueHoverIcon2, blueHoverIcon3, blueHoverIcon4, blueHoverIcon5, blueHoverIcon6, blueHoverIcon7, blueHoverIcon8, blueHoverIcon9, blueHoverIcon10],
+        purple: [null, purpleHoverIcon1, purpleHoverIcon2, purpleHoverIcon3, purpleHoverIcon4, purpleHoverIcon5, purpleHoverIcon6, purpleHoverIcon7, purpleHoverIcon8, purpleHoverIcon9, purpleHoverIcon10],
+    };
+    // rainbow pin icons array
+    const rainbowIconsArray = {0: null, 1: rainbowIcon1, 2: rainbowIcon2, 3: rainbowIcon3, 4: rainbowIcon4, 5: rainbowIcon5, 6: rainbowIcon6, 7: rainbowIcon7, 8: rainbowIcon8, 9: rainbowIcon9, 10: rainbowIcon10};
+    // rainbow pins HOVER array
+    const rainbowHoverIconsArray = {0: null, 1: wildHoverIcon1, 2: wildHoverIcon2, 3: wildHoverIcon3, 4: wildHoverIcon4, 5: wildHoverIcon5, 6: wildHoverIcon6, 7: wildHoverIcon7,};
+    // rainbow pin icons IMGS references array (while above arrays utilize constructed icons, this array references the img src only)
+    const rainbowIconsImgsArray = {
+        0: null,
+        1: `./assets/pin_sets/${pinTheme}/pins/rainbow-1.png`,
+        2: `./assets/pin_sets/${pinTheme}/pins/rainbow-2.png`,
+        3: `./assets/pin_sets/${pinTheme}/pins/rainbow-3.png`,
+        4: `./assets/pin_sets/${pinTheme}/pins/rainbow-4.png`,
+        5: `./assets/pin_sets/${pinTheme}/pins/rainbow-5.png`,
+        6: `./assets/pin_sets/${pinTheme}/pins/rainbow-6.png`,
+        7: `./assets/pin_sets/${pinTheme}/pins/rainbow-7.png`,
+        9: `./assets/pin_sets/${pinTheme}/pins/rainbow-8.png`,
+        8: `./assets/pin_sets/${pinTheme}/pins/rainbow-9.png`,
+        10: `./assets/pin_sets/${pinTheme}/pins/rainbow-10.png`,
+    }
+
+    const colorOptions = ["red", "yellow", "blue", "green", "purple"];
+    const slotOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const heldPinImagesArray = {
+        red: {
+            1: `./assets/pin_sets/${pinTheme}/pins/red-1.png`,
+            2: `./assets/pin_sets/${pinTheme}/pins/red-2.png`,
+            3: `./assets/pin_sets/${pinTheme}/pins/red-3.png`,
+            4: `./assets/pin_sets/${pinTheme}/pins/red-4.png`,
+            5: `./assets/pin_sets/${pinTheme}/pins/red-5.png`,
+            6: `./assets/pin_sets/${pinTheme}/pins/red-6.png`,
+            7: `./assets/pin_sets/${pinTheme}/pins/red-7.png`,
+            8: `./assets/pin_sets/${pinTheme}/pins/red-8.png`,
+            9: `./assets/pin_sets/${pinTheme}/pins/red-9.png`,
+            10: `./assets/pin_sets/${pinTheme}/pins/red-10.png`,
+        },
+        white: {
+            1: `./assets/pin_sets/${pinTheme}/pins/white-1.png`,
+            2: `./assets/pin_sets/${pinTheme}/pins/white-2.png`,
+            3: `./assets/pin_sets/${pinTheme}/pins/white-3.png`,
+            4: `./assets/pin_sets/${pinTheme}/pins/white-4.png`,
+            5: `./assets/pin_sets/${pinTheme}/pins/white-5.png`,
+            6: `./assets/pin_sets/${pinTheme}/pins/white-6.png`,
+            7: `./assets/pin_sets/${pinTheme}/pins/white-7.png`,
+            8: `./assets/pin_sets/${pinTheme}/pins/white-8.png`,
+            9: `./assets/pin_sets/${pinTheme}/pins/white-9.png`,
+            10: `./assets/pin_sets/${pinTheme}/pins/white-10.png`,
+        },
+        orange: {
+            1: `./assets/pin_sets/${pinTheme}/pins/orange-1.png`,
+            2: `./assets/pin_sets/${pinTheme}/pins/orange-2.png`,
+            3: `./assets/pin_sets/${pinTheme}/pins/orange-3.png`,
+            4: `./assets/pin_sets/${pinTheme}/pins/orange-4.png`,
+            5: `./assets/pin_sets/${pinTheme}/pins/orange-5.png`,
+            6: `./assets/pin_sets/${pinTheme}/pins/orange-6.png`,
+            7: `./assets/pin_sets/${pinTheme}/pins/orange-7.png`,
+            8: `./assets/pin_sets/${pinTheme}/pins/orange-8.png`,
+            9: `./assets/pin_sets/${pinTheme}/pins/orange-9.png`,
+            10: `./assets/pin_sets/${pinTheme}/pins/orange-10.png`,
+        },
+        yellow: {
+            1: `./assets/pin_sets/${pinTheme}/pins/yellow-1.png`,
+            2: `./assets/pin_sets/${pinTheme}/pins/yellow-2.png`,
+            3: `./assets/pin_sets/${pinTheme}/pins/yellow-3.png`,
+            4: `./assets/pin_sets/${pinTheme}/pins/yellow-4.png`,
+            5: `./assets/pin_sets/${pinTheme}/pins/yellow-5.png`,
+            6: `./assets/pin_sets/${pinTheme}/pins/yellow-6.png`,
+            7: `./assets/pin_sets/${pinTheme}/pins/yellow-7.png`,
+            8: `./assets/pin_sets/${pinTheme}/pins/yellow-8.png`,
+            9: `./assets/pin_sets/${pinTheme}/pins/yellow-9.png`,
+            10: `./assets/pin_sets/${pinTheme}/pins/yellow-10.png`,
+        },
+        green: {
+            1: `./assets/pin_sets/${pinTheme}/pins/green-1.png`,
+            2: `./assets/pin_sets/${pinTheme}/pins/green-2.png`,
+            3: `./assets/pin_sets/${pinTheme}/pins/green-3.png`,
+            4: `./assets/pin_sets/${pinTheme}/pins/green-4.png`,
+            5: `./assets/pin_sets/${pinTheme}/pins/green-5.png`,
+            6: `./assets/pin_sets/${pinTheme}/pins/green-6.png`,
+            7: `./assets/pin_sets/${pinTheme}/pins/green-7.png`,
+            8: `./assets/pin_sets/${pinTheme}/pins/green-8.png`,
+            9: `./assets/pin_sets/${pinTheme}/pins/green-9.png`,
+            10: `./assets/pin_sets/${pinTheme}/pins/green-10.png`,
+        },
+        blue: {
+            1: `./assets/pin_sets/${pinTheme}/pins/blue-1.png`,
+            2: `./assets/pin_sets/${pinTheme}/pins/blue-2.png`,
+            3: `./assets/pin_sets/${pinTheme}/pins/blue-3.png`,
+            4: `./assets/pin_sets/${pinTheme}/pins/blue-4.png`,
+            5: `./assets/pin_sets/${pinTheme}/pins/blue-5.png`,
+            6: `./assets/pin_sets/${pinTheme}/pins/blue-6.png`,
+            7: `./assets/pin_sets/${pinTheme}/pins/blue-7.png`,
+            8: `./assets/pin_sets/${pinTheme}/pins/blue-8.png`,
+            9: `./assets/pin_sets/${pinTheme}/pins/blue-9.png`,
+            10: `./assets/pin_sets/${pinTheme}/pins/blue-10.png`,
+        },
+        purple: {
+            1: `./assets/pin_sets/${pinTheme}/pins/purple-1.png`,
+            2: `./assets/pin_sets/${pinTheme}/pins/purple-2.png`,
+            3: `./assets/pin_sets/${pinTheme}/pins/purple-3.png`,
+            4: `./assets/pin_sets/${pinTheme}/pins/purple-4.png`,
+            5: `./assets/pin_sets/${pinTheme}/pins/purple-5.png`,
+            6: `./assets/pin_sets/${pinTheme}/pins/purple-6.png`,
+            7: `./assets/pin_sets/${pinTheme}/pins/purple-7.png`,
+            8: `./assets/pin_sets/${pinTheme}/pins/purple-8.png`,
+            9: `./assets/pin_sets/${pinTheme}/pins/purple-9.png`,
+            10: `./assets/pin_sets/${pinTheme}/pins/purple-10.png`,
+        },
+        black: {
+            1: `./assets/pin_sets/${pinTheme}/pins/black-1.png`,
+            2: `./assets/pin_sets/${pinTheme}/pins/black-2.png`,
+            3: `./assets/pin_sets/${pinTheme}/pins/black-3.png`,
+            4: `./assets/pin_sets/${pinTheme}/pins/black-4.png`,
+            5: `./assets/pin_sets/${pinTheme}/pins/black-5.png`,
+            6: `./assets/pin_sets/${pinTheme}/pins/black-6.png`,
+            7: `./assets/pin_sets/${pinTheme}/pins/black-7.png`,
+            8: `./assets/pin_sets/${pinTheme}/pins/black-8.png`,
+            9: `./assets/pin_sets/${pinTheme}/pins/black-9.png`,
+            10: `./assets/pin_sets/${pinTheme}/pins/black-10.png`,
+        },
+    }
+    
+    const regionIcons = {
+        alabama: `./assets/pin_sets/${pinTheme}/regions/us/region_alabama.png`,
+        alaska: `./assets/pin_sets/${pinTheme}/regions/us/region_alaska.png`,
+        arizona: `./assets/pin_sets/${pinTheme}/regions/us/region_arizona.png`,
+        arkansas: `./assets/pin_sets/${pinTheme}/regions/us/region_arkansas.png`,
+        california: `./assets/pin_sets/${pinTheme}/regions/us/region_california.png`,
+        colorado: `./assets/pin_sets/${pinTheme}/regions/us/region_colorado.png`,
+        connecticut: `./assets/pin_sets/${pinTheme}/regions/us/region_connecticut.png`,
+        delaware: `./assets/pin_sets/${pinTheme}/regions/us/region_delaware.png`,
+        florida: `./assets/pin_sets/${pinTheme}/regions/us/region_florida.png`,
+        georgia: `./assets/pin_sets/${pinTheme}/regions/us/region_georgia.png`,
+        hawaii: `./assets/pin_sets/${pinTheme}/regions/us/region_hawaii.png`,
+        idaho: `./assets/pin_sets/${pinTheme}/regions/us/region_idaho.png`,
+        illinois: `./assets/pin_sets/${pinTheme}/regions/us/region_illinois.png`,
+        indiana: `./assets/pin_sets/${pinTheme}/regions/us/region_indiana.png`,
+        iowa: `./assets/pin_sets/${pinTheme}/regions/us/region_iowa.png`,
+        kansas: `./assets/pin_sets/${pinTheme}/regions/us/region_kansas.png`,
+        kentucky: `./assets/pin_sets/${pinTheme}/regions/us/region_kentucky.png`,
+        louisiana: `./assets/pin_sets/${pinTheme}/regions/us/region_louisiana.png`,
+        maine: `./assets/pin_sets/${pinTheme}/regions/us/region_maine.png`,
+        maryland: `./assets/pin_sets/${pinTheme}/regions/us/region_maryland.png`,
+        massachusetts: `./assets/pin_sets/${pinTheme}/regions/us/region_massachusetts.png`,
+        michigan: `./assets/pin_sets/${pinTheme}/regions/us/region_michigan.png`,
+        minnesota: `./assets/pin_sets/${pinTheme}/regions/us/region_minnesota.png`,
+        mississippi: `./assets/pin_sets/${pinTheme}/regions/us/region_mississippi.png`,
+        missouri: `./assets/pin_sets/${pinTheme}/regions/us/region_missouri.png`,
+        montana: `./assets/pin_sets/${pinTheme}/regions/us/region_montana.png`,
+        nebraska: `./assets/pin_sets/${pinTheme}/regions/us/region_nebraska.png`,
+        nevada: `./assets/pin_sets/${pinTheme}/regions/us/region_nevada.png`,
+        newhampshire: `./assets/pin_sets/${pinTheme}/regions/us/region_newhampshire.png`,
+        newjersey: `./assets/pin_sets/${pinTheme}/regions/us/region_newjersey.png`,
+        newmexico: `./assets/pin_sets/${pinTheme}/regions/us/region_newmexico.png`,
+        newyork: `./assets/pin_sets/${pinTheme}/regions/us/region_newyork.png`,
+        northcarolina: `./assets/pin_sets/${pinTheme}/regions/us/region_northcarolina.png`,
+        northdakota: `./assets/pin_sets/${pinTheme}/regions/us/region_northdakota.png`,
+        ohio: `./assets/pin_sets/${pinTheme}/regions/us/region_ohio.png`,
+        oklahoma: `./assets/pin_sets/${pinTheme}/regions/us/region_oklahoma.png`,
+        oregon: `./assets/pin_sets/${pinTheme}/regions/us/region_oregon.png`,
+        pennsylvania: `./assets/pin_sets/${pinTheme}/regions/us/region_pennsylvania.png`,
+        rhodeisland: `./assets/pin_sets/${pinTheme}/regions/us/region_rhodeisland.png`,
+        southcarolina: `./assets/pin_sets/${pinTheme}/regions/us/region_southcarolina.png`,
+        southdakota: `./assets/pin_sets/${pinTheme}/regions/us/region_southdakota.png`,
+        tennessee: `./assets/pin_sets/${pinTheme}/regions/us/region_tennessee.png`,
+        texas: `./assets/pin_sets/${pinTheme}/regions/us/region_texas.png`,
+        utah: `./assets/pin_sets/${pinTheme}/regions/us/region_utah.png`,
+        vermont: `./assets/pin_sets/${pinTheme}/regions/us/region_vermont.png`,
+        virginia: `./assets/pin_sets/${pinTheme}/regions/us/region_virginia.png`,
+        washington: `./assets/pin_sets/${pinTheme}/regions/us/region_washington.png`,
+        westvirginia: `./assets/pin_sets/${pinTheme}/regions/us/region_westvirginia.png`,
+        wisconsin: `./assets/pin_sets/${pinTheme}/regions/us/region_wisconsin.png`,
+        wyoming: `./assets/pin_sets/${pinTheme}/regions/us/region_wyoming.png`,
+
+    } 
+
+
+    // SCORE TRACKING VARIABLES
+    const mainElement = document.getElementById("main")
+    const scoreboard = document.getElementById("scoreboard")
+        scoreboard.style.opacity = 1;
+    const timerDisplay = document.getElementById("timer-display")
+    const inputField = document.getElementById("input-field")
+        inputField.disabled = true;
+
+    // for counting swaps
+    let swapCount = 0;
+    swapCountDisplay = document.getElementById("swap-count-display");
+    swapCountDisplay.textContent = swapCount;
+
+    // for counting identified pins
+    let pinsIdentified = 0;
+    const pinsIdentifiedDisplay = document.getElementById('pins-identified-display');
+    pinsIdentifiedDisplay.textContent = parseFloat(pinsIdentified);
+
+    // for counting regions cleared
+    let regionsCleared = 0;
+    let totalRegions = 0;
+    const regionsClearedDisplay = document.getElementById("regions-cleared-display");
+    let expiredElements = 0;
+
+    let heldPin = null;
+    let heldColor = 'none';
+    let colorToSwap = 'none';
+
+    // UI and TOOLBAR stuff:
+    const startScreenHint = document.getElementById("hint-display");
+    const hints = [
+        `💡Hint: 🔍Inspector pins give you a free identification on any scoring pin.`,
+        `💡Hint: Not all regions are clearable. Anything less than 7 scoring pins won't do.`,
+        `💡Hint: You cannot play 🔍inspector pins or 🌈wild pins on an item (small) pin.`,
+        '💡Hint: A 🌈wild pin turns ANY scoring pin 🌈wild.',
+        '💡Hint: Remember that when you clear a region, all of its pins become locked.',
+        '💡Hint: Item pins can be three things: 🔍inspector, 🌈wild, or empty.',
+        '💡Hint: 🔍Inspector pins are twice as common as 🌈wilds.',
+        `💡Hint: You don't have to type punctuation, spaces, or capital letters.`,
+        `💡Hint: Use your 🌈wilds carefully. Some slots are better than others...`,
+        `💡Hint: Cities' number is determined by population size. Color is randomly set at game start.`,
+        'Geography is cool.',
+        `👋 Hi, I'm Brady! Thanks for playing my game!`,
+    ]
+    const hintIndex = Math.floor(Math.random() * hints.length);
+    startScreenHint.textContent = hints[hintIndex]; // make this choose at random.
+
+    let heldPinDisplay = document.getElementById("held-pin-display")
+    let heldPinImg = document.getElementById("held-pin-img");
+        heldPinImg.src = `./assets/pin_sets/${pinTheme}/pins/held-pin-placeholder.png`;
+    let regionTallyIcon1 = document.getElementById("region-tally-1");
+    let regionTallyIcon2 = document.getElementById("region-tally-2");
+    let regionTallyIcon3 = document.getElementById("region-tally-3");
+    let regionTallyIcon4 = document.getElementById("region-tally-4");
+    let regionTallyIcon5 = document.getElementById("region-tally-5");
+        regionTallyIcon1.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-blank.png`;
+        regionTallyIcon2.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-blank.png`;
+        regionTallyIcon3.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-blank.png`;
+        regionTallyIcon4.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-blank.png`;
+        regionTallyIcon5.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-blank.png`;
+    // icons
+    document.getElementById("ui-map-icon").src = `./assets/pin_sets/${pinTheme}/pins/ui_map-icon.png`;
+    document.getElementById("ui-identified-icon").src = `./assets/pin_sets/${pinTheme}/pins/ui_identified-icon.png`;
+    document.getElementById("ui-swap-icon").src = `./assets/pin_sets/${pinTheme}/pins/ui_swap-icon.png`;
+    document.getElementById("ui-region-icon").src = `./assets/pin_sets/${pinTheme}/pins/ui_region-icon.png`;
+
+
+    // GAME START STUFF
+    // start btn
+    const startBtn = document.getElementById("start-btn");
+
+    // About Creator button
+    const aboutCreatorBtn = document.getElementById("about-creator-btn");
+
+    // GAMEOVER STUFF
+    const gameOverBox = document.getElementById("game-over-box")
+    const finalStatsBar = document.getElementById("final-stats-bar")
+    const playAgainBtn = document.getElementById("play-again-btn")
+    const exitBtn = document.getElementById("exit-btn")
+
+
+    // geojson variables to fill when data is loaded
+    let geojsonLayer;
+
+    // SFX
+    // click:
+    const click1 = document.getElementById('click-wood-tone-1');
+    click1.volume = .5;
+    // failed click:
+    const beep1 = document.getElementById('beep-low-1');
+    beep1.volume = .7;
+    // failed swap:
+    const beep2 = document.getElementById('beep-low-2');
+    beep2.volume = .2;
+    const marimbaC4 = document.getElementById('marimba-note-C4');
+    marimbaC4.volume = .8;
+    const marimbaScaleD = document.getElementById('marimba-scale-d');
+    // swap:
+    const woosh1 = document.getElementById('woosh-1');
+    woosh1.volume = .7;
+    // identify:
+    const tonePleasant1 = document.getElementById('tone-pleasant-1');
+    tonePleasant1.volume = .5;
+    const toneGlassLow = document.getElementById('tone-glass-low');
+    toneGlassLow.volume = .25;
+    const toneGlassHigh = document.getElementById('tone-glass-high')
+    toneGlassHigh.volume = .5;
+    // play an inspector 
+    const toneRetro1 = document.getElementById('tone-simple-1');
+    toneRetro1.volume = 1;
+    // start game/end game
+    const toneLong1 = document.getElementById('tone-long-1');
+    toneLong1.volume = .6;
+    const toneAchievement = document.getElementById('tone-achievement')
+    toneAchievement.volume = .4;
+
+
+    // INITIATE ACTIVE ELEMENTS (DIFFERENT WAYS TO DO IT)
+    //setActiveElement();
+    //selectRandomElements()
+    //setSingleActiveElement()
+    
+
+    // Load GeoJSON data
+    axios.get('./data/cityswap_usa1k.geojson').then(response => {
+        
+        const geojsonData = response.data;
+
+        // Add GeoJSON layer to the map
+        geojsonLayer = L.geoJSON(geojsonData, {
+            pointToLayer: (feature, latlng) => {
+                let icon;
+                // ICONS 1-7
+                if (feature.properties.slot <= 7) {
+                    icon = baseIcon;
+                // ICONS 8 and up (base2 icons)
+                } else if (feature.properties.slot >= 8) {
+                    icon = base2Icon;
+                }
+
+                const marker = L.marker(latlng, { icon });
+                
+                // Add an overlay DivIcon to display life_counter
+                const lifeStatLabel = L.divIcon({ 
+                    className: `stat-label ${feature.properties.state || 'neutral'}`, // Add state as a class
+                    html: `
+                    <div >
+                        <span>${feature.properties.life_counter || 0}</span>
+                        </div>
+                        `,
+                        iconSize: [0, 0], // No actual size; position depends on CSS
+                        // for number centered in circle:
+                        //iconAnchor: [10, 86],
+                        // for number placed on body below circle:
+                        iconAnchor: [10, 136],
+                });
+                    
+                const labelMarker = L.marker(latlng, { icon: lifeStatLabel }).addTo(map);
+                
+                // Store reference to labelMarker for updates
+                feature._labelMarker = labelMarker;
+                
+                return marker;
+            },
+
+            onEachFeature: (feature, layer) => {
+                layer.state = 'neutral'; // Set default state
+                ////console.log("feature", layer.feature.properties.name, "is", layer.feature.properties.level_counter);
+
+                // Assign random COLOR to number pins (skip rainbow pins)
+                if (layer.feature.properties.color === 'random') {
+                    layer.feature.properties.color = colorOptions[Math.floor(Math.random() * colorOptions.length)];
+                }
+                // Assign color 'item' to pins with 
+
+                // Assign random NUMBER to rainbow pins (skip number pins)
+                //if (layer.feature.properties.color === 'item') {
+                    //layer.feature.properties.slot === slotOptions[Math.floor(Math.random() * slotOptions.length)];
+                //}
+
+                // HOVER HOVER HOVER HOVER HOVER
+                layer.on('mouseover', () => {
+                    // leave alone the currently held pin
+                    if (heldPin) {
+                        if (layer.feature.properties.name === heldPin.feature.properties.name) {
+                            return
+                        }
+                    }
+                    // if NEUTRAL
+                    if (layer.state === 'neutral') {
+                        // if base2
+                        if (feature.properties.color === 'item') {
+                            layer.setIcon(base2HoverIcon)
+                        } else {
+                            layer.setIcon(baseHoverIcon)
+                        }
+                    } else if (layer.state === 'identified') {
+                        // if rainbow
+                        if (feature.properties.color === 'rainbow') {
+                            setRainbowPinHoverIcon(layer);
+                        }
+                        // if scoring pin
+                        else {
+                            setPinHoverIcon(layer);
+                        }
+                    } else if (layer.state === 'wild') {
+                        layer.setIcon(wildHoverIcon);
+                    } else if (layer.state === 'inspector') {
+                        layer.setIcon(inspectorHoverIcon);
+                    } else if (layer.state === 'empty') {
+                        return;
+                    }
+                });
+
+                // MOUSEOUT MOUSEOUT MOUSEOUT MOUSEOUT MOUSEOUT MOUSEOUT 
+                layer.on('mouseout', () => {
+                    // leave alone the currently held pin
+                    if (heldPin) {
+                        if (layer.feature.properties.name === heldPin.feature.properties.name) {
+                            return
+                        }
+                    }
+                    // if NEUTRAL
+                    if (layer.state === 'neutral') {
+                        if (feature.properties.color === 'item') {
+                            layer.setIcon(base2Icon)
+                        } else {
+                            layer.setIcon(baseIcon)
+                        }
+                    } else if (layer.state === 'identified') {
+                        // if rainbow
+                        if (feature.properties.color === 'rainbow') {
+                            setRainbowPinIcon(layer);
+                        }
+                        // if scoring pin
+                        else {
+                            setPinIcon(layer);
+                        }                    
+                    } else if (layer.state === 'wild') {
+                        layer.setIcon(wildIcon);
+                    } else if (layer.state === 'inspector') {
+                        layer.setIcon(inspectorIcon);
+                    } else if (layer.state === 'empty') {
+                        return;
+                    }
+                });
+
+                // CLICK CLICK CLICK CLICK CLICK CLICK CLICK CLICK 
+                layer.on('click', () => {
+                    const feature = layer.feature;
+
+                    // IF EMPTY
+                    if (layer.state === 'empty') {
+                        beep1.play();
+                        //console.log("can't play on empty pin")
+                        return
+                    } 
+                    // IF CLEARED
+                    else if (layer.state === 'cleared') {
+                        beep1.play();
+                        //console.log("can't play on cleared pin")
+                        return
+                    }
+                    // IF NEUTRAL
+                    else if (layer.state === 'neutral') {
+                        // BASE and BASE2 when not holding anything
+                        if (!heldPin) {
+                            beep1.play();
+                        }
+                        // identify with INSPECTOR:
+                        if (heldPin && heldPin.feature.properties.color === 'inspector') {
+                            // prevent playing inspector on a base 2 pin, trigger failed swap
+                                if (layer.feature.properties.slot >= 8) {
+                                    //console.log("cannot play inspector on base2 pin")
+                                    // handle failed swap
+                                        recolorHeldPin(heldPin);
+                                        clearHeldPinDisplay();
+                                        heldPin = null;
+                                        beep2.play();
+                                        setPinIcon(layer); // sets icon immediately (so you don't have to wait for mouseout)
+                                    return
+                                }
+
+                            // play inspector on a base 1 pin
+                                layer.state = 'identified';
+                                setPinIcon(layer);
+                                // spend and destroy inspector
+                                heldPin.feature.properties.color = 'empty';
+                                heldPin.layer.state = 'empty';
+                                heldPin.layer.setIcon(emptyIcon);
+                                
+                                // Identifying logic (pulled from identifyPin() )
+                                pinsIdentified++;
+                                pinsIdentifiedDisplay.textContent = parseFloat(pinsIdentified);
+                                // Add a label above the icon
+                                layer.bindTooltip(layer.feature.properties.name, {
+                                    permanent: true,
+                                    direction: 'center',
+                                    offset: [0, 10],
+                                    className: 'feature-name-label',
+                                })
+                                // Clear input field
+                                document.getElementById('input-field').value = '';
+
+                                heldPin = null; // reset heldPin
+                                clearHeldPinDisplay(); // reset heldPin display
+
+                                swapCount++; // count the swap
+                                swapCountDisplay.textContent = swapCount;
+
+                                toneGlassHigh.play();
+                            
+                        } // identify with WILD:
+                        else if (heldPin && heldPin.feature.properties.color === 'wild') {
+                            // prevent playing wild on a base 2 pin
+                                if (layer.feature.properties.slot >= 8) {
+                                        //console.log("cannot play wild on base2 pin")
+                                        // handle failed swap
+                                            recolorHeldPin(heldPin);
+                                            clearHeldPinDisplay();
+                                            heldPin = null;
+                                            beep2.play();
+                                            setPinIcon(layer); // sets icon immediately (so you don't have to wait for mouseout)
+                                        return
+                                }
+
+                            // play wild on base 1 pins
+                                layer.state = 'identified';
+                                feature.properties.color = 'rainbow';
+                                setRainbowPinIcon(layer);
+                                // spend and destroy wild
+                                heldPin.feature.properties.color = 'empty';
+                                heldPin.layer.state = 'empty';
+                                heldPin.layer.setIcon(emptyIcon);
+                                
+                                // Identifying logic (pulled from identifyPin())
+                                pinsIdentified++;
+                                pinsIdentifiedDisplay.textContent = parseFloat(pinsIdentified);
+                                // Add a label above the icon
+                                layer.bindTooltip(layer.feature.properties.name, {
+                                    permanent: true,
+                                    direction: 'center',
+                                    offset: [0, 10],
+                                    className: 'feature-name-label',
+                                })
+                                // Clear input field
+                                document.getElementById('input-field').value = '';
+
+                                heldPin = null; // reset heldPin
+                                clearHeldPinDisplay(); // reset heldPin display
+
+                                swapCount++; // count the swap
+                                swapCountDisplay.textContent = swapCount;
+
+                                toneGlassLow.play();
+
+                                // to clear a region by turning its final pin to rainbow
+                                handleRegionClearing();
+
+
+                        }
+                    // IF 'IDENTIFIED' *SWAP LOGIC*
+                    } else if (layer.state === 'identified' || 'wild' || 'inspector') {  
+
+                        // Only proceed if the feature is swappable (i.e., has color and slot)
+                        if (!feature.properties.color || feature.properties.slot == null) return;
+
+                        // If no pin held yet: pick up
+                        if (!heldPin) {
+                            heldPin = { layer, feature };
+                            // show held pin on screen
+                            displayHeldPin(feature);
+                            // change clicked icon to placeholder
+                            layer.setIcon(placeholderIcon);
+                            //layer.state = 'clicked';
+                             
+                            click1.play(); // replace with first swap sound
+                        } else {
+                            // A pin is already held — check if it's swappable
+                            const heldFeature = heldPin.feature;
+                            heldColor = heldFeature.properties.color
+
+                            // for playing rainbow on an already colored pin:
+                            if (layer.state === 'identified' && heldColor === 'wild') {
+                                feature.properties.color = 'rainbow';
+                                setRainbowPinIcon(layer);
+                                
+                                // spend and destroy wild
+                                heldPin.feature.properties.color = 'empty';
+                                heldPin.layer.state = 'empty';
+                                heldPin.layer.setIcon(emptyIcon);
+                                heldPin = null; // reset heldPin
+                                clearHeldPinDisplay(); // reset heldPin display
+
+                                toneGlassLow.play();
+                                // to clear a region by turning its final pin to rainbow
+                                handleRegionClearing();
+
+                                return; // prevent from running the rest of this section
+                            }
+
+                            // if SLOT matches
+                            if (feature.properties.slot === heldFeature.properties.slot &&
+                                feature !== heldFeature) {
+
+                                // Swap colors
+                                colorToSwap = feature.properties.color;
+                                // set second feature's color to heldPin's color
+                                feature.properties.color = heldColor;
+                                // reverse: set heldPin's color to second feature's color
+                                heldFeature.properties.color = colorToSwap;
+                                
+                                // Recolor heldPin
+                                recolorHeldPin(heldPin);
+                                // Recolor first feature 
+                                setPinIcon(layer);
+
+                                // Reset held pin
+                                heldPin = null;
+                                clearHeldPinDisplay(); // Hide visual held pin info
+
+                                swapCount++; // count swap
+                                //triggerGameEnd() // only for TESTING
+                                swapCountDisplay.textContent = swapCount;
+
+                                woosh1.play(); // replace with second swap sound
+                            } // SWAP canceled or failed
+                            else {
+                            // Either same pin was clicked again, or slot mismatch
+                            if (layer.state === 'wild') {
+                                layer.setIcon(wildHoverIcon);
+                                beep2.play();
+                                recolorHeldPin(heldPin);
+                            } else if (layer.state === 'inspector') {
+                                layer.setIcon(inspectorHoverIcon);
+                                beep2.play();
+                                recolorHeldPin(heldPin);
+                            }
+
+                            // handle other failed swaps
+                                beep2.play();
+                                recolorHeldPin(heldPin);
+                                clearHeldPinDisplay();
+                                setPinIcon(layer); // sets icon immediately (so you don't have to wait for mouseout)
+                                heldPin = null;
+                                //console.log("failed swap")
+                        }
+
+                        // tracking
+                        handleRegionClearing();
+                        swapCountDisplay.textContent = swapCount;
+                        
+                        } 
+                    }
+                });
+
+                // Monitor and advance `swapCount` 
+                setInterval(() => {
+                    if (swapCount > lastswapCount) {
+                        lastswapCount = swapCount;
+                    }
+                }, 500); // Check for changes in `swapCount` at a reasonable interval
+
+            }
+        }) .addTo(map);
+
+        totalRegions = 5;
+        regionsClearedDisplay.textContent = `${regionsCleared}/${totalRegions}`;
+
+
+    }).catch(error => {
+        console.error('Error loading GeoJSON data:', error);
+    });
+
+    // Start Button event listener
+    startBtn.addEventListener('click', () => {
+        initiateGame();
+    })
+
+    // About Creator Button event listener
+    aboutCreatorBtn.addEventListener('click', () => {
+        window.open('https://www.bradyhartcreates.com/aboutme');
+    })
+
+    playAgainBtn.addEventListener('click', () => {
+        location.reload();
+    })
+
+    exitBtn.addEventListener('click', () => {
+        window.location.href = "city_swap_main.html";
+    })
+
+    // IDENTIFY LOGIC
+    document.getElementById('input-field').addEventListener('input', () => {
+
+        if (!geojsonLayer) {
+            console.error('geojsonLayer is undefined at this point');
+            return;
+        }    
+
+        // Get input and IGNORE spaces
+        const inputName = document.getElementById('input-field').value.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+
+        geojsonLayer.eachLayer((layer) => {
+            // keep from identifying
+            if (layer.feature.properties.name.toLowerCase().replace(/[^a-z0-9]/g, '') === inputName
+                && layer.state === 'identified'
+                ) {
+                // TODO highlight in some way? Zoom to the city?
+                beep1.play()
+            } else if (layer.feature.properties.name.toLowerCase().replace(/[^a-z0-9]/g, '') === inputName
+                && layer.state === 'clicked'
+                ) {
+                beep1.play()
+                // Clear the input field
+                document.getElementById('input-field').value = '';
+            // IDENTIFY BY NAME
+            } else if (layer.feature.properties.name.toLowerCase().replace(/[^a-z0-9]/g, '') === inputName
+                && layer.state === 'neutral'
+                ) {
+                    // handle scoring pins:
+                    layer.state = 'identified';
+                    if (layer.feature.properties.color !== 'item') {
+                        setPinIcon(layer);
+                        identifyPin();
+                        tonePleasant1.play();
+                    }
+                    // handle base2 pins:
+                    if (layer.feature.properties.color === 'item') {
+                        const rng = Math.random(); // returns value between 0 and 1
+                        
+                        if (rng < 0.25) {
+                            // 10% chance for WILD
+                            layer.feature.properties.color = 'wild'
+                            layer.state = 'wild';
+                            layer.setIcon(wildIcon);
+                            toneGlassLow.play(); // unique sound
+                        } else if (rng >= .25 && rng < .5) {
+                            // 20% chance for INSPECTOR
+                            layer.feature.properties.color = 'inspector'
+                            layer.state = 'inspector';
+                            layer.setIcon(inspectorIcon)
+                            toneGlassHigh.play(); // unique sound
+                        } else {
+                            // remaining 70% chance for EMPTY
+                            layer.feature.properties.color = 'empty'
+                            layer.state = 'empty';
+                            layer.setIcon(emptyIcon);
+                            toneRetro1.play(); // replace with special EMPTY sound?
+                        }
+                        identifyPin();
+                        // Clear the input field after successful identification
+                        document.getElementById('input-field').value = '';
+                    }
+                // identify by PARENT
+                } else if (layer.feature.properties.parent.toLowerCase().replace(/[^a-z0-9]/g, '') === inputName) {
+                // get lat and lng and zoom to location
+            } 
+            // function to identify pin, update count, add label
+            function identifyPin() {
+                pinsIdentified++;
+                pinsIdentifiedDisplay.textContent = parseFloat(pinsIdentified);
+                
+                // Add a label above the icon
+                layer.bindTooltip(layer.feature.properties.name, {
+                    permanent: true,
+                    direction: 'center',
+                    offset: [0, 10],
+                    className: 'feature-name-label', // custom class for styling
+                })//.openTooltip(); //  Automatically open the tooltip
+
+                // Clear the input field after successful identification
+                document.getElementById('input-field').value = '';
+            }
+        });
+    });
+    
+    
+    // function to set pin icon
+    function setPinIcon(layer) {
+        const color = layer.feature.properties.color;
+        const slot = layer.feature.properties.slot;
+        
+        if (color === 'rainbow') {
+            layer.setIcon(rainbowIconsArray[slot])
+        }
+        else if (color === 'wild') {
+            layer.setIcon(wildIcon)
+        }
+        else if (color === 'inspector') {
+            layer.setIcon(inspectorIcon)
+        }
+        else {
+            if (pinIconsArray[color] && pinIconsArray[color][slot]) {
+                layer.setIcon(pinIconsArray[color][slot]);
+            } else {
+            console.warn(`setPinIcon() warning: No pin ICON found for color "${color}" and slot ${slot}`);
+            }
+        }
+    }
+
+    // function to set pin HOVER icon
+    function setPinHoverIcon(layer) {
+        const color = layer.feature.properties.color;
+        const slot = layer.feature.properties.slot;
+        
+        if (pinHoverIconsArray[color] && pinHoverIconsArray[color][slot]) {
+            layer.setIcon(pinHoverIconsArray[color][slot]);
+        } else {
+            console.warn(`No pin HOVER ICON found for color "${color}" and slot ${slot}`);
+        }
+    }
+
+    // function to recolor held pin 
+    function recolorHeldPin() {
+        const layer = heldPin.layer;
+        const color = heldPin.feature.properties.color;
+        const slot = heldPin.feature.properties.slot;
+
+        if (color === 'red' || 'blue' || 'yellow' || 'green' || 'purple') {
+            setPinIcon(layer);
+        } else if (color === 'wild') {
+            layer.setIcon(wildIcon);
+        } else if (color === 'inspector') {
+            layer.setIcon(inspectorIcon);
+        } else if (color === 'rainbow') {
+            setRainbowPinIcon();
+        }
+    }
+    
+    // function to set pin WILD icon
+    function setRainbowPinIcon(layer) {
+        const slot = layer.feature.properties.slot; // slot can act naturally
+        
+        if (rainbowIconsArray[slot]) {
+            layer.setIcon(rainbowIconsArray[slot]);
+        } else {
+            console.warn(`No wild pin ICON found for slot "${slot}"`);
+        }
+    }
+
+    // function to set pin WILD HOVER icon
+    function setRainbowPinHoverIcon(layer) {
+        const slot = layer.feature.properties.slot; // slot can act naturally
+        
+        if (rainbowHoverIconsArray[slot]) {
+            layer.setIcon(rainbowHoverIconsArray[slot]);
+        } else {
+            console.warn(`No wild pin HOVER ICON found for slot "${slot}"`);
+        }
+    }
+
+    function displayHeldPin() {
+        heldPinDisplay.style.display = 'flex';
+        const color = heldPin.feature.properties.color;
+        const slot = heldPin.feature.properties.slot;
+        
+        // get new image src from dictionary
+        const imageSrc = heldPinImagesArray[color]?.[slot];
+
+        if (imageSrc && color !== 'rainbow') {
+            heldPinImg.src = imageSrc;
+        } else {
+            if (color === 'wild') {
+                heldPinImg.src = `./assets/pin_sets/${pinTheme}/pins/utility_wild.png`;
+            } else if (color === 'inspector') {
+                heldPinImg.src = `./assets/pin_sets/${pinTheme}/pins/utility_inspector.png`;
+            } else if (color === 'rainbow') {
+                heldPinImg.src = rainbowIconsImgsArray[slot];
+            }
+        }
+    }
+    
+    function clearHeldPinDisplay() {
+        // reset img to placeholder.
+        heldPinImg.src = `./assets/pin_sets/${pinTheme}/pins/held-pin-placeholder.png`;
+    }
+
+
+    let lastswapCount = swapCount; // Keep track of the last known swapCount
+
+    // HANDLE REGION CLEARING
+    function handleRegionClearing() {
+        const groupedFeatures = geojsonLayer.getLayers().reduce((groups, layer) => {
+            if (layer.feature && layer.feature.properties) {
+                const props = layer.feature.properties;
+                if (props.parent) {
+                    const parentKey = props.parent.toLowerCase().replace(/[^a-z0-9]/g, '');
+                    if (!groups[parentKey]) {
+                        groups[parentKey] = [];
+                    }
+                    groups[parentKey].push(layer);
+                }
+            }
+            return groups;
+        }, {});
+
+        for (const parentKey in groupedFeatures) {
+            const group = groupedFeatures[parentKey];
+
+            // Filter out already-cleared layers
+            const activeGroup = group.filter(layer => layer.state !== 'cleared' && layer.state !== 'empty');
+
+            // Separate rainbow and colored tiles
+            const rainbowLayers = activeGroup.filter(layer => layer.feature.properties.color === 'rainbow');
+
+            const colorCounts = {};
+            activeGroup.forEach(layer => {
+                const color = layer.feature.properties.color;
+                if (color !== 'rainbow') {
+                    if (!colorCounts[color]) {
+                        colorCounts[color] = [];
+                    }
+                    colorCounts[color].push(layer);
+                }
+            });
+
+            const testColors = Object.keys(colorCounts);
+                if (testColors.length === 0 && rainbowLayers.length > 0) {
+                    testColors.push('rainbow');
+            }
+
+            for (const color of testColors) {
+
+                const potentialGroup = [...colorCounts[color]];
+
+                // Map of slot -> layer for the current color group
+                const slotMap = {};
+                potentialGroup.forEach(layer => {
+                    const slot = layer.feature.properties.slot;
+                    slotMap[slot] = layer;
+                });
+
+                const usedRainbows = [];
+                for (let i = 1; i <= 7; i++) {
+                    if (!slotMap[i]) {
+                        const rainbow = rainbowLayers.find(r => !usedRainbows.includes(r));
+                        if (rainbow) {
+                            slotMap[i] = rainbow;
+                            usedRainbows.push(rainbow);
+                        } else {
+                            break; // Not enough tiles
+                        }
+                    }
+                }
+
+                let isFlush = true;
+                for (let i = 1; i <= 7; i++) {
+                    if (!slotMap[i]) {
+                        isFlush = false;
+                        break;
+                    }
+                }
+
+                if (isFlush) {
+                    const flushLayerSet = new Set();
+                    for (let i = 1; i <= 7; i++) {
+                        const layer = slotMap[i];
+                        flushLayerSet.add(layer);
+                        layer.state = 'cleared';
+                        layer.setIcon(clearedIcon);
+                    }
+
+                    // Set all other layers in region to empty (if not already cleared)
+                    group.forEach(layer => {
+                        if (!flushLayerSet.has(layer) && layer.state !== 'cleared') {
+                            layer.state = 'empty';
+                            layer.setIcon(emptyIcon);
+                        }
+                    });
+
+                    regionsCleared += 1;
+                    regionsClearedDisplay.textContent = `${regionsCleared}/${totalRegions}`;
+                    addRegionTally(parentKey);
+                    toneLong1.play();
+                    break; // Process only the first valid flush
+                }
+            }
+        }
+    }
+
+    function addRegionTally(parentKey) {
+        // TODO: 2-name regions like new york or new mexico aren't giving their icon properly to the scoreboard region section upon being cleared
+        const backupIcon = `./assets/pin_sets/${pinTheme}/pins/ui_region-backup.png`;
+
+        if (regionsCleared === 0) {
+            return;
+        } else if (regionsCleared === 1) {
+            regionTallyIcon1.src = regionIcons[parentKey] || backupIcon;
+        } else if (regionsCleared === 2) {
+            regionTallyIcon2.src = regionIcons[parentKey] || backupIcon;
+        } else if (regionsCleared === 3) {
+            regionTallyIcon3.src = regionIcons[parentKey] || backupIcon;
+        } else if (regionsCleared === 4) {
+            regionTallyIcon4.src = regionIcons[parentKey] || backupIcon;
+        } else if (regionsCleared === 5) {
+            regionTallyIcon5.src = regionIcons[parentKey] || backupIcon;
+            setTimeout(triggerGameEnd, 1000);
+            // play audio?
+        }
+    }
+    
+    function initiateGame() {
+        scoreboard.style.display
+        inputField.disabled = false;
+        // START GAME TIMER
+        startGameTimer();
+        document.getElementById('start-screen').style.display = 'none';  
+        heldPinDisplay.style.display = 'flex';
+        click1.play();
+        toneLong1.play();
+        scoreboard.style.opacity = 1;
+    }
+
+    function triggerGameEnd() {
+        const finalTimeSeconds = Math.floor((Date.now() - gameStartTime) / 1000);
+
+        clearInterval(gameTimerInterval);
+        updateTimerDisplay(); // one final update
+
+        inputField.disabled = true;
+        inputField.style.display = 'none';
+        gameOverBox.style.display = 'flex'; // show gameoverbox
+        heldPinDisplay.style.display = 'none'; // hide heldpin display
+
+        // insert logo and scale up
+        const gameoverbox_logo = document.getElementById("gameoverbox-logo")
+        gameoverbox_logo.style.transform = "scale(1.25)";
+        gameoverbox_logo.style.transformOrigin = "center";
+        
+        // Insert scoreboard as the 5th child of gameOverBox
+        gameOverBox.insertBefore(scoreboard, gameOverBox.children[4]);
+        scoreboard.style.marginTop = "20px"; // optional, spacing
+        scoreboard.style.marginBottom = "50px"; // optional, spacing
+        // scale up scoreboard
+        scoreboard.style.transform = "scale(1.5)";
+        scoreboard.style.transformOrigin = "center";
+
+
+        // Remove the timer section from inside the scoreboard
+        const timerWrapper = mainElement.querySelector("#timer-wrapper");
+        if (timerWrapper) {
+            timerWrapper.remove();
+        }
+
+        // remove the region icon (but leave the 5 cleared regions' icons)
+        const uiRegionIcon = scoreboard.querySelector("#ui-region-icon")
+        if (uiRegionIcon) {
+            uiRegionIcon.remove();
+        }
+
+        // remove redundant swap display and identified display
+        const finalScoreContainer = finalStatsBar.querySelector("#final-score-container")
+        if (finalScoreContainer) {
+            finalScoreContainer.remove();
+        }
+        const finalIdentifiedContainer = finalStatsBar.querySelector("#final-identified-container")
+        if (finalIdentifiedContainer) {
+            finalIdentifiedContainer.remove();
+        }
+
+        // Update final stats
+        if (document.getElementById("final-score-display")) {
+            document.getElementById("final-score-display").textContent = swapCount;
+        }
+        if (document.getElementById("final-identified-display")) {
+            document.getElementById("final-identified-display").textContent = pinsIdentified;
+        }
+        document.getElementById("final-time-display").textContent = timerDisplay.textContent;
+        toneAchievement.play();
+    }
+
+    function startGameTimer() {
+        gameStartTime = Date.now();
+        gameTimerInterval = setInterval(updateTimerDisplay, 1000); // update every second
+    }
+
+    function updateTimerDisplay() {
+        const elapsedMs = Date.now() - gameStartTime;
+        const totalSeconds = Math.floor(elapsedMs / 1000);
+
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+
+        let timeString = '';
+        if (hours > 0) {
+            timeString += `${hours}:`;
+        }
+        timeString += `${minutes.toString().padStart(2, '0')}:`;
+        timeString += `${seconds.toString().padStart(2, '0')}`;
+
+        timerDisplay.textContent = timeString;
+    }
+
+
+
+    
+
+</script>
+
+</body>
+</html>
