@@ -486,12 +486,9 @@
             cursor: pointer;
             font-family: Helvetica, Arial, sans-serif;
             font-size: 12px;
-            color: #b7b7b7;
+            color: #8c8c8c;
             background: none;
             border: none;
-        }
-        #data-info-btn:hover {
-            color: #71a8c7;
         }
 
     </style>
@@ -651,6 +648,7 @@
 
             <!--map bar 4 MAINLAND CHINA-->
             <div id="map-4-china1k-bar" class="map-bar">
+                <!--left-->
                 <div id="map-title-wrapper">
                     <div id="map-4-title" class="map-title">🇨🇳 MAINLAND CHINA 1K</div>
                 </div>
@@ -668,12 +666,33 @@
                 <!--right-->
                 <button id="map-4-btn" class="play-button">PLAY</button>
             </div>
-            
-            <!--map bar 5 Europe 1K-->
-            <div id="map-5-europe1k-bar" class="coming-soon-map-bar">
+
+            <!--map bar 5 New York City-->
+            <div id="map-5-europe1k-bar" class="map-bar">
                 <!--left-->
                 <div id="map-title-wrapper">
-                    <div id="map-5-title" class="map-title">🌍 EUROPE 1K</div>
+                    <div id="map-5-title" class="map-title">🗽 NEW YORK CITY</div>
+                </div>
+
+                <!--center left-->
+                <div class="description-wrapper">
+                    <p class="map-description">Clear the 5 boroughs in the Big Apple! (Approx. 200 largest neighborhoods)</p>
+                </div>
+
+                <!--center right-->
+                <div class="plays-wrapper">
+                    <span id="map-5-play-count">🔄 10+ Plays</span>
+                </div>
+
+                <!--right-->
+                <button id="map-5-btn" class="play-button">PLAY</button>
+            </div>
+            
+            <!--map bar 6 Europe 1K-->
+            <div id="map-6-europe1k-bar" class="coming-soon-map-bar">
+                <!--left-->
+                <div id="map-title-wrapper">
+                    <div id="map-6-title" class="map-title">🌍 EUROPE 1K</div>
                 </div>
 
                 <!--center left-->
@@ -687,10 +706,10 @@
                 </div>
 
                 <!--right-->
-                <button id="map-5-btn" class="coming-soon-button">...</button>
+                <button id="map-6-btn" class="coming-soon-button">...</button>
             </div>
 
-            <button id="data-info-btn">Data from citypopulation.de</button>
+            <button id="data-info-btn">Data from citypopulation.de, wikipedia.org, other sources</button>
             
         </div>
         
@@ -754,13 +773,15 @@
           { btn: document.getElementById('map-2-btn'), span: document.getElementById('map-2-play-count'), key: "map2", url: "city_swap_world1k.html" },
           { btn: document.getElementById('map-3-btn'), span: document.getElementById('map-3-play-count'), key: "map3", url: "city_swap_world2k.html" },
           { btn: document.getElementById('map-4-btn'), span: document.getElementById('map-4-play-count'), key: "map4", url: "city_swap_china1k.html" },
-          { btn: document.getElementById('map-5-btn'), span: document.getElementById('map-5-play-count'), key: "map5", url: "city_swap_uk1k.html" },
+          { btn: document.getElementById('map-5-btn'), span: document.getElementById('map-5-play-count'), key: "map5", url: "city_swap_newyorkcity.html" },
+          { btn: document.getElementById('map-6-btn'), span: document.getElementById('map-6-play-count'), key: "map6", url: "city_swap_uk1k.html" },
         ];
 
         const dataInfoBtn = document.getElementById("data-info-btn");
         dataInfoBtn.addEventListener("click", () => {
             window.open('https://citypopulation.de');
         })
+        dataInfoBtn.disabled = true;
       
         // Listen for clicks & updates
         buttons.forEach(({ btn, span, key, url }) => {
@@ -777,8 +798,8 @@
         });
 
         // disable coming soon buttons 
-        const map5Button = document.getElementById('map-5-btn');
-        map5Button.disabled = true;
+        const map6Button = document.getElementById('map-6-btn');
+        map6Button.disabled = true;
 
     </script>
       

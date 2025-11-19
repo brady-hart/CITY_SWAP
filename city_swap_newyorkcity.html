@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>City Swap 🇨🇳 M. CHINA 1K</title>
+  <title>City Swap 🗽NYC</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
@@ -12,9 +12,9 @@
         margin: 0;
         padding: 0;
         overflow: hidden;
-    } 
+    }   
     #map {
-      height: 100vh;
+        height: 100vh;
     }
   </style>
 </head>
@@ -25,7 +25,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
     
         <div id="controls">
-            <input type="text" id="input-field" placeholder="Type city name" />
+            <input type="text" id="input-field" placeholder="Type city name"/>
             <button id="about-creator-btn">Copyright © 2025 Brady Hart LLC. All rights reserved.</button>
         </div>
 
@@ -37,7 +37,7 @@
             <div id="scoreboard">
                 <div id="map-title-wrapper">
                     <img id="ui-map-icon" class="ui-icon" title="Map" src = "",>
-                    <div id="map-display">🇨🇳 MAINLAND CHINA 1K</div>
+                    <div id="map-display">🗽 NEW YORK CITY</div>
                 </div>
                 
                 <span style="padding: 3px"></span>
@@ -288,7 +288,7 @@
             display: flex;
             justify-content: center;
             z-index: 1000; /* Ensure it's above the map */
-            padding: 10px;
+            padding: 0px;
             border-radius: 5px;
         }
         #about-creator-btn {
@@ -672,7 +672,7 @@
 
     // Initialize the map
     //setView([32.8872, 13.1914], 3); // Centered on world (Tripoli)
-    const map = L.map('map').setView([34.2611, 108.9422], 5); // Centered on Xi'an
+    const map = L.map('map').setView([40.7080, -74.0110], 11); // Centered on Financial District, Manhattan
 
     // Add OpenStreetMap tiles
     // Other map styles: 
@@ -1939,36 +1939,11 @@
     }
     
     const regionIcons = {
-        anhui: `./assets/pin_sets/${pinTheme}/regions/china/region_anhui.png`,
-        xinjiang: `./assets/pin_sets/${pinTheme}/regions/china/region_xinjiang.png`,
-        heilongjiang: `./assets/pin_sets/${pinTheme}/regions/china/region_heilongjiang.png`,
-        innermongolia: `./assets/pin_sets/${pinTheme}/regions/china/region_innermongolia.png`,
-        jilin: `./assets/pin_sets/${pinTheme}/regions/china/region_jilin.png`,
-        liaoning: `./assets/pin_sets/${pinTheme}/regions/china/region_liaoning.png`,
-        hebei: `./assets/pin_sets/${pinTheme}/regions/china/region_hebei.png`,
-        beijing: `./assets/pin_sets/${pinTheme}/regions/china/region_beijing.png`,
-        tianjin: `./assets/pin_sets/${pinTheme}/regions/china/region_tianjin.png`,
-        shanxi: `./assets/pin_sets/${pinTheme}/regions/china/region_shanxi.png`,
-        shaanxi: `./assets/pin_sets/${pinTheme}/regions/china/region_shaanxi.png`,
-        ningxia: `./assets/pin_sets/${pinTheme}/regions/china/region_ningxia.png`,
-        gansu: `./assets/pin_sets/${pinTheme}/regions/china/region_gansu.png`,
-        qinghai: `./assets/pin_sets/${pinTheme}/regions/china/region_qinghai.png`,
-        tibet: `./assets/pin_sets/${pinTheme}/regions/china/region_tibet.png`,
-        sichuan: `./assets/pin_sets/${pinTheme}/regions/china/region_sichuan.png`,
-        chongqing: `./assets/pin_sets/${pinTheme}/regions/china/region_chongqing.png`,
-        yunnan: `./assets/pin_sets/${pinTheme}/regions/china/region_yunnan.png`,
-        guizhou: `./assets/pin_sets/${pinTheme}/regions/china/region_guizhou.png`,
-        guangxi: `./assets/pin_sets/${pinTheme}/regions/china/region_guangxi.png`,
-        guangdong: `./assets/pin_sets/${pinTheme}/regions/china/region_guangdong.png`,
-        hunan: `./assets/pin_sets/${pinTheme}/regions/china/region_hunan.png`,
-        jiangxi: `./assets/pin_sets/${pinTheme}/regions/china/region_jiangxi.png`,
-        fujian: `./assets/pin_sets/${pinTheme}/regions/china/region_fujian.png`,
-        zhejiang: `./assets/pin_sets/${pinTheme}/regions/china/region_zhejiang.png`,
-        shanghai: `./assets/pin_sets/${pinTheme}/regions/china/region_shanghai.png`,
-        jiangsu: `./assets/pin_sets/${pinTheme}/regions/china/region_jiangsu.png`,
-        henan: `./assets/pin_sets/${pinTheme}/regions/china/region_henan.png`,
-        shandong: `./assets/pin_sets/${pinTheme}/regions/china/region_shandong.png`,
-        hainan: `./assets/pin_sets/${pinTheme}/regions/china/region_hainan.png`,
+        bronx: `./assets/pin_sets/${pinTheme}/regions/newyorkcity/region_bronx.png`,
+        queens: `./assets/pin_sets/${pinTheme}/regions/newyorkcity/region_queens.png`,
+        brooklyn: `./assets/pin_sets/${pinTheme}/regions/newyorkcity/region_brooklyn.png`,
+        statenisland: `./assets/pin_sets/${pinTheme}/regions/newyorkcity/region_statenisland.png`,
+        manhattan: `./assets/pin_sets/${pinTheme}/regions/newyorkcity/region_manhattan.png`,
     } 
 
     // Site logo
@@ -2046,7 +2021,7 @@
 
     // About Creator button
     const aboutCreatorBtn = document.getElementById("about-creator-btn");
-    
+
     // GAMEOVER STUFF
     const gameOverBox = document.getElementById("game-over-box")
     const finalStatsBar = document.getElementById("final-stats-bar")
@@ -2097,7 +2072,7 @@
     
 
     // Load GeoJSON data
-    axios.get('./data/cityswap_china1k.geojson').then(response => {
+    axios.get('./data/cityswap_newyorkcity.geojson').then(response => {
         
         const geojsonData = response.data;
 
@@ -2252,7 +2227,6 @@
                                         clearHeldPinDisplay();
                                         heldPin = null;
                                         beep2.play();
-                                        //console.log("beep2 at inspector failed play on base 2 pin")
                                         setPinIcon(layer); // sets icon immediately (so you don't have to wait for mouseout)
                                     return
                                 }
@@ -2296,18 +2270,14 @@
                                             clearHeldPinDisplay();
                                             heldPin = null;
                                             beep2.play();
-                                            //console.log("beep2 at wild failed play on base 2 pin")
                                             setPinIcon(layer); // sets icon immediately (so you don't have to wait for mouseout)
                                         return
                                 }
 
                             // play wild on base 1 pins
                                 layer.state = 'identified';
-                                ////console.log("just set state to", layer.state)
                                 feature.properties.color = 'rainbow';
-                                //console.log("feature's color set to", layer.feature.properties.color)
                                 setRainbowPinIcon(layer);
-                                ////console.log("didn't change slot. it is:", layer.feature.properties.slot)
                                 // spend and destroy wild
                                 heldPin.feature.properties.color = 'empty';
                                 heldPin.layer.state = 'empty';
@@ -2353,8 +2323,7 @@
                             // change clicked icon to placeholder
                             layer.setIcon(placeholderIcon);
                             //layer.state = 'clicked';
-                            ////console.log("layer.state was just changed to 'clicked' ")
-                            
+                             
                             click1.play(); // replace with first swap sound
                         } else {
                             // A pin is already held — check if it's swappable
@@ -2364,7 +2333,6 @@
                             // for playing rainbow on an already colored pin:
                             if (layer.state === 'identified' && heldColor === 'wild') {
                                 feature.properties.color = 'rainbow';
-                                //console.log("color changed to", feature.properties.color)
                                 setRainbowPinIcon(layer);
                                 
                                 // spend and destroy wild
@@ -2411,24 +2379,21 @@
                             // Either same pin was clicked again, or slot mismatch
                             if (layer.state === 'wild') {
                                 layer.setIcon(wildHoverIcon);
-                                //console.log("wild hover icon set")
                                 beep2.play();
                                 recolorHeldPin(heldPin);
                             } else if (layer.state === 'inspector') {
                                 layer.setIcon(inspectorHoverIcon);
-                                //console.log("inspector hover icon set")
                                 beep2.play();
                                 recolorHeldPin(heldPin);
                             }
 
                             // handle other failed swaps
                                 beep2.play();
-                                //console.log("beep2 at other failed swaps ")
                                 recolorHeldPin(heldPin);
                                 clearHeldPinDisplay();
                                 setPinIcon(layer); // sets icon immediately (so you don't have to wait for mouseout)
                                 heldPin = null;
-                                //console.log("other failed swap")
+                                //console.log("failed swap")
                         }
 
                         // tracking
@@ -2457,7 +2422,7 @@
         console.error('Error loading GeoJSON data:', error);
     });
 
-    
+    // Start Button event listener
     startBtn.addEventListener('click', () => {
         initiateGame();
     })
@@ -2497,14 +2462,12 @@
                 ) {
                 // TODO highlight in some way? Zoom to the city?
                 beep1.play()
-                //console.log("IDENTIFIED icon was clicked")
             } else if (layer.feature.properties.name.toLowerCase().replace(/[^a-z0-9]/g, '') === inputName
                 && layer.state === 'clicked'
                 ) {
                 beep1.play()
                 // Clear the input field
                 document.getElementById('input-field').value = '';
-                //console.log("CLICKED icon was clicked")
             // IDENTIFY BY NAME
             } else if (layer.feature.properties.name.toLowerCase().replace(/[^a-z0-9]/g, '') === inputName
                 && layer.state === 'neutral'
@@ -2546,7 +2509,6 @@
                 // identify by PARENT
                 } else if (layer.feature.properties.parent.toLowerCase().replace(/[^a-z0-9]/g, '') === inputName) {
                 // get lat and lng and zoom to location
-                //console.log("parent identified:", layer.feature.properties.parent)
             } 
             // function to identify pin, update count, add label
             function identifyPin() {
