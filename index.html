@@ -175,6 +175,25 @@
         }
 
                 /* MAP BARS */
+                .tutorial-bar {
+                    display: grid;
+                    grid-template-columns: auto 1fr auto auto;
+                    text-align: left;
+                    align-items: center;
+                    justify-content: space-between;
+                    min-width: 1300px;
+                    color: rgba(255, 255, 255, 0.747);
+                    font-family: Helvetica, Arial, sans-serif;
+                    outline: solid 1px #838383;
+                    background-color: #0f15166e;
+                    border-radius: 25px;
+                    padding: 0px 0px 0px 0px;
+                    box-shadow: 3px 3px 35px rgba(0, 0, 0, 0.5);
+                }
+                .tutorial-bar:hover {
+                    color: rgb(255, 255, 255);
+                    background-color: #4450526e;
+                }
                 .map-bar {
                     display: grid;
                     grid-template-columns: auto 1fr auto auto;
@@ -239,6 +258,24 @@
                     border-radius: 20px;
                     background-color: #1e1f21df;
                 }
+                #tutorial-title-wrapper {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: left;
+                    min-width: 250px;
+                    min-height: 38px;
+                    padding: 0px 20px 0px 20px;
+                    gap: 10px;
+                    border-radius: 20px;
+                    background-color: #47494d00;
+                }
+                .tutorial-title {
+                    display: block;
+                    font-family: Helvetica, Arial, sans-serif;
+                    font-weight: 400;
+                    font-size: 14px;
+                }
                 .description-wrapper, .plays-wrapper {
                     display: flex;
                     flex-direction: row;
@@ -275,7 +312,7 @@
                     border-radius: 40px;
                     padding: 5px 40px 5px;
                     font-family: Helvetica, Arial, sans-serif;
-                    font-size: 18px;
+                    font-size: 16px;
                     font-weight: 700;
                     border: 1px solid #ffffffaa;
                     border-bottom: 1px solid #b4b4b49f;
@@ -520,7 +557,6 @@
                 <span id="game-title"> 🗺️ 🌍 🧠 City Swap: a geography game with a number puzzle twist</span> 
                 <span style="gap: 40px"></span>
             </div>
-
             
             <div id="header-section-elements-container">
 
@@ -530,7 +566,8 @@
                     </span>                        
                     <img id="step-1-box" class="step-by-step-art" src=""/>
                     <span class="game-description">
-                        Type a city name from memory to unlock a pin. SCORING PINS (large) are numbered 1-7. ITEM PINS (small) have a chance to drop an item.
+                        Type a city name from memory to unlock a pin. Large pins are scoring pins. They are numbered 1-7 (based on population size). 
+                        Example: Chicago is the largest city in the region of Illinois, so it will be pin number 1. It will also have a random color.
                     </span>
                 </div>
 
@@ -540,17 +577,19 @@
                     </span>  
                     <img id="step-2-box" class="step-by-step-art" src=""/>
                     <span class="game-description">
-                        Swap pins by number. INSPECTOR PINS and WILD PINS have unique abilities. Play them on your SCORING PINS.
+                        Swap pins by number. A blue #1 can be swapped for a yellow #1 (see above). And so on. Swap until all 7 scoring pins inside a region are the same color. 
+                        That will clear the region. Once you've cleared 5 regions, you win! Note that some regions have less than 7 scoring pins. These regions are not clearable.
                     </span>
                 </div>
                 
                 <div class="step-by-step-box">
                     <span class="step-by-step-title">
-                        3. Clear 5 regions to win!
+                        3. Identify small pins to find items.
                     </span> 
                     <img id="step-3-box" class="step-by-step-art" src=""/>
                     <span class="game-description">
-                        Organize REGIONS by color. When all 7 pins are the same color, the region is cleared. Clear 5 REGIONS to win!
+                        Small pins have a chance of being an "Inspector pin" or a "Wild pin". These item pins can be played on scoring pins. Inspector pins reveal the name of an unidentified pin. 
+                        Wild pins change the color of any scoring pin to rainbow. Rainbow pins count as any color. 
                     </span>
                 </div>
             </div>
@@ -583,6 +622,27 @@
                 
                 <!--right-->
                 <span style="opacity: 0;">Play</span>
+            </div>
+
+            <!--map bar 0 Tutorial-->
+            <div id="map-0-tutorial" class="tutorial-bar">
+                <!--left-->
+                <div id="tutorial-title-wrapper">
+                    <div id="map-0-title" class="tutorial-title">💡 TUTORIAL</div>
+                </div>
+
+                <!--center left-->
+                <div class="description-wrapper">
+                    <p class="map-description">First time? Learn how to play here!</p>
+                </div>
+
+                <!--center right-->
+                <div class="plays-wrapper">
+                    <span id="map-0-play-count">⌛ (Takes around 3 minutes)</span>
+                </div>
+
+                <!--right-->
+                <button id="map-0-btn" class="play-button">PLAY</button>
             </div>
 
             <!--map bar 1 USA1K-->
@@ -769,6 +829,7 @@
             step3Box.src = `./assets/pin_sets/${pinTheme}/pins/how-to-gif-3.gif`;
       
         const buttons = [
+          { btn: document.getElementById('map-0-btn'), span: document.getElementById('map-1-play-count'), key: "map1", url: "city_swap_tutorial.html" },
           { btn: document.getElementById('map-1-btn'), span: document.getElementById('map-1-play-count'), key: "map1", url: "city_swap_usa1k.html" },
           { btn: document.getElementById('map-2-btn'), span: document.getElementById('map-2-play-count'), key: "map2", url: "city_swap_world1k.html" },
           { btn: document.getElementById('map-3-btn'), span: document.getElementById('map-3-play-count'), key: "map3", url: "city_swap_world2k.html" },

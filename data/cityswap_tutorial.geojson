@@ -1,0 +1,205 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "New York",
+        "parent": "New York",
+        "slot": 1,
+        "color": "random",
+        "Population": 8405837,
+        "rank": 1,
+        "tier": 1,
+        "held": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0059413,
+          40.7127837
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Buffalo",
+        "parent": "New York",
+        "slot": 2,
+        "color": "random",
+        "Population": 258959,
+        "rank": 73,
+        "tier": 2,
+        "held": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.8783689,
+          42.8864468
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Rochester",
+        "parent": "New York",
+        "slot": 3,
+        "color": "random",
+        "Population": 210358,
+        "rank": 103,
+        "tier": 2,
+        "held": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.6109219,
+          43.16103
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Syracuse",
+        "parent": "New York",
+        "slot": 9,
+        "color": "item",
+        "Population": 144669,
+        "rank": 177,
+        "tier": 2,
+        "held": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.1474244,
+          43.0481221
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Albany",
+        "parent": "New York",
+        "slot": 10,
+        "color": "item",
+        "Population": 98424,
+        "rank": 299,
+        "tier": 3,
+        "held": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.7562317,
+          42.65257929999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Philadelphia",
+        "parent": "Pennsylvania",
+        "slot": 1,
+        "color": "random",
+        "Population": 1553165,
+        "rank": 5,
+        "tier": 1,
+        "held": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1652215,
+          39.9525839
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Pittsburgh",
+        "parent": "Pennsylvania",
+        "slot": 2,
+        "color": "random",
+        "Population": 305841,
+        "rank": 62,
+        "tier": 2,
+        "held": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.9958864,
+          40.440624799999995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Allentown",
+        "parent": "Pennsylvania",
+        "slot": 3,
+        "color": "random",
+        "Population": 118577,
+        "rank": 224,
+        "tier": 2,
+        "held": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.4901833,
+          40.6084305
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Erie",
+        "parent": "Pennsylvania",
+        "slot": 8,
+        "color": "item",
+        "Population": 100671,
+        "rank": 290,
+        "tier": 2,
+        "held": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.085059,
+          42.1292241
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Reading",
+        "parent": "Pennsylvania",
+        "slot": 9,
+        "color": "item",
+        "Population": 87893,
+        "rank": 353,
+        "tier": 3,
+        "held": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.9268747,
+          40.335648299999995
+        ]
+      }
+    }
+  ]
+}
