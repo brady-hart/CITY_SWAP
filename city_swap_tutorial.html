@@ -63,10 +63,23 @@
                   <div id="swap-count-display">0</div>
                 </div>
             </div>
-
+            
+            <div id="tutorial-popup-box">
+                <div class="tutorial-content">
+                  <p id="tutorial-text"></p>
+              
+                  <div id="tutorial-progress"></div>
+                  
+                  <button id="tutorial-next-btn">Next</button>
+                  
+                  <button id="tutorial-start-over-btn">Start Over</button>
+                </div>
+              </div>
             <div id="timer-wrapper">
                 <div id="timer-display">00:00</div>
             </div>
+
+              
 
             <!--start screen-->
             <div id="start-screen">
@@ -85,7 +98,7 @@
 
             <!--game over screen-->
             <div id="game-over-box">
-                <div id="end-screen-map-title-display">You won!</div>
+                <div id="end-screen-map-title-display">You've learned how to play!</div>
                 
                 <span style="padding: 15px"></span>
 
@@ -194,7 +207,7 @@
         }
         #start-screen {
             position: fixed;
-            display: flex;
+            display: none;
             flex-direction: column;
             width: 100%;
             height: 350px;
@@ -644,12 +657,102 @@
             font-weight: 700;
         }
         #timer-display {
+            display: none;
             font-family: 'Helvetica', 'Arial', sans-serif;
             text-align: center;
             color: #1e1f21ba;
             font-size: 14px;
             font-weight: 200;
         }
+        #tutorial-popup-box {
+            background: linear-gradient(to right, #3a404ef3, #4a4f4beb);
+            border-radius: 30px;
+            min-width: 60%;
+            max-width: 60%;
+        }
+        .tutorial-content {
+            padding: 0px 15px 15px 15px;
+            text-align: right;
+        }
+        #tutorial-text {
+            text-align: left;
+            font-family: helvetica, arial, sans-serif;
+            font-size: 18px;
+            color: #c4c4c4;
+        }
+        #tutorial-progress {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-family: helvetica, arial, sans-serif;
+            font-size: 14px;
+            color: #c4c4c4;
+        }
+        #tutorial-next-btn {
+            cursor: pointer;
+            min-width: 160px;
+            max-width: 160px;
+            background: linear-gradient(to right, #ffffff30, #ffffff12, #ffffff23); /* Set your gradient colors */
+            border-radius: 40px;
+            padding: 5px 40px 5px;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            border: 1px solid #ffffffaa;
+            border-bottom: 1px solid #b4b4b49f;
+            color: #ffffff8d;
+            line-height: 26px;
+            /* drop shadow */
+            box-shadow: 0 11px 15px -7px rgb(0 0 0 / 30%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
+            z-index: 10; 
+        }
+        #tutorial-next-btn:hover {
+            box-shadow: 0px 6px 30px rgb(0 0 0 / 30%);
+            box-shadow: 0 0 8px #77a5e9, 0 0 16px #77a5e9, 0 0 32px #77a5e9; /* Multiple layers for stronger glow */
+            background: linear-gradient(to right, #ffffff95, #ffffff4d, #ffffffae); /* Set your gradient colors */
+            border: 1px solid #ffffffaa;
+            border-width: 10;
+            border-bottom: 1px solid #b4b4b49f;
+            font-size: 19px;
+            color: #ffffff;
+        }
+        #tutorial-next-btn:disabled {
+            cursor: normal;
+            box-shadow: 0px 6px 30px rgb(0 0 0 / 30%);
+            background: linear-gradient(to right, #42424295, #42424295, #42424295); /* Set your gradient colors */
+            border: 1px solid #ffffff2c;
+            border-width: 10;
+            border-bottom: 1px solid #b4b4b49f;
+            font-size: 19px;
+            color: #79797979;
+        }
+
+        #tutorial-start-over-btn {
+            cursor: pointer;
+            min-width: 100px;
+            background: linear-gradient(to right, #4c49b130, #595b9512, #32323223); /* Set your gradient colors */
+            border-radius: 40px;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid #ffffffaa;
+            border-bottom: 1px solid #b4b4b49f;
+            color: #ffffff8d;
+            line-height: 26px;
+            /* drop shadow */
+            box-shadow: 0 11px 15px -7px rgb(0 0 0 / 30%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
+            z-index: 10; 
+        }
+        #tutorial-start-over-btn:hover {
+            box-shadow: 0px 6px 30px rgb(0 0 0 / 30%);
+            box-shadow: 0 0 8px #8699d595, 0 0 16px #8699d595, 0 0 32px #8699d595; /* Multiple layers for stronger glow */
+            background: linear-gradient(to right, #656f8c95, #2c25514d, #32235dae); /* Set your gradient colors */
+            border: 1px solid #ffffffaa;
+            border-width: 10;
+            border-bottom: 1px solid #b4b4b49f;
+            font-size: 14px;
+            color: #ffffff;
+        }
+
         .region-tally {
             max-width: 36px;
             max-height: 36px;
@@ -669,7 +772,7 @@
 
     // Initialize the map
     //setView([32.8872, 13.1914], 3); // Centered on Scranton
-    const map = L.map('map').setView([41.4103, -75.6611], 7); // Centered on USA (Omaha, Nebraska)
+    const map = L.map('map').setView([43.4103, -75.6611], 6); // Centered on USA (Omaha, Nebraska)
 
     // Add OpenStreetMap tiles
     // Other map styles: 
@@ -2056,6 +2159,7 @@
 
 
     // GAME START STUFF
+    
     // start btn
     const startBtn = document.getElementById("start-btn");
 
@@ -2481,6 +2585,58 @@
         initiateGame();
     })
 
+    // TUTORIAL POP UP LOGIC:
+    const tutorialSteps = [
+    "In City Swap, the objective is to clear the regions on the map by organizing their pins by color. On this tutorial map, there are 2 regions: the US states of New York and Pennsylvania. Right now, all the pins are all locked. You need to unlock them to show their colors.",
+    "Type 'New York' into the field at the bottom of the screen. Then type 'Philadelphia'. You've now unlocked those two pins. New York and Philadelphia are the largest cities in their regions, so they carry the number 1.",
+    "Because they're both a number 1 pin, they can be swapped for each other. Try clicking New York and then Philadelphia. You'll see that they switch places (and the swap is recorded in the toolbar above). Swapping pins is how you'll organize regions by color.",
+    "Next, you need to unlock the other scoring pins on the map by typing their names from memory. Here are some names to get you started: 'Pittsburgh', 'Buffalo', and 'Allentown.'", 
+    "And now let's identify some of the smaller pins. Type 'Syracuse', 'Erie', and 'Albany.' These smaller pins are item pins. They have a chance to drop a useful item. They may also be empty. In this case, Albany and Erie were carrying useful items. The pin on Erie is called an inspector pin. This pin is useful if you can't remember the name of a scoring pin.",
+    "Click Erie to pick up the inspector, then play it on the last unidentified scoring pin in the region of New York. This will reveal Rochester. (Note: if you already identified Rochester, you can skip this step.)",
+    "The pin on Albany is a wild pin. It can be used to change the color of any scoring pin to rainbow, which counts as any color. Wild pins are the most valuable in the game.",
+    "To win the game, you need to organize the two regions by color. You'll notice that you have a lot of yellow and red pins, and only one blue. This blue pin will be a problem because it doesn't match the other colors. Try using the wild pin to change its color to rainbow. Rainbow pins count as all colors, so the rainbow pin can now act as a yellow or a red.",
+    "From here, all you have to do to complete the puzzle is to swap pins around until both regions' scoring pins are organized by color. See if you can clear both regions! Note that pins can only be swapped by number. Click the start over button any time if you're stuck.",
+    ];
+
+    let currentStep = 0;
+
+    const popup = document.getElementById("tutorial-popup-box");
+    const text = document.getElementById("tutorial-text");
+    const nextBtn = document.getElementById("tutorial-next-btn");
+    const startOverBtn = document.getElementById("tutorial-start-over-btn");
+    const progress = document.getElementById("tutorial-progress");
+
+    function updateTutorialUI() {
+        text.textContent = tutorialSteps[currentStep];
+        progress.textContent = `${currentStep + 1} / ${tutorialSteps.length}`;
+
+          // Disable button if last step
+        nextBtn.disabled = currentStep === tutorialSteps.length - 1;
+    }
+
+    function showTutorial() {
+        currentStep = 0;
+        popup.classList.remove("hidden");
+        updateTutorialUI();
+    }
+
+    nextBtn.addEventListener("click", () => {
+        currentStep++;
+        if (currentStep < tutorialSteps.length) {
+            updateTutorialUI();
+        } else {
+            popup.classList.add("hidden");
+        }
+    });
+
+    startOverBtn.addEventListener("click", () => {
+        location.reload();
+    });
+
+    // Optional: auto-start or call showTutorial() from your game
+    showTutorial();
+
+
     // About Creator Button event listener
     aboutCreatorBtn.addEventListener('click', () => {
         window.open('https://www.bradyhartcreates.com/aboutme');
@@ -2497,6 +2653,10 @@
     exitBtn.addEventListener('click', () => {
         window.location.href = "index.html";
     })
+
+    // start tutorial
+    initiateGame();
+
 
     // IDENTIFY LOGIC
     document.getElementById('input-field').addEventListener('input', () => {
@@ -2810,7 +2970,7 @@
         scoreboard.style.display
         inputField.disabled = false;
         // START GAME TIMER
-        startGameTimer();
+        //startGameTimer();
         document.getElementById('start-screen').style.display = 'none';  
         heldPinDisplay.style.display = 'flex';
         click1.play();
@@ -2819,10 +2979,13 @@
     }
 
     function triggerGameEnd() {
+        const popUpBox = document.getElementById("tutorial-popup-box")
+        popUpBox.style.display = 'none';
+
         const finalTimeSeconds = Math.floor((Date.now() - gameStartTime) / 1000);
 
         clearInterval(gameTimerInterval);
-        updateTimerDisplay(); // one final update
+        //updateTimerDisplay(); // one final update
 
         inputField.disabled = true;
         inputField.style.display = 'none';

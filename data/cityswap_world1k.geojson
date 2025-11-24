@@ -10944,7 +10944,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Bangalore",
+        "name": "Bengaluru",
         "parent": "India",
         "slot": 4,
         "color": "random",

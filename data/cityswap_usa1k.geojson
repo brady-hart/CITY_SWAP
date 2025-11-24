@@ -7824,7 +7824,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Boise City",
+        "name": "Boise",
         "parent": "Idaho",
         "slot": 1,
         "color": "random",

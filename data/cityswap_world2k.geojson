@@ -18424,13 +18424,13 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Bangalore",
+        "name": "Bengaluru",
         "parent": "India",
         "slot": 4,
         "color": "random",
         "population": 15386000,
         "tier": "A",
-        "name_local": "Bangalore",
+        "name_local": "Bengaluru",
         "held": "no"
       },
       "geometry": {
