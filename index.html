@@ -2,7 +2,7 @@
 <html>
     <head>
             <meta charset="utf-8">
-            <title>City Swap Map Selection</title>
+            <title>CitySwappr Map Selection</title>
             <link rel="icon" type="image/png" href="favicon.png">
             <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
             <style>
@@ -209,9 +209,18 @@
                     padding: 0px 0px 0px 0px;
                     box-shadow: 3px 3px 35px rgba(0, 0, 0, 0.5);
                 } 
+
                 .map-bar:hover {
-                    color: rgb(255, 255, 255);
-                    background-color: #b3e2e7ac;
+                    background-color: #b3dae7ac;
+                }
+                .map-bar-normal {
+                    background-color: #4cc98a6e;
+                }
+                .map-bar-hard {
+                    background-color: #c9c94c6e;
+                }
+                .map-bar-very-hard {
+                    background-color: #dd6b6b6e;
                 }
                 .coming-soon-map-bar {
                     display: grid;
@@ -228,20 +237,20 @@
                     padding: 0px 0px 0px 0px;
                     box-shadow: 3px 3px 35px rgba(0, 0, 0, 0.5);
                 }
+                
                 #label-bar {
                     display: grid;
-                    grid-template-columns: auto 1fr auto;
+                    grid-template-columns: auto 1fr auto auto;
+                    text-align: left;
+                    align-items: center;
                     color: rgba(255, 255, 255, 0.5);
                     font-size: 14px;
                     font-family: Helvetica, Arial, sans-serif;
-                    text-align: left;
-                    align-items: center;
                     justify-content: space-between;
                     padding: 0px 0px 0px 0px;
                     min-width: 1300px;
                     outline: none;
                     background-color: none;
-                    gap: 50px;
                 }
                 #map-title-label {
                     min-width: none;
@@ -297,8 +306,8 @@
                 .map-title {
                     display: block;
                     font-family: Helvetica, Arial, sans-serif;
-                    font-weight: 400;
-                    font-size: 18px;
+                    font-weight: 700;
+                    font-size: 20px;
                 }
                 .map-description {
                     font-style: italic;
@@ -351,7 +360,7 @@
                     z-index: 10; 
                 }
                 
-                #header-cityswap-logo {
+                #header-cityswappr-logo {
                     display: flex;
                     width: 250px;
                 }
@@ -359,13 +368,14 @@
 
     <style>
         /* STYLE FOR FEATURE INFO TOOLBAR */
-        #cityswap-logo {
+        #cityswappr-logo {
             position: absolute;
-            display: block;
+            display: flex;
             width: 170px;
             height: auto;
             top: 10px;
-            left: 10px;
+            left: 50%;
+            transform: translate(-65%, -10%);
             z-index: 20;
         }
         /* Main toolbar container */
@@ -468,9 +478,8 @@
             border-bottom: 0px solid #2a6177e5;
             color: rgb(190, 208, 214);
         }
-        #data-info-btn {
+        #data-info-text {
             bottom: 10%;
-            cursor: pointer;
             font-family: Helvetica, Arial, sans-serif;
             font-size: 12px;
             color: #8c8c8c;
@@ -484,14 +493,14 @@
   <body>
     <nav class="navbar" id="navbar">
         <ul class="nav-links">
-            <img id="cityswap-logo" src="cityswap_logo_light.png" alt="City Swap Logo">
+            <img id="cityswappr-logo" src="cityswappr_logo_light.png" alt="CitySwappr Logo">
             <li><a href="#home"></a></li>
         </ul>
     </nav>
 
     
     <div style=
-        "background-image: url('./assets/general_art/cityswap_bg.png'); background-size: cover; background-attachment: fixed; background-position:
+        "background-image: url('./assets/general_art/cityswappr_bg.png'); background-size: cover; background-attachment: fixed; background-position:
          center; background-repeat: no-repeat; width: 100vw; height: 100vh;"> 
     </div>
     
@@ -503,8 +512,9 @@
         <div id="header-section">
 
             <div id="game-mode-title-container">
-                <!--<img id="header-cityswap-logo" src="cityswap_logo_light.png" alt="City Swap Logo">-->
-                <span id="game-title"> 🗺️ 🌍 🧠 City Swap: a geography game with a number puzzle twist</span> 
+                <!--
+                    <span id="game-title"> 🗺️ 🌍 🧠 CitySwappr: a geography game with a number puzzle twist</span> 
+                -->
                 <span style="gap: 40px"></span>
             </div>
             
@@ -554,7 +564,7 @@
             <!--label bar-->
             <div id="label-bar">
                 <!--left-->
-                <div id="map-title-label" >
+                <div id="map-title-label" style="opacity: 0">
                     <div style="display: flex; flex-direction: row; align-items: center; gap: 10px; ">
                         <img id="ui-map-icon" src="./assets/general_art/ui_map-icon.png" class="ui-icon",>
                         <span>Map</span>
@@ -562,13 +572,14 @@
                 </div>
                 
                 <!--center (grouped)-->
-                <div class="label-bar-center-items" style="opacity: 0;">
+                <div id="label-bar-center-items" style="opacity: 0">
                     <span>❓ Description</span>
-                    <span>7-Pin | 5-Region</span>
                 </div>
                 
                 <!--right-->
-                <span style="opacity: 0;">Play</span>
+                <div id="label-bar-right-items" style="opacity: 0">
+                    <span>7-Pin | 5-Region</span>
+                </div><span style="opacity: 0;">Play</span>
             </div>
 
             <!--map bar 0 Tutorial-->
@@ -593,7 +604,7 @@
             </div>
 
             <!--map bar 1 USA1K-->
-            <div id="map-1-usa1k-bar" class="map-bar">
+            <div id="map-1-usa1k-bar" class="map-bar map-bar-normal">
                 <!--left-->
                 <div id="map-title-wrapper">
                     <div id="map-1-title" class="map-title">🇺🇸 USA 1K</div>
@@ -606,7 +617,7 @@
 
                 <!--center right-->
                 <div class="plays-wrapper">
-                    <span id="map-1-play-count">🔄 10+ Plays</span>
+                    <span id="map-1-play-count">Difficulty: Normal</span>
                 </div>
 
                 <!--right-->
@@ -614,9 +625,9 @@
             </div>
 
             <!--map bar 2 WORLD1K-->
-            <div id="map-2-world1k-bar" class="map-bar">
+            <div id="map-2-world1k-bar" class="map-bar map-bar-normal">
                 <div id="map-title-wrapper">
-                    <div id="map-2-title" class="map-title">🌎 WORLD 1K</div>
+                    <div id="map-2-title" class="map-title">🌎 World 1K</div>
                 </div>
 
                 <!--center left-->
@@ -626,7 +637,7 @@
 
                 <!--center right-->
                 <div class="plays-wrapper">
-                    <span id="map-2-play-count" >🔄 10+ Plays</span>
+                    <span id="map-2-play-count" >Difficulty: Normal</span>
                 </div>
 
                 <!--right-->
@@ -634,9 +645,9 @@
             </div>
 
             <!--map bar 3 WORLD2K-->
-            <div id="map-3-world1k-bar" class="map-bar">
+            <div id="map-3-world1k-bar" class="map-bar map-bar-normal">
                 <div id="map-title-wrapper">
-                    <div id="map-3-title" class="map-title">🌎🌏 WORLD 2K</div>
+                    <div id="map-3-title" class="map-title">🌎🌏 World 2K</div>
                 </div>
 
                 <!--center left-->
@@ -646,7 +657,7 @@
 
                 <!--center right-->
                 <div class="plays-wrapper">
-                    <span id="map-3-play-count" >🔄 10+ Plays</span>
+                    <span id="map-3-play-count" >Difficulty: Normal</span>
                 </div>
 
                 <!--right-->
@@ -654,10 +665,10 @@
             </div>
 
             <!--map bar 4 MAINLAND CHINA-->
-            <div id="map-4-china1k-bar" class="map-bar">
+            <div id="map-4-china1k-bar" class="map-bar map-bar-very-hard">
                 <!--left-->
                 <div id="map-title-wrapper">
-                    <div id="map-4-title" class="map-title">🇨🇳 MAINLAND CHINA 1K</div>
+                    <div id="map-4-title" class="map-title">🇨🇳 Mainland China 1K</div>
                 </div>
 
                 <!--center left-->
@@ -667,7 +678,7 @@
 
                 <!--center right-->
                 <div class="plays-wrapper">
-                    <span id="map-4-play-count">🔄 10+ Plays</span>
+                    <span id="map-4-play-count">Difficulty: Very Hard</span>
                 </div>
 
                 <!--right-->
@@ -675,10 +686,10 @@
             </div>
 
             <!--map bar 5 New York City-->
-            <div id="map-5-europe1k-bar" class="map-bar">
+            <div id="map-5-europe1k-bar" class="map-bar map-bar-hard">
                 <!--left-->
                 <div id="map-title-wrapper">
-                    <div id="map-5-title" class="map-title">🗽 NEW YORK CITY</div>
+                    <div id="map-5-title" class="map-title">🗽 New York City</div>
                 </div>
 
                 <!--center left-->
@@ -688,7 +699,7 @@
 
                 <!--center right-->
                 <div class="plays-wrapper">
-                    <span id="map-5-play-count">🔄 10+ Plays</span>
+                    <span id="map-5-play-count">Difficulty: Hard</span>
                 </div>
 
                 <!--right-->
@@ -699,7 +710,7 @@
             <div id="map-6-europe1k-bar" class="coming-soon-map-bar">
                 <!--left-->
                 <div id="map-title-wrapper">
-                    <div id="map-6-title" class="map-title">🌍 EUROPE 1K</div>
+                    <div id="map-6-title" class="map-title">🌍 Europe 1K</div>
                 </div>
 
                 <!--center left-->
@@ -716,7 +727,7 @@
                 <button id="map-6-btn" class="coming-soon-button">...</button>
             </div>
 
-            <button id="data-info-btn">Data from citypopulation.de, wikipedia.org, other sources</button>
+            <span id="data-info-text">Data from citypopulation.de, wikipedia.org, other sources</span>
             
         </div>
         
@@ -776,20 +787,15 @@
             step3Box.src = `./assets/pin_sets/${pinTheme}/pins/how-to-gif-3.gif`;
       
         const buttons = [
-          { btn: document.getElementById('map-0-btn'), span: document.getElementById('map-1-play-count'), key: "map1", url: "city_swap_tutorial.html" },
-          { btn: document.getElementById('map-1-btn'), span: document.getElementById('map-1-play-count'), key: "map1", url: "city_swap_usa1k.html" },
-          { btn: document.getElementById('map-2-btn'), span: document.getElementById('map-2-play-count'), key: "map2", url: "city_swap_world1k.html" },
-          { btn: document.getElementById('map-3-btn'), span: document.getElementById('map-3-play-count'), key: "map3", url: "city_swap_world2k.html" },
-          { btn: document.getElementById('map-4-btn'), span: document.getElementById('map-4-play-count'), key: "map4", url: "city_swap_china1k.html" },
-          { btn: document.getElementById('map-5-btn'), span: document.getElementById('map-5-play-count'), key: "map5", url: "city_swap_newyorkcity.html" },
-          { btn: document.getElementById('map-6-btn'), span: document.getElementById('map-6-play-count'), key: "map6", url: "city_swap_uk1k.html" },
+          { btn: document.getElementById('map-0-btn'), span: document.getElementById('map-1-play-count'), key: "map1", url: "cityswappr_tutorial.html" },
+          { btn: document.getElementById('map-1-btn'), span: document.getElementById('map-1-play-count'), key: "map1", url: "cityswappr_usa1k.html" },
+          { btn: document.getElementById('map-2-btn'), span: document.getElementById('map-2-play-count'), key: "map2", url: "cityswappr_world1k.html" },
+          { btn: document.getElementById('map-3-btn'), span: document.getElementById('map-3-play-count'), key: "map3", url: "cityswappr_world2k.html" },
+          { btn: document.getElementById('map-4-btn'), span: document.getElementById('map-4-play-count'), key: "map4", url: "cityswappr_china1k.html" },
+          { btn: document.getElementById('map-5-btn'), span: document.getElementById('map-5-play-count'), key: "map5", url: "cityswappr_newyorkcity.html" },
+          { btn: document.getElementById('map-6-btn'), span: document.getElementById('map-6-play-count'), key: "map6", url: "cityswappr_uk1k.html" },
         ];
 
-        const dataInfoBtn = document.getElementById("data-info-btn");
-        dataInfoBtn.addEventListener("click", () => {
-            window.open('https://citypopulation.de');
-        })
-        dataInfoBtn.disabled = true;
       
         // Listen for clicks & updates
         buttons.forEach(({ btn, span, key, url }) => {

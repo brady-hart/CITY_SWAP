@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>City Swap 🌍 WORLD 1K</title>
+  <title>City Swap 🇨🇳 M. CHINA 1K</title>
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
     html, body {
         height: 100%;
@@ -28,17 +28,16 @@
             <input type="text" id="input-field" placeholder="Type city name" />
             <button id="about-creator-btn">Copyright © 2025 Brady Hart LLC. All rights reserved.</button>
         </div>
-        
 
         <div id="map" ></div>
 
         <!-- scoreboard and feature bar-->
         <div id="main">
-            <img id="cityswap-logo-dark" src="cityswap_logo_dark.png" alt="City Swap Logo">
+            <img id="cityswap-logo-dark" src="cityswappr_logo_dark.png" alt="City Swap Logo">
             <div id="scoreboard">
                 <div id="map-title-wrapper">
                     <img id="ui-map-icon" class="ui-icon" title="Map" src = "",>
-                    <div id="map-display">🌍 WORLD 1K</div>
+                    <div id="map-display">🇨🇳 MAINLAND CHINA 1K</div>
                 </div>
                 
                 <span style="padding: 3px"></span>
@@ -94,7 +93,7 @@
                 <span style="padding: 15px"></span>
 
                 <div id="mode-container">
-                    <img id="gameoverbox-logo" src="cityswap_logo_light.png" alt="City Swap Logo">
+                    <img id="gameoverbox-logo" src="cityswappr_logo_light.png" alt="City Swap Logo">
                 </div>
 
                 <span style="padding: 20px"></span>
@@ -346,7 +345,7 @@
             position: relative;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: cener;
             pointer-events: none;
             text-align: center;
             color: #3a404f;
@@ -673,7 +672,7 @@
 
     // Initialize the map
     //setView([32.8872, 13.1914], 3); // Centered on world (Tripoli)
-    const map = L.map('map').setView([32.8872, 13.1914], 3); // Centered on Tripoli
+    const map = L.map('map').setView([34.2611, 108.9422], 5); // Centered on Xi'an
 
     // Add OpenStreetMap tiles
     // Other map styles: 
@@ -1940,48 +1939,36 @@
     }
     
     const regionIcons = {
-        brazil: `./assets/pin_sets/${pinTheme}/regions/world/region_brazil.png`,
-        bangladesh:`./assets/pin_sets/${pinTheme}/regions/world/region_bangladesh.png`,
-        canada:`./assets/pin_sets/${pinTheme}/regions/world/region_canada.png`,
-        china: `./assets/pin_sets/${pinTheme}/regions/world/region_china.png`,
-        colombia: `./assets/pin_sets/${pinTheme}/regions/world/region_colombia.png`,
-        drc: `./assets/pin_sets/${pinTheme}/regions/world/region_drc.png`,
-        india: `./assets/pin_sets/${pinTheme}/regions/world/region_india.png`,
-        indonesia: `./assets/pin_sets/${pinTheme}/regions/world/region_indonesia.png`,
-        iran: `./assets/pin_sets/${pinTheme}/regions/world/region_iran.png`,
-        iraq: `./assets/pin_sets/${pinTheme}/regions/world/region_iraq.png`,
-        japan: `./assets/pin_sets/${pinTheme}/regions/world/region_japan.png`,
-        mexico: `./assets/pin_sets/${pinTheme}/regions/world/region_mexico.png`,
-        nigeria: `./assets/pin_sets/${pinTheme}/regions/world/region_nigeria.png`,
-        pakistan: `./assets/pin_sets/${pinTheme}/regions/world/region_pakistan.png`,
-        philippines: `./assets/pin_sets/${pinTheme}/regions/world/region_philippines.png`,
-        russia: `./assets/pin_sets/${pinTheme}/regions/world/region_russia.png`,
-        southkorea: `./assets/pin_sets/${pinTheme}/regions/world/region_southkorea.png`,
-        turkey: `./assets/pin_sets/${pinTheme}/regions/world/region_turkey.png`,
-        unitedstates: `./assets/pin_sets/${pinTheme}/regions/world/region_unitedstates.png`,
-        venezuela: `./assets/pin_sets/${pinTheme}/regions/world/region_venezuela.png`,
-        vietnam: `./assets/pin_sets/${pinTheme}/regions/world/region_vietnam.png`,
-        angola: `./assets/pin_sets/${pinTheme}/regions/world/region_angola.png`,
-        argentina: `./assets/pin_sets/${pinTheme}/regions/world/region_argentina.png`,
-        australia: `./assets/pin_sets/${pinTheme}/regions/world/region_australia.png`,
-        cotedivoire: `./assets/pin_sets/${pinTheme}/regions/world/region_cotedivoire.png`,
-        egypt: `./assets/pin_sets/${pinTheme}/regions/world/region_egypt.png`,
-        germany: `./assets/pin_sets/${pinTheme}/regions/world/region_germany.png`,
-        italy: `./assets/pin_sets/${pinTheme}/regions/world/region_italy.png`,
-        kazakhstan: `./assets/pin_sets/${pinTheme}/regions/world/region_kazakhstan.png`,
-        northkorea: `./assets/pin_sets/${pinTheme}/regions/world/region_northkorea.png`,
-        malaysia: `./assets/pin_sets/${pinTheme}/regions/world/region_malaysia.png`,
-        morocco: `./assets/pin_sets/${pinTheme}/regions/world/region_morocco.png`,
-        peru: `./assets/pin_sets/${pinTheme}/regions/world/region_peru.png`,
-        poland: `./assets/pin_sets/${pinTheme}/regions/world/region_poland.png`,
-        saudiarabia: `./assets/pin_sets/${pinTheme}/regions/world/region_saudiarabia.png`,
-        somalia: `./assets/pin_sets/${pinTheme}/regions/world/region_somalia.png`,
-        southafrica: `./assets/pin_sets/${pinTheme}/regions/world/region_southafrica.png`,
-        spain: `./assets/pin_sets/${pinTheme}/regions/world/region_spain.png`,
-        sudan: `./assets/pin_sets/${pinTheme}/regions/world/region_sudan.png`,
-        taiwan: `./assets/pin_sets/${pinTheme}/regions/world/region_taiwan.png`,
-        ukraine: `./assets/pin_sets/${pinTheme}/regions/world/region_ukraine.png`,
-        unitedkingdom: `./assets/pin_sets/${pinTheme}/regions/world/region_unitedkingdom.png`,
+        anhui: `./assets/pin_sets/${pinTheme}/regions/china/region_anhui.png`,
+        xinjiang: `./assets/pin_sets/${pinTheme}/regions/china/region_xinjiang.png`,
+        heilongjiang: `./assets/pin_sets/${pinTheme}/regions/china/region_heilongjiang.png`,
+        innermongolia: `./assets/pin_sets/${pinTheme}/regions/china/region_innermongolia.png`,
+        jilin: `./assets/pin_sets/${pinTheme}/regions/china/region_jilin.png`,
+        liaoning: `./assets/pin_sets/${pinTheme}/regions/china/region_liaoning.png`,
+        hebei: `./assets/pin_sets/${pinTheme}/regions/china/region_hebei.png`,
+        beijing: `./assets/pin_sets/${pinTheme}/regions/china/region_beijing.png`,
+        tianjin: `./assets/pin_sets/${pinTheme}/regions/china/region_tianjin.png`,
+        shanxi: `./assets/pin_sets/${pinTheme}/regions/china/region_shanxi.png`,
+        shaanxi: `./assets/pin_sets/${pinTheme}/regions/china/region_shaanxi.png`,
+        ningxia: `./assets/pin_sets/${pinTheme}/regions/china/region_ningxia.png`,
+        gansu: `./assets/pin_sets/${pinTheme}/regions/china/region_gansu.png`,
+        qinghai: `./assets/pin_sets/${pinTheme}/regions/china/region_qinghai.png`,
+        tibet: `./assets/pin_sets/${pinTheme}/regions/china/region_tibet.png`,
+        sichuan: `./assets/pin_sets/${pinTheme}/regions/china/region_sichuan.png`,
+        chongqing: `./assets/pin_sets/${pinTheme}/regions/china/region_chongqing.png`,
+        yunnan: `./assets/pin_sets/${pinTheme}/regions/china/region_yunnan.png`,
+        guizhou: `./assets/pin_sets/${pinTheme}/regions/china/region_guizhou.png`,
+        guangxi: `./assets/pin_sets/${pinTheme}/regions/china/region_guangxi.png`,
+        guangdong: `./assets/pin_sets/${pinTheme}/regions/china/region_guangdong.png`,
+        hunan: `./assets/pin_sets/${pinTheme}/regions/china/region_hunan.png`,
+        jiangxi: `./assets/pin_sets/${pinTheme}/regions/china/region_jiangxi.png`,
+        fujian: `./assets/pin_sets/${pinTheme}/regions/china/region_fujian.png`,
+        zhejiang: `./assets/pin_sets/${pinTheme}/regions/china/region_zhejiang.png`,
+        shanghai: `./assets/pin_sets/${pinTheme}/regions/china/region_shanghai.png`,
+        jiangsu: `./assets/pin_sets/${pinTheme}/regions/china/region_jiangsu.png`,
+        henan: `./assets/pin_sets/${pinTheme}/regions/china/region_henan.png`,
+        shandong: `./assets/pin_sets/${pinTheme}/regions/china/region_shandong.png`,
+        hainan: `./assets/pin_sets/${pinTheme}/regions/china/region_hainan.png`,
     } 
 
     // Site logo
@@ -2041,11 +2028,11 @@
     let regionTallyIcon3 = document.getElementById("region-tally-3");
     let regionTallyIcon4 = document.getElementById("region-tally-4");
     let regionTallyIcon5 = document.getElementById("region-tally-5");
-        regionTallyIcon1.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-blank.png`;
-        regionTallyIcon2.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-blank.png`;
-        regionTallyIcon3.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-blank.png`;
-        regionTallyIcon4.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-blank.png`;
-        regionTallyIcon5.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-blank.png`;
+        regionTallyIcon1.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-1.png`;
+        regionTallyIcon2.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-2.png`;
+        regionTallyIcon3.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-3.png`;
+        regionTallyIcon4.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-4.png`;
+        regionTallyIcon5.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-5.png`;
     // icons
     document.getElementById("ui-map-icon").src = `./assets/pin_sets/${pinTheme}/pins/ui_map-icon.png`;
     document.getElementById("ui-identified-icon").src = `./assets/pin_sets/${pinTheme}/pins/ui_identified-icon.png`;
@@ -2110,7 +2097,7 @@
     
 
     // Load GeoJSON data
-    axios.get('./data/cityswap_world1k.geojson').then(response => {
+    axios.get('./data/cityswappr_china1k.geojson').then(response => {
         
         const geojsonData = response.data;
 
@@ -2153,6 +2140,7 @@
 
             onEachFeature: (feature, layer) => {
                 layer.state = 'neutral'; // Set default state
+                ////console.log("feature", layer.feature.properties.name, "is", layer.feature.properties.level_counter);
 
                 // Assign random COLOR to number pins (skip rainbow pins)
                 if (layer.feature.properties.color === 'random') {
@@ -2239,13 +2227,13 @@
                     // IF EMPTY
                     if (layer.state === 'empty') {
                         beep1.play();
-                        ////console.log("can't play on empty pin")
+                        //console.log("can't play on empty pin")
                         return
                     } 
                     // IF CLEARED
                     else if (layer.state === 'cleared') {
                         beep1.play();
-                        ////console.log("can't play on cleared pin")
+                        //console.log("can't play on cleared pin")
                         return
                     }
                     // IF NEUTRAL
@@ -2258,13 +2246,13 @@
                         if (heldPin && heldPin.feature.properties.color === 'inspector') {
                             // prevent playing inspector on a base 2 pin, trigger failed swap
                                 if (layer.feature.properties.slot >= 8) {
-                                    ////console.log("cannot play inspector on base2 pin")
+                                    //console.log("cannot play inspector on base2 pin")
                                     // handle failed swap
                                         recolorHeldPin(heldPin);
                                         clearHeldPinDisplay();
                                         heldPin = null;
                                         beep2.play();
-                                        ////console.log("beep2 at inspector failed play on base 2 pin")
+                                        //console.log("beep2 at inspector failed play on base 2 pin")
                                         setPinIcon(layer); // sets icon immediately (so you don't have to wait for mouseout)
                                     return
                                 }
@@ -2302,7 +2290,7 @@
                         else if (heldPin && heldPin.feature.properties.color === 'wild') {
                             // prevent playing wild on a base 2 pin
                                 if (layer.feature.properties.slot >= 8) {
-                                        ////console.log("cannot play wild on base2 pin")
+                                        //console.log("cannot play wild on base2 pin")
                                         // handle failed swap
                                             recolorHeldPin(heldPin);
                                             clearHeldPinDisplay();

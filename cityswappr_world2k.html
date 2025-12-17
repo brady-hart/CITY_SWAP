@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>City Swap 🗽NYC</title>
+  <title>City Swap 🌍🌍 WORLD 2K</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
@@ -12,9 +12,9 @@
         margin: 0;
         padding: 0;
         overflow: hidden;
-    }   
+    } 
     #map {
-        height: 100vh;
+      height: 100vh;
     }
   </style>
 </head>
@@ -25,7 +25,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
     
         <div id="controls">
-            <input type="text" id="input-field" placeholder="Type city name"/>
+            <input type="text" id="input-field" placeholder="Type city name" />
             <button id="about-creator-btn">Copyright © 2025 Brady Hart LLC. All rights reserved.</button>
         </div>
 
@@ -33,11 +33,11 @@
 
         <!-- scoreboard and feature bar-->
         <div id="main">
-            <img id="cityswap-logo-dark" src="cityswap_logo_dark.png" alt="City Swap Logo">
+            <img id="cityswap-logo-dark" src="cityswappr_logo_dark.png" alt="City Swap Logo">
             <div id="scoreboard">
                 <div id="map-title-wrapper">
                     <img id="ui-map-icon" class="ui-icon" title="Map" src = "",>
-                    <div id="map-display">🗽 NEW YORK CITY</div>
+                    <div id="map-display">🌍🌍 WORLD 2K</div>
                 </div>
                 
                 <span style="padding: 3px"></span>
@@ -93,7 +93,7 @@
                 <span style="padding: 15px"></span>
 
                 <div id="mode-container">
-                    <img id="gameoverbox-logo" src="cityswap_logo_light.png" alt="City Swap Logo">
+                    <img id="gameoverbox-logo" src="cityswappr_logo_light.png" alt="City Swap Logo">
                 </div>
 
                 <span style="padding: 20px"></span>
@@ -288,7 +288,7 @@
             display: flex;
             justify-content: center;
             z-index: 1000; /* Ensure it's above the map */
-            padding: 0px;
+            padding: 10px;
             border-radius: 5px;
         }
         #about-creator-btn {
@@ -672,7 +672,7 @@
 
     // Initialize the map
     //setView([32.8872, 13.1914], 3); // Centered on world (Tripoli)
-    const map = L.map('map').setView([40.7080, -74.0110], 11); // Centered on Financial District, Manhattan
+    const map = L.map('map').setView([32.8872, 13.1914], 3); // Centered on Tripoli
 
     // Add OpenStreetMap tiles
     // Other map styles: 
@@ -1939,15 +1939,53 @@
     }
     
     const regionIcons = {
-        bronx: `./assets/pin_sets/${pinTheme}/regions/newyorkcity/region_bronx.png`,
-        queens: `./assets/pin_sets/${pinTheme}/regions/newyorkcity/region_queens.png`,
-        brooklyn: `./assets/pin_sets/${pinTheme}/regions/newyorkcity/region_brooklyn.png`,
-        statenisland: `./assets/pin_sets/${pinTheme}/regions/newyorkcity/region_statenisland.png`,
-        manhattan: `./assets/pin_sets/${pinTheme}/regions/newyorkcity/region_manhattan.png`,
+        brazil: `./assets/pin_sets/${pinTheme}/regions/world/region_brazil.png`,
+        bangladesh:`./assets/pin_sets/${pinTheme}/regions/world/region_bangladesh.png`,
+        canada:`./assets/pin_sets/${pinTheme}/regions/world/region_canada.png`,
+        china: `./assets/pin_sets/${pinTheme}/regions/world/region_china.png`,
+        colombia: `./assets/pin_sets/${pinTheme}/regions/world/region_colombia.png`,
+        drc: `./assets/pin_sets/${pinTheme}/regions/world/region_drc.png`,
+        india: `./assets/pin_sets/${pinTheme}/regions/world/region_india.png`,
+        indonesia: `./assets/pin_sets/${pinTheme}/regions/world/region_indonesia.png`,
+        iran: `./assets/pin_sets/${pinTheme}/regions/world/region_iran.png`,
+        iraq: `./assets/pin_sets/${pinTheme}/regions/world/region_iraq.png`,
+        japan: `./assets/pin_sets/${pinTheme}/regions/world/region_japan.png`,
+        mexico: `./assets/pin_sets/${pinTheme}/regions/world/region_mexico.png`,
+        nigeria: `./assets/pin_sets/${pinTheme}/regions/world/region_nigeria.png`,
+        pakistan: `./assets/pin_sets/${pinTheme}/regions/world/region_pakistan.png`,
+        philippines: `./assets/pin_sets/${pinTheme}/regions/world/region_philippines.png`,
+        russia: `./assets/pin_sets/${pinTheme}/regions/world/region_russia.png`,
+        southkorea: `./assets/pin_sets/${pinTheme}/regions/world/region_southkorea.png`,
+        turkey: `./assets/pin_sets/${pinTheme}/regions/world/region_turkey.png`,
+        unitedstates: `./assets/pin_sets/${pinTheme}/regions/world/region_unitedstates.png`,
+        venezuela: `./assets/pin_sets/${pinTheme}/regions/world/region_venezuela.png`,
+        vietnam: `./assets/pin_sets/${pinTheme}/regions/world/region_vietnam.png`,
+        angola: `./assets/pin_sets/${pinTheme}/regions/world/region_angola.png`,
+        argentina: `./assets/pin_sets/${pinTheme}/regions/world/region_argentina.png`,
+        australia: `./assets/pin_sets/${pinTheme}/regions/world/region_australia.png`,
+        cotedivoire: `./assets/pin_sets/${pinTheme}/regions/world/region_cotedivoire.png`,
+        egypt: `./assets/pin_sets/${pinTheme}/regions/world/region_egypt.png`,
+        germany: `./assets/pin_sets/${pinTheme}/regions/world/region_germany.png`,
+        italy: `./assets/pin_sets/${pinTheme}/regions/world/region_italy.png`,
+        kazakhstan: `./assets/pin_sets/${pinTheme}/regions/world/region_kazakhstan.png`,
+        northkorea: `./assets/pin_sets/${pinTheme}/regions/world/region_northkorea.png`,
+        malaysia: `./assets/pin_sets/${pinTheme}/regions/world/region_malaysia.png`,
+        morocco: `./assets/pin_sets/${pinTheme}/regions/world/region_morocco.png`,
+        peru: `./assets/pin_sets/${pinTheme}/regions/world/region_peru.png`,
+        poland: `./assets/pin_sets/${pinTheme}/regions/world/region_poland.png`,
+        saudiarabia: `./assets/pin_sets/${pinTheme}/regions/world/region_saudiarabia.png`,
+        somalia: `./assets/pin_sets/${pinTheme}/regions/world/region_somalia.png`,
+        southafrica: `./assets/pin_sets/${pinTheme}/regions/world/region_southafrica.png`,
+        spain: `./assets/pin_sets/${pinTheme}/regions/world/region_spain.png`,
+        sudan: `./assets/pin_sets/${pinTheme}/regions/world/region_sudan.png`,
+        taiwan: `./assets/pin_sets/${pinTheme}/regions/world/region_taiwan.png`,
+        ukraine: `./assets/pin_sets/${pinTheme}/regions/world/region_ukraine.png`,
+        unitedkingdom: `./assets/pin_sets/${pinTheme}/regions/world/region_unitedkingdom.png`,
     } 
 
     // Site logo
     const cityswapLogoDark = document.getElementById("cityswap-logo-dark")
+
 
     // SCORE TRACKING VARIABLES
     const mainElement = document.getElementById("main")
@@ -2003,11 +2041,11 @@
     let regionTallyIcon3 = document.getElementById("region-tally-3");
     let regionTallyIcon4 = document.getElementById("region-tally-4");
     let regionTallyIcon5 = document.getElementById("region-tally-5");
-        regionTallyIcon1.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-blank.png`;
-        regionTallyIcon2.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-blank.png`;
-        regionTallyIcon3.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-blank.png`;
-        regionTallyIcon4.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-blank.png`;
-        regionTallyIcon5.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-blank.png`;
+        regionTallyIcon1.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-1.png`;
+        regionTallyIcon2.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-2.png`;
+        regionTallyIcon3.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-3.png`;
+        regionTallyIcon4.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-4.png`;
+        regionTallyIcon5.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-5.png`;
     // icons
     document.getElementById("ui-map-icon").src = `./assets/pin_sets/${pinTheme}/pins/ui_map-icon.png`;
     document.getElementById("ui-identified-icon").src = `./assets/pin_sets/${pinTheme}/pins/ui_identified-icon.png`;
@@ -2021,7 +2059,7 @@
 
     // About Creator button
     const aboutCreatorBtn = document.getElementById("about-creator-btn");
-
+    
     // GAMEOVER STUFF
     const gameOverBox = document.getElementById("game-over-box")
     const finalStatsBar = document.getElementById("final-stats-bar")
@@ -2072,7 +2110,7 @@
     
 
     // Load GeoJSON data
-    axios.get('./data/cityswap_newyorkcity.geojson').then(response => {
+    axios.get('./data/cityswappr_world2k.geojson').then(response => {
         
         const geojsonData = response.data;
 
@@ -2227,6 +2265,7 @@
                                         clearHeldPinDisplay();
                                         heldPin = null;
                                         beep2.play();
+                                        //console.log("beep2 at inspector failed play on base 2 pin")
                                         setPinIcon(layer); // sets icon immediately (so you don't have to wait for mouseout)
                                     return
                                 }
@@ -2270,14 +2309,18 @@
                                             clearHeldPinDisplay();
                                             heldPin = null;
                                             beep2.play();
+                                            //console.log("beep2 at wild failed play on base 2 pin")
                                             setPinIcon(layer); // sets icon immediately (so you don't have to wait for mouseout)
                                         return
                                 }
 
                             // play wild on base 1 pins
                                 layer.state = 'identified';
+                                ////console.log("just set state to", layer.state)
                                 feature.properties.color = 'rainbow';
+                                //console.log("feature's color set to", layer.feature.properties.color)
                                 setRainbowPinIcon(layer);
+                                ////console.log("didn't change slot. it is:", layer.feature.properties.slot)
                                 // spend and destroy wild
                                 heldPin.feature.properties.color = 'empty';
                                 heldPin.layer.state = 'empty';
@@ -2323,7 +2366,8 @@
                             // change clicked icon to placeholder
                             layer.setIcon(placeholderIcon);
                             //layer.state = 'clicked';
-                             
+                            ////console.log("layer.state was just changed to 'clicked' ")
+                            
                             click1.play(); // replace with first swap sound
                         } else {
                             // A pin is already held — check if it's swappable
@@ -2333,6 +2377,7 @@
                             // for playing rainbow on an already colored pin:
                             if (layer.state === 'identified' && heldColor === 'wild') {
                                 feature.properties.color = 'rainbow';
+                                //console.log("color changed to", feature.properties.color)
                                 setRainbowPinIcon(layer);
                                 
                                 // spend and destroy wild
@@ -2379,21 +2424,24 @@
                             // Either same pin was clicked again, or slot mismatch
                             if (layer.state === 'wild') {
                                 layer.setIcon(wildHoverIcon);
+                                //console.log("wild hover icon set")
                                 beep2.play();
                                 recolorHeldPin(heldPin);
                             } else if (layer.state === 'inspector') {
                                 layer.setIcon(inspectorHoverIcon);
+                                //console.log("inspector hover icon set")
                                 beep2.play();
                                 recolorHeldPin(heldPin);
                             }
 
                             // handle other failed swaps
                                 beep2.play();
+                                //console.log("beep2 at other failed swaps ")
                                 recolorHeldPin(heldPin);
                                 clearHeldPinDisplay();
                                 setPinIcon(layer); // sets icon immediately (so you don't have to wait for mouseout)
                                 heldPin = null;
-                                //console.log("failed swap")
+                                //console.log("other failed swap")
                         }
 
                         // tracking
@@ -2422,7 +2470,7 @@
         console.error('Error loading GeoJSON data:', error);
     });
 
-    // Start Button event listener
+    
     startBtn.addEventListener('click', () => {
         initiateGame();
     })
@@ -2462,12 +2510,14 @@
                 ) {
                 // TODO highlight in some way? Zoom to the city?
                 beep1.play()
+                //console.log("IDENTIFIED icon was clicked")
             } else if (layer.feature.properties.name.toLowerCase().replace(/[^a-z0-9]/g, '') === inputName
                 && layer.state === 'clicked'
                 ) {
                 beep1.play()
                 // Clear the input field
                 document.getElementById('input-field').value = '';
+                //console.log("CLICKED icon was clicked")
             // IDENTIFY BY NAME
             } else if (layer.feature.properties.name.toLowerCase().replace(/[^a-z0-9]/g, '') === inputName
                 && layer.state === 'neutral'
@@ -2509,6 +2559,7 @@
                 // identify by PARENT
                 } else if (layer.feature.properties.parent.toLowerCase().replace(/[^a-z0-9]/g, '') === inputName) {
                 // get lat and lng and zoom to location
+                //console.log("parent identified:", layer.feature.properties.parent)
             } 
             // function to identify pin, update count, add label
             function identifyPin() {

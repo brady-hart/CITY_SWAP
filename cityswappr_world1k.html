@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>City Swap Tutorial</title>
+  <title>City Swap 🌍 WORLD 1K</title>
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <style>
     html, body {
         height: 100%;
         margin: 0;
         padding: 0;
         overflow: hidden;
-    }   
+    } 
     #map {
-        height: 100vh;
+      height: 100vh;
     }
   </style>
 </head>
@@ -25,19 +25,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
     
         <div id="controls">
-            <input type="text" id="input-field" placeholder="Type city name"/>
+            <input type="text" id="input-field" placeholder="Type city name" />
             <button id="about-creator-btn">Copyright © 2025 Brady Hart LLC. All rights reserved.</button>
         </div>
+        
 
         <div id="map" ></div>
 
         <!-- scoreboard and feature bar-->
         <div id="main">
-            <img id="cityswap-logo-dark" src="cityswap_logo_dark.png" alt="City Swap Logo">
+            <img id="cityswap-logo-dark" src="cityswappr_logo_dark.png" alt="City Swap Logo">
             <div id="scoreboard">
                 <div id="map-title-wrapper">
                     <img id="ui-map-icon" class="ui-icon" title="Map" src = "",>
-                    <div id="map-display">TUTORIAL</div>
+                    <div id="map-display">🌍 WORLD 1K</div>
                 </div>
                 
                 <span style="padding: 3px"></span>
@@ -46,6 +47,9 @@
                     <img id="ui-region-icon" class="ui-icon" title="Regions Cleared" src = "">
                     <img id="region-tally-1" class="region-tally" src="" alt="Region tally icon"/>
                     <img id="region-tally-2" class="region-tally" src="" alt="Region tally icon"/>
+                    <img id="region-tally-3" class="region-tally" src="" alt="Region tally icon"/>
+                    <img id="region-tally-4" class="region-tally" src="" alt="Region tally icon"/>
+                    <img id="region-tally-5" class="region-tally" src="" alt="Region tally icon"/>
                     <div id="regions-cleared-display"></div>
                 </div>
                 
@@ -63,23 +67,10 @@
                   <div id="swap-count-display">0</div>
                 </div>
             </div>
-            
-            <div id="tutorial-popup-box">
-                <div class="tutorial-content">
-                  <p id="tutorial-text"></p>
-              
-                  <div id="tutorial-progress"></div>
-                  
-                  <button id="tutorial-next-btn">Next</button>
-                  
-                  <button id="tutorial-start-over-btn">Start Over</button>
-                </div>
-              </div>
+
             <div id="timer-wrapper">
                 <div id="timer-display">00:00</div>
             </div>
-
-              
 
             <!--start screen-->
             <div id="start-screen">
@@ -98,12 +89,12 @@
 
             <!--game over screen-->
             <div id="game-over-box">
-                <div id="end-screen-map-title-display">You've learned how to play!</div>
+                <div id="end-screen-map-title-display">You won!</div>
                 
                 <span style="padding: 15px"></span>
 
                 <div id="mode-container">
-                    <img id="gameoverbox-logo" src="cityswap_logo_light.png" alt="City Swap Logo">
+                    <img id="gameoverbox-logo" src="cityswappr_logo_light.png" alt="City Swap Logo">
                 </div>
 
                 <span style="padding: 20px"></span>
@@ -207,7 +198,7 @@
         }
         #start-screen {
             position: fixed;
-            display: none;
+            display: flex;
             flex-direction: column;
             width: 100%;
             height: 350px;
@@ -298,7 +289,7 @@
             display: flex;
             justify-content: center;
             z-index: 1000; /* Ensure it's above the map */
-            padding: 0px;
+            padding: 10px;
             border-radius: 5px;
         }
         #about-creator-btn {
@@ -355,7 +346,7 @@
             position: relative;
             display: flex;
             justify-content: center;
-            align-items: cener;
+            align-items: center;
             pointer-events: none;
             text-align: center;
             color: #3a404f;
@@ -657,102 +648,12 @@
             font-weight: 700;
         }
         #timer-display {
-            display: none;
             font-family: 'Helvetica', 'Arial', sans-serif;
             text-align: center;
             color: #1e1f21ba;
             font-size: 14px;
             font-weight: 200;
         }
-        #tutorial-popup-box {
-            background: linear-gradient(to right, #3a404ef3, #4a4f4beb);
-            border-radius: 30px;
-            min-width: 60%;
-            max-width: 60%;
-        }
-        .tutorial-content {
-            padding: 0px 15px 15px 15px;
-            text-align: right;
-        }
-        #tutorial-text {
-            text-align: left;
-            font-family: helvetica, arial, sans-serif;
-            font-size: 18px;
-            color: #c4c4c4;
-        }
-        #tutorial-progress {
-            margin-top: 10px;
-            margin-bottom: 10px;
-            font-family: helvetica, arial, sans-serif;
-            font-size: 14px;
-            color: #c4c4c4;
-        }
-        #tutorial-next-btn {
-            cursor: pointer;
-            min-width: 160px;
-            max-width: 160px;
-            background: linear-gradient(to right, #ffffff30, #ffffff12, #ffffff23); /* Set your gradient colors */
-            border-radius: 40px;
-            padding: 5px 40px 5px;
-            font-family: Helvetica, Arial, sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            border: 1px solid #ffffffaa;
-            border-bottom: 1px solid #b4b4b49f;
-            color: #ffffff8d;
-            line-height: 26px;
-            /* drop shadow */
-            box-shadow: 0 11px 15px -7px rgb(0 0 0 / 30%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
-            z-index: 10; 
-        }
-        #tutorial-next-btn:hover {
-            box-shadow: 0px 6px 30px rgb(0 0 0 / 30%);
-            box-shadow: 0 0 8px #77a5e9, 0 0 16px #77a5e9, 0 0 32px #77a5e9; /* Multiple layers for stronger glow */
-            background: linear-gradient(to right, #ffffff95, #ffffff4d, #ffffffae); /* Set your gradient colors */
-            border: 1px solid #ffffffaa;
-            border-width: 10;
-            border-bottom: 1px solid #b4b4b49f;
-            font-size: 19px;
-            color: #ffffff;
-        }
-        #tutorial-next-btn:disabled {
-            cursor: normal;
-            box-shadow: 0px 6px 30px rgb(0 0 0 / 30%);
-            background: linear-gradient(to right, #42424295, #42424295, #42424295); /* Set your gradient colors */
-            border: 1px solid #ffffff2c;
-            border-width: 10;
-            border-bottom: 1px solid #b4b4b49f;
-            font-size: 19px;
-            color: #79797979;
-        }
-
-        #tutorial-start-over-btn {
-            cursor: pointer;
-            min-width: 100px;
-            background: linear-gradient(to right, #4c49b130, #595b9512, #32323223); /* Set your gradient colors */
-            border-radius: 40px;
-            font-family: Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            font-weight: 500;
-            border: 1px solid #ffffffaa;
-            border-bottom: 1px solid #b4b4b49f;
-            color: #ffffff8d;
-            line-height: 26px;
-            /* drop shadow */
-            box-shadow: 0 11px 15px -7px rgb(0 0 0 / 30%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
-            z-index: 10; 
-        }
-        #tutorial-start-over-btn:hover {
-            box-shadow: 0px 6px 30px rgb(0 0 0 / 30%);
-            box-shadow: 0 0 8px #8699d595, 0 0 16px #8699d595, 0 0 32px #8699d595; /* Multiple layers for stronger glow */
-            background: linear-gradient(to right, #656f8c95, #2c25514d, #32235dae); /* Set your gradient colors */
-            border: 1px solid #ffffffaa;
-            border-width: 10;
-            border-bottom: 1px solid #b4b4b49f;
-            font-size: 14px;
-            color: #ffffff;
-        }
-
         .region-tally {
             max-width: 36px;
             max-height: 36px;
@@ -771,8 +672,8 @@
 
 
     // Initialize the map
-    //setView([32.8872, 13.1914], 3); // Centered on Scranton
-    const map = L.map('map').setView([43.4103, -75.6611], 6); // Centered on USA (Omaha, Nebraska)
+    //setView([32.8872, 13.1914], 3); // Centered on world (Tripoli)
+    const map = L.map('map').setView([32.8872, 13.1914], 3); // Centered on Tripoli
 
     // Add OpenStreetMap tiles
     // Other map styles: 
@@ -1937,7 +1838,7 @@
         10: `./assets/pin_sets/${pinTheme}/pins/rainbow-10.png`,
     }
 
-    const colorOptions = ["red", "blue", "yellow"];
+    const colorOptions = ["red", "yellow", "blue", "green", "purple"];
     const slotOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     const heldPinImagesArray = {
         red: {
@@ -2039,57 +1940,48 @@
     }
     
     const regionIcons = {
-        alabama: `./assets/pin_sets/${pinTheme}/regions/us/region_alabama.png`,
-        alaska: `./assets/pin_sets/${pinTheme}/regions/us/region_alaska.png`,
-        arizona: `./assets/pin_sets/${pinTheme}/regions/us/region_arizona.png`,
-        arkansas: `./assets/pin_sets/${pinTheme}/regions/us/region_arkansas.png`,
-        california: `./assets/pin_sets/${pinTheme}/regions/us/region_california.png`,
-        colorado: `./assets/pin_sets/${pinTheme}/regions/us/region_colorado.png`,
-        connecticut: `./assets/pin_sets/${pinTheme}/regions/us/region_connecticut.png`,
-        delaware: `./assets/pin_sets/${pinTheme}/regions/us/region_delaware.png`,
-        florida: `./assets/pin_sets/${pinTheme}/regions/us/region_florida.png`,
-        georgia: `./assets/pin_sets/${pinTheme}/regions/us/region_georgia.png`,
-        hawaii: `./assets/pin_sets/${pinTheme}/regions/us/region_hawaii.png`,
-        idaho: `./assets/pin_sets/${pinTheme}/regions/us/region_idaho.png`,
-        illinois: `./assets/pin_sets/${pinTheme}/regions/us/region_illinois.png`,
-        indiana: `./assets/pin_sets/${pinTheme}/regions/us/region_indiana.png`,
-        iowa: `./assets/pin_sets/${pinTheme}/regions/us/region_iowa.png`,
-        kansas: `./assets/pin_sets/${pinTheme}/regions/us/region_kansas.png`,
-        kentucky: `./assets/pin_sets/${pinTheme}/regions/us/region_kentucky.png`,
-        louisiana: `./assets/pin_sets/${pinTheme}/regions/us/region_louisiana.png`,
-        maine: `./assets/pin_sets/${pinTheme}/regions/us/region_maine.png`,
-        maryland: `./assets/pin_sets/${pinTheme}/regions/us/region_maryland.png`,
-        massachusetts: `./assets/pin_sets/${pinTheme}/regions/us/region_massachusetts.png`,
-        michigan: `./assets/pin_sets/${pinTheme}/regions/us/region_michigan.png`,
-        minnesota: `./assets/pin_sets/${pinTheme}/regions/us/region_minnesota.png`,
-        mississippi: `./assets/pin_sets/${pinTheme}/regions/us/region_mississippi.png`,
-        missouri: `./assets/pin_sets/${pinTheme}/regions/us/region_missouri.png`,
-        montana: `./assets/pin_sets/${pinTheme}/regions/us/region_montana.png`,
-        nebraska: `./assets/pin_sets/${pinTheme}/regions/us/region_nebraska.png`,
-        nevada: `./assets/pin_sets/${pinTheme}/regions/us/region_nevada.png`,
-        newhampshire: `./assets/pin_sets/${pinTheme}/regions/us/region_newhampshire.png`,
-        newjersey: `./assets/pin_sets/${pinTheme}/regions/us/region_newjersey.png`,
-        newmexico: `./assets/pin_sets/${pinTheme}/regions/us/region_newmexico.png`,
-        newyork: `./assets/pin_sets/${pinTheme}/regions/us/region_newyork.png`,
-        northcarolina: `./assets/pin_sets/${pinTheme}/regions/us/region_northcarolina.png`,
-        northdakota: `./assets/pin_sets/${pinTheme}/regions/us/region_northdakota.png`,
-        ohio: `./assets/pin_sets/${pinTheme}/regions/us/region_ohio.png`,
-        oklahoma: `./assets/pin_sets/${pinTheme}/regions/us/region_oklahoma.png`,
-        oregon: `./assets/pin_sets/${pinTheme}/regions/us/region_oregon.png`,
-        pennsylvania: `./assets/pin_sets/${pinTheme}/regions/us/region_pennsylvania.png`,
-        rhodeisland: `./assets/pin_sets/${pinTheme}/regions/us/region_rhodeisland.png`,
-        southcarolina: `./assets/pin_sets/${pinTheme}/regions/us/region_southcarolina.png`,
-        southdakota: `./assets/pin_sets/${pinTheme}/regions/us/region_southdakota.png`,
-        tennessee: `./assets/pin_sets/${pinTheme}/regions/us/region_tennessee.png`,
-        texas: `./assets/pin_sets/${pinTheme}/regions/us/region_texas.png`,
-        utah: `./assets/pin_sets/${pinTheme}/regions/us/region_utah.png`,
-        vermont: `./assets/pin_sets/${pinTheme}/regions/us/region_vermont.png`,
-        virginia: `./assets/pin_sets/${pinTheme}/regions/us/region_virginia.png`,
-        washington: `./assets/pin_sets/${pinTheme}/regions/us/region_washington.png`,
-        westvirginia: `./assets/pin_sets/${pinTheme}/regions/us/region_westvirginia.png`,
-        wisconsin: `./assets/pin_sets/${pinTheme}/regions/us/region_wisconsin.png`,
-        wyoming: `./assets/pin_sets/${pinTheme}/regions/us/region_wyoming.png`,
-
+        brazil: `./assets/pin_sets/${pinTheme}/regions/world/region_brazil.png`,
+        bangladesh:`./assets/pin_sets/${pinTheme}/regions/world/region_bangladesh.png`,
+        canada:`./assets/pin_sets/${pinTheme}/regions/world/region_canada.png`,
+        china: `./assets/pin_sets/${pinTheme}/regions/world/region_china.png`,
+        colombia: `./assets/pin_sets/${pinTheme}/regions/world/region_colombia.png`,
+        drc: `./assets/pin_sets/${pinTheme}/regions/world/region_drc.png`,
+        india: `./assets/pin_sets/${pinTheme}/regions/world/region_india.png`,
+        indonesia: `./assets/pin_sets/${pinTheme}/regions/world/region_indonesia.png`,
+        iran: `./assets/pin_sets/${pinTheme}/regions/world/region_iran.png`,
+        iraq: `./assets/pin_sets/${pinTheme}/regions/world/region_iraq.png`,
+        japan: `./assets/pin_sets/${pinTheme}/regions/world/region_japan.png`,
+        mexico: `./assets/pin_sets/${pinTheme}/regions/world/region_mexico.png`,
+        nigeria: `./assets/pin_sets/${pinTheme}/regions/world/region_nigeria.png`,
+        pakistan: `./assets/pin_sets/${pinTheme}/regions/world/region_pakistan.png`,
+        philippines: `./assets/pin_sets/${pinTheme}/regions/world/region_philippines.png`,
+        russia: `./assets/pin_sets/${pinTheme}/regions/world/region_russia.png`,
+        southkorea: `./assets/pin_sets/${pinTheme}/regions/world/region_southkorea.png`,
+        turkey: `./assets/pin_sets/${pinTheme}/regions/world/region_turkey.png`,
+        unitedstates: `./assets/pin_sets/${pinTheme}/regions/world/region_unitedstates.png`,
+        venezuela: `./assets/pin_sets/${pinTheme}/regions/world/region_venezuela.png`,
+        vietnam: `./assets/pin_sets/${pinTheme}/regions/world/region_vietnam.png`,
+        angola: `./assets/pin_sets/${pinTheme}/regions/world/region_angola.png`,
+        argentina: `./assets/pin_sets/${pinTheme}/regions/world/region_argentina.png`,
+        australia: `./assets/pin_sets/${pinTheme}/regions/world/region_australia.png`,
+        cotedivoire: `./assets/pin_sets/${pinTheme}/regions/world/region_cotedivoire.png`,
+        egypt: `./assets/pin_sets/${pinTheme}/regions/world/region_egypt.png`,
+        germany: `./assets/pin_sets/${pinTheme}/regions/world/region_germany.png`,
+        italy: `./assets/pin_sets/${pinTheme}/regions/world/region_italy.png`,
+        kazakhstan: `./assets/pin_sets/${pinTheme}/regions/world/region_kazakhstan.png`,
+        northkorea: `./assets/pin_sets/${pinTheme}/regions/world/region_northkorea.png`,
+        malaysia: `./assets/pin_sets/${pinTheme}/regions/world/region_malaysia.png`,
+        morocco: `./assets/pin_sets/${pinTheme}/regions/world/region_morocco.png`,
+        peru: `./assets/pin_sets/${pinTheme}/regions/world/region_peru.png`,
+        poland: `./assets/pin_sets/${pinTheme}/regions/world/region_poland.png`,
+        saudiarabia: `./assets/pin_sets/${pinTheme}/regions/world/region_saudiarabia.png`,
+        somalia: `./assets/pin_sets/${pinTheme}/regions/world/region_somalia.png`,
+        southafrica: `./assets/pin_sets/${pinTheme}/regions/world/region_southafrica.png`,
+        spain: `./assets/pin_sets/${pinTheme}/regions/world/region_spain.png`,
+        sudan: `./assets/pin_sets/${pinTheme}/regions/world/region_sudan.png`,
+        taiwan: `./assets/pin_sets/${pinTheme}/regions/world/region_taiwan.png`,
+        ukraine: `./assets/pin_sets/${pinTheme}/regions/world/region_ukraine.png`,
+        unitedkingdom: `./assets/pin_sets/${pinTheme}/regions/world/region_unitedkingdom.png`,
     } 
 
     // Site logo
@@ -2149,8 +2041,11 @@
     let regionTallyIcon3 = document.getElementById("region-tally-3");
     let regionTallyIcon4 = document.getElementById("region-tally-4");
     let regionTallyIcon5 = document.getElementById("region-tally-5");
-        regionTallyIcon1.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-blank.png`;
-        regionTallyIcon2.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-blank.png`;
+        regionTallyIcon1.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-1.png`;
+        regionTallyIcon2.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-2.png`;
+        regionTallyIcon3.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-3.png`;
+        regionTallyIcon4.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-4.png`;
+        regionTallyIcon5.src = `./assets/pin_sets/${pinTheme}/pins/ui_region-tally-5.png`;
     // icons
     document.getElementById("ui-map-icon").src = `./assets/pin_sets/${pinTheme}/pins/ui_map-icon.png`;
     document.getElementById("ui-identified-icon").src = `./assets/pin_sets/${pinTheme}/pins/ui_identified-icon.png`;
@@ -2159,13 +2054,12 @@
 
 
     // GAME START STUFF
-    
     // start btn
     const startBtn = document.getElementById("start-btn");
 
     // About Creator button
     const aboutCreatorBtn = document.getElementById("about-creator-btn");
-
+    
     // GAMEOVER STUFF
     const gameOverBox = document.getElementById("game-over-box")
     const finalStatsBar = document.getElementById("final-stats-bar")
@@ -2216,7 +2110,7 @@
     
 
     // Load GeoJSON data
-    axios.get('./data/cityswap_tutorial.geojson').then(response => {
+    axios.get('./data/cityswappr_world1k.geojson').then(response => {
         
         const geojsonData = response.data;
 
@@ -2259,26 +2153,10 @@
 
             onEachFeature: (feature, layer) => {
                 layer.state = 'neutral'; // Set default state
-                ////console.log("feature", layer.feature.properties.name, "is", layer.feature.properties.level_counter);
 
                 // Assign random COLOR to number pins (skip rainbow pins)
                 if (layer.feature.properties.color === 'random') {
-                    if (layer.feature.properties.name === 'New York') {
-                        layer.feature.properties.color = 'red'
-                    } else if (layer.feature.properties.name === 'Philadelphia') {
-                        layer.feature.properties.color = 'blue'
-                    } else if (layer.feature.properties.name === 'Buffalo') {
-                        layer.feature.properties.color = 'yellow'
-                    } else if (layer.feature.properties.name === 'Rochester') {
-                        layer.feature.properties.color = 'red'
-                    } else if (layer.feature.properties.name === 'Allentown') {
-                        layer.feature.properties.color = 'yellow'
-                    } else if (layer.feature.properties.name === 'Pittsburgh') {
-                        layer.feature.properties.color = 'red'
-                    } 
-
-
-                    //layer.feature.properties.color = colorOptions[Math.floor(Math.random() * colorOptions.length)];
+                    layer.feature.properties.color = colorOptions[Math.floor(Math.random() * colorOptions.length)];
                 }
                 // Assign color 'item' to pins with 
 
@@ -2361,13 +2239,13 @@
                     // IF EMPTY
                     if (layer.state === 'empty') {
                         beep1.play();
-                        //console.log("can't play on empty pin")
+                        ////console.log("can't play on empty pin")
                         return
                     } 
                     // IF CLEARED
                     else if (layer.state === 'cleared') {
                         beep1.play();
-                        //console.log("can't play on cleared pin")
+                        ////console.log("can't play on cleared pin")
                         return
                     }
                     // IF NEUTRAL
@@ -2380,12 +2258,13 @@
                         if (heldPin && heldPin.feature.properties.color === 'inspector') {
                             // prevent playing inspector on a base 2 pin, trigger failed swap
                                 if (layer.feature.properties.slot >= 8) {
-                                    //console.log("cannot play inspector on base2 pin")
+                                    ////console.log("cannot play inspector on base2 pin")
                                     // handle failed swap
                                         recolorHeldPin(heldPin);
                                         clearHeldPinDisplay();
                                         heldPin = null;
                                         beep2.play();
+                                        ////console.log("beep2 at inspector failed play on base 2 pin")
                                         setPinIcon(layer); // sets icon immediately (so you don't have to wait for mouseout)
                                     return
                                 }
@@ -2423,20 +2302,24 @@
                         else if (heldPin && heldPin.feature.properties.color === 'wild') {
                             // prevent playing wild on a base 2 pin
                                 if (layer.feature.properties.slot >= 8) {
-                                        //console.log("cannot play wild on base2 pin")
+                                        ////console.log("cannot play wild on base2 pin")
                                         // handle failed swap
                                             recolorHeldPin(heldPin);
                                             clearHeldPinDisplay();
                                             heldPin = null;
                                             beep2.play();
+                                            //console.log("beep2 at wild failed play on base 2 pin")
                                             setPinIcon(layer); // sets icon immediately (so you don't have to wait for mouseout)
                                         return
                                 }
 
                             // play wild on base 1 pins
                                 layer.state = 'identified';
+                                ////console.log("just set state to", layer.state)
                                 feature.properties.color = 'rainbow';
+                                //console.log("feature's color set to", layer.feature.properties.color)
                                 setRainbowPinIcon(layer);
+                                ////console.log("didn't change slot. it is:", layer.feature.properties.slot)
                                 // spend and destroy wild
                                 heldPin.feature.properties.color = 'empty';
                                 heldPin.layer.state = 'empty';
@@ -2482,7 +2365,8 @@
                             // change clicked icon to placeholder
                             layer.setIcon(placeholderIcon);
                             //layer.state = 'clicked';
-                             
+                            ////console.log("layer.state was just changed to 'clicked' ")
+                            
                             click1.play(); // replace with first swap sound
                         } else {
                             // A pin is already held — check if it's swappable
@@ -2492,6 +2376,7 @@
                             // for playing rainbow on an already colored pin:
                             if (layer.state === 'identified' && heldColor === 'wild') {
                                 feature.properties.color = 'rainbow';
+                                //console.log("color changed to", feature.properties.color)
                                 setRainbowPinIcon(layer);
                                 
                                 // spend and destroy wild
@@ -2529,6 +2414,7 @@
                                 clearHeldPinDisplay(); // Hide visual held pin info
 
                                 swapCount++; // count swap
+                                //triggerGameEnd() // only for TESTING
                                 swapCountDisplay.textContent = swapCount;
 
                                 woosh1.play(); // replace with second swap sound
@@ -2537,21 +2423,24 @@
                             // Either same pin was clicked again, or slot mismatch
                             if (layer.state === 'wild') {
                                 layer.setIcon(wildHoverIcon);
+                                //console.log("wild hover icon set")
                                 beep2.play();
                                 recolorHeldPin(heldPin);
                             } else if (layer.state === 'inspector') {
                                 layer.setIcon(inspectorHoverIcon);
+                                //console.log("inspector hover icon set")
                                 beep2.play();
                                 recolorHeldPin(heldPin);
                             }
 
                             // handle other failed swaps
                                 beep2.play();
+                                //console.log("beep2 at other failed swaps ")
                                 recolorHeldPin(heldPin);
                                 clearHeldPinDisplay();
                                 setPinIcon(layer); // sets icon immediately (so you don't have to wait for mouseout)
                                 heldPin = null;
-                                //console.log("failed swap")
+                                //console.log("other failed swap")
                         }
 
                         // tracking
@@ -2580,62 +2469,10 @@
         console.error('Error loading GeoJSON data:', error);
     });
 
-    // Start Button event listener
+    
     startBtn.addEventListener('click', () => {
         initiateGame();
     })
-
-    // TUTORIAL POP UP LOGIC:
-    const tutorialSteps = [
-    "In City Swap, the objective is to clear the regions on the map by organizing their pins by color. On this tutorial map, there are 2 regions: the US states of New York and Pennsylvania. Right now, all the pins are all locked. You need to unlock them to show their colors.",
-    "Type 'New York' into the field at the bottom of the screen. Then type 'Philadelphia'. You've now unlocked those two pins. New York and Philadelphia are the largest cities in their regions, so they carry the number 1.",
-    "Because they're both a number 1 pin, they can be swapped for each other. Try clicking New York and then Philadelphia. You'll see that they switch places (and the swap is recorded in the toolbar above). Swapping pins is how you'll organize regions by color.",
-    "Next, you need to unlock the other scoring pins on the map by typing their names from memory. Here are some names to get you started: 'Pittsburgh', 'Buffalo', and 'Allentown.'", 
-    "And now let's identify some of the smaller pins. Type 'Syracuse', 'Erie', and 'Albany.' These smaller pins are item pins. They have a chance to drop a useful item. They may also be empty. In this case, Albany and Erie were carrying useful items. The pin on Erie is called an inspector pin. This pin is useful if you can't remember the name of a scoring pin.",
-    "Click Erie to pick up the inspector, then play it on the last unidentified scoring pin in the region of New York. This will reveal Rochester. (Note: if you already identified Rochester, you can skip this step.)",
-    "The pin on Albany is a wild pin. It can be used to change the color of any scoring pin to rainbow, which counts as any color. Wild pins are the most valuable in the game.",
-    "To win the game, you need to organize the two regions by color. You'll notice that you have a lot of yellow and red pins, and only one blue. This blue pin will be a problem because it doesn't match the other colors. Try using the wild pin to change its color to rainbow. Rainbow pins count as all colors, so the rainbow pin can now act as a yellow or a red.",
-    "From here, all you have to do to complete the puzzle is to swap pins around until both regions' scoring pins are organized by color. See if you can clear both regions! Note that pins can only be swapped by number. Click the start over button any time if you're stuck.",
-    ];
-
-    let currentStep = 0;
-
-    const popup = document.getElementById("tutorial-popup-box");
-    const text = document.getElementById("tutorial-text");
-    const nextBtn = document.getElementById("tutorial-next-btn");
-    const startOverBtn = document.getElementById("tutorial-start-over-btn");
-    const progress = document.getElementById("tutorial-progress");
-
-    function updateTutorialUI() {
-        text.textContent = tutorialSteps[currentStep];
-        progress.textContent = `${currentStep + 1} / ${tutorialSteps.length}`;
-
-          // Disable button if last step
-        nextBtn.disabled = currentStep === tutorialSteps.length - 1;
-    }
-
-    function showTutorial() {
-        currentStep = 0;
-        popup.classList.remove("hidden");
-        updateTutorialUI();
-    }
-
-    nextBtn.addEventListener("click", () => {
-        currentStep++;
-        if (currentStep < tutorialSteps.length) {
-            updateTutorialUI();
-        } else {
-            popup.classList.add("hidden");
-        }
-    });
-
-    startOverBtn.addEventListener("click", () => {
-        location.reload();
-    });
-
-    // Optional: auto-start or call showTutorial() from your game
-    showTutorial();
-
 
     // About Creator Button event listener
     aboutCreatorBtn.addEventListener('click', () => {
@@ -2653,10 +2490,6 @@
     exitBtn.addEventListener('click', () => {
         window.location.href = "index.html";
     })
-
-    // start tutorial
-    initiateGame();
-
 
     // IDENTIFY LOGIC
     document.getElementById('input-field').addEventListener('input', () => {
@@ -2676,12 +2509,14 @@
                 ) {
                 // TODO highlight in some way? Zoom to the city?
                 beep1.play()
+                //console.log("IDENTIFIED icon was clicked")
             } else if (layer.feature.properties.name.toLowerCase().replace(/[^a-z0-9]/g, '') === inputName
                 && layer.state === 'clicked'
                 ) {
                 beep1.play()
                 // Clear the input field
                 document.getElementById('input-field').value = '';
+                //console.log("CLICKED icon was clicked")
             // IDENTIFY BY NAME
             } else if (layer.feature.properties.name.toLowerCase().replace(/[^a-z0-9]/g, '') === inputName
                 && layer.state === 'neutral'
@@ -2695,31 +2530,27 @@
                     }
                     // handle base2 pins:
                     if (layer.feature.properties.color === 'item') {
-                        //const rng = Math.random(); // returns value between 0 and 1
+                        const rng = Math.random(); // returns value between 0 and 1
                         
-                        // set Albany to wild
-                        if (layer.feature.properties.name === 'Albany') {
+                        if (rng < 0.25) {
+                            // 10% chance for WILD
                             layer.feature.properties.color = 'wild'
                             layer.state = 'wild';
                             layer.setIcon(wildIcon);
                             toneGlassLow.play(); // unique sound
-                            console.log ("set albany")
-                        } // Set Erie to inspector
-                        else if (layer.feature.properties.name === 'Erie') {
+                        } else if (rng >= .25 && rng < .5) {
+                            // 20% chance for INSPECTOR
                             layer.feature.properties.color = 'inspector'
                             layer.state = 'inspector';
-                            layer.setIcon(inspectorIcon);
+                            layer.setIcon(inspectorIcon)
                             toneGlassHigh.play(); // unique sound
-                            console.log("set Erie")
-                        } // set others to empty
-                        else {
+                        } else {
+                            // remaining 70% chance for EMPTY
                             layer.feature.properties.color = 'empty'
                             layer.state = 'empty';
                             layer.setIcon(emptyIcon);
                             toneRetro1.play(); // replace with special EMPTY sound?
-                            console.log("set empty")
                         }
-
                         identifyPin();
                         // Clear the input field after successful identification
                         document.getElementById('input-field').value = '';
@@ -2727,6 +2558,7 @@
                 // identify by PARENT
                 } else if (layer.feature.properties.parent.toLowerCase().replace(/[^a-z0-9]/g, '') === inputName) {
                 // get lat and lng and zoom to location
+                //console.log("parent identified:", layer.feature.properties.parent)
             } 
             // function to identify pin, update count, add label
             function identifyPin() {
@@ -2904,7 +2736,7 @@
                 });
 
                 const usedRainbows = [];
-                for (let i = 1; i <= 3; i++) {
+                for (let i = 1; i <= 7; i++) {
                     if (!slotMap[i]) {
                         const rainbow = rainbowLayers.find(r => !usedRainbows.includes(r));
                         if (rainbow) {
@@ -2917,7 +2749,7 @@
                 }
 
                 let isFlush = true;
-                for (let i = 1; i <= 3; i++) {
+                for (let i = 1; i <= 7; i++) {
                     if (!slotMap[i]) {
                         isFlush = false;
                         break;
@@ -2926,7 +2758,7 @@
 
                 if (isFlush) {
                     const flushLayerSet = new Set();
-                    for (let i = 1; i <= 3; i++) {
+                    for (let i = 1; i <= 7; i++) {
                         const layer = slotMap[i];
                         flushLayerSet.add(layer);
                         layer.state = 'cleared';
@@ -2961,6 +2793,12 @@
             regionTallyIcon1.src = regionIcons[parentKey] || backupIcon;
         } else if (regionsCleared === 2) {
             regionTallyIcon2.src = regionIcons[parentKey] || backupIcon;
+        } else if (regionsCleared === 3) {
+            regionTallyIcon3.src = regionIcons[parentKey] || backupIcon;
+        } else if (regionsCleared === 4) {
+            regionTallyIcon4.src = regionIcons[parentKey] || backupIcon;
+        } else if (regionsCleared === 5) {
+            regionTallyIcon5.src = regionIcons[parentKey] || backupIcon;
             setTimeout(triggerGameEnd, 1000);
             // play audio?
         }
@@ -2970,7 +2808,7 @@
         scoreboard.style.display
         inputField.disabled = false;
         // START GAME TIMER
-        //startGameTimer();
+        startGameTimer();
         document.getElementById('start-screen').style.display = 'none';  
         heldPinDisplay.style.display = 'flex';
         click1.play();
@@ -2979,13 +2817,10 @@
     }
 
     function triggerGameEnd() {
-        const popUpBox = document.getElementById("tutorial-popup-box")
-        popUpBox.style.display = 'none';
-
         const finalTimeSeconds = Math.floor((Date.now() - gameStartTime) / 1000);
 
         clearInterval(gameTimerInterval);
-        //updateTimerDisplay(); // one final update
+        updateTimerDisplay(); // one final update
 
         inputField.disabled = true;
         inputField.style.display = 'none';
