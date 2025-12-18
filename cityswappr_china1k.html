@@ -155,6 +155,26 @@
         <!--Held Pin Display-->
         <div id="held-pin-display">
             <img id="held-pin-img" src="" alt="Held pin image"/>
+            <div id="info-box">
+                <button class="info-toggle" id="infoToggle">
+                    🔍 How to Play ▸
+                </button>
+                
+                <div class="info-content" id="infoContent">
+                    <p style="font-weight: 600;">
+                    The goal of the game is to "clear" any 5 regions (or subdivisions) on the map by following these steps:
+                    </p>
+                    <p>
+                    1. Name cities from memory to "unlock" them. The 7 largest cities in a region are the scoring pins (larger pins). Smaller pins are optional, and may carry useful items.
+                    </p>
+                    <p>
+                    2. Swap pins around by number in order to group colors together. If you're missing a certain color... swap! It's the name of the game, after all.
+                    </p>
+                    <p>
+                    3. When pins 1 through 7 in a single region are the same color, that region is cleared (it will turn black). Clear 5 regions to win!
+                    </p>
+                </div>
+            </div>
         </div>
 
 <!--CONTROLS-->
@@ -378,20 +398,65 @@
         }
         #held-pin-display {
             position: absolute;
-            top: 8%;
+            top: 5%;
             right: 5%;
             
             display: none;
-            flex-direction: row;
+            flex-direction: column;
             align-items: center;
 
             background-color: #8d8d8d56;
             border-radius: 18px;
             padding: 2px 10px 10px 10px;
+            gap: 10px;
         }
         #held-pin-img {
             max-width: 120px;
             max-height: 120px;
+        }
+        #info-box {
+            display: flex;
+            flex-direction: column;
+            width: 175px;
+            background-color: #efefefe8;
+            font-family: sans-serif;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            font-family: helvetica, sans-serif;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .info-toggle {
+            width: 100%;
+            background: none;
+            border: none;
+            color: #1e1f21df;
+            padding: 12px 16px;
+            font-size: 14px;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .info-toggle:hover {
+            background: rgba(147, 147, 147, 0.236);
+        }
+
+        .info-content {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 16px;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .info-content.open {
+            max-height: 80%; /* enough for a few paragraphs */
+            padding: 12px 16px 16px;
+        }
+
+        .info-content p {
+        margin: 0 0 10px;
+        font-size: 12px;
+        line-height: 1.4;
         }
     </style>
 
@@ -2479,6 +2544,15 @@
         window.location.href = "index.html";
     })
 
+    // info content box
+    const toggleBtn = document.getElementById("infoToggle");
+    const content = document.getElementById("infoContent");
+
+    toggleBtn.addEventListener("click", () => {
+    const isOpen = content.classList.toggle("open");
+    toggleBtn.textContent = isOpen ? "🔍 How to Play ▾" : "🔍 How to Play ▸";
+    });
+
     // IDENTIFY LOGIC
     document.getElementById('input-field').addEventListener('input', () => {
 
@@ -2798,6 +2872,7 @@
         // START GAME TIMER
         startGameTimer();
         document.getElementById('start-screen').style.display = 'none';  
+        document.getElementById('info-box').style.display = 'flex';  
         heldPinDisplay.style.display = 'flex';
         click1.play();
         toneLong1.play();
