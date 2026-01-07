@@ -29,6 +29,16 @@
             z-index: 1000;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
         }
+        #cityswappr-nav-logo {
+            position: absolute;
+            display: flex;
+            width: 170px;
+            height: auto;
+            top: 5px;
+            left: 10px;
+            transform: translate (0,0);
+            z-index: 20;
+        }
         .fixed-bg {
             position: fixed;
             /* Sets the element to fill the viewport height for visibility */
@@ -59,7 +69,6 @@
             justify-content: center;
             min-width: none;
             max-width: fit-content;
-            gap: 30px;
         }
         #mode-header {
             display: flex;
@@ -108,6 +117,12 @@
             border-radius: 15px;
             box-shadow: 3px 3px 35px black;
         }
+        #maps-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
         #explainer-container {
             display: flex;
             justify-content: space-between;
@@ -121,18 +136,16 @@
         }
 
         /* Start Screen stuff */
-        #page-title {
+        #game-mode-title-container {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 20px;
         }
         #game-title {
             font-family: 'Helvetica', 'Arial', sans-serif;
             color: white;
             font-size: 32px;
             font-weight: 700;
-            padding: 0px, 0px, 100px, 0px;
+            padding: 0px, 0px, 0px, 0px;
         }
         #map-title-display {
             cursor: auto;
@@ -149,46 +162,24 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 50px;
+            padding: 0px, 0px, 0px, 0px;
         }
         #header-section-elements-container {
             display: flex;
             flex-direction: row;
-            gap: 30px;
             padding: 0px, 0px, 0px, 0px;
         }
-        #select-map-btn {
-            cursor: pointer;
-            min-width: 160px;
-            background: linear-gradient(to right, #ffffff30, #ffffff12, #ffffff23); /* Set your gradient colors */
-            border-radius: 40px;
-            padding: 5px 40px 5px;
+        #page-title {
             font-family: Helvetica, Arial, sans-serif;
-            font-size: 18px;
+            font-size: 26px;
             font-weight: 700;
-            border: 1px solid #ffffffaa;
-            border-bottom: 1px solid #b4b4b49f;
-            color: #ffffff8d;
-            line-height: 26px;
-            /* drop shadow */
-            box-shadow: 0 11px 15px -7px rgb(0 0 0 / 30%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
-            z-index: 10; 
-        }
-        #select-map-btn:hover {
-            box-shadow: 0px 6px 30px rgb(0 0 0 / 30%);
-            box-shadow: 0 0 8px #77a5e9, 0 0 16px #77a5e9, 0 0 32px #77a5e9; /* Multiple layers for stronger glow */
-            background: linear-gradient(to right, #ffffff95, #ffffff4d, #ffffffae); /* Set your gradient colors */
-            border: 1px solid #ffffffaa;
-            border-width: 10;
-            border-bottom: 1px solid #b4b4b49f;
-            font-size: 19px;
-            color: #ffffff;
+            color: white;
         }
         .step-by-step-box {
             display: flex;
             flex-direction: column;
             align-items: left;
-            max-width: 250px;
+            max-width: 400px;
             gap: 20px;
         }
         .step-by-step-title {
@@ -199,7 +190,7 @@
         }
         .step-by-step-art {
             border-radius: 20px;
-            max-width: 250px;
+            max-width: 350px;
             max-height: 100px;
             box-shadow: 0 11px 15px -7px rgb(0 0 0 / 30%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
         }
@@ -285,12 +276,18 @@
                     font-family: Helvetica, Arial, sans-serif;
                     justify-content: space-between;
                     padding: 0px 0px 0px 0px;
-                    min-width: 1300px;
-                    outline: none;
-                    background-color: none;
                 }
                 #map-title-label {
-                    min-width: none;
+                    position: fixed;
+                    left: 20px;
+                }
+                #description-label {
+                    position: relative;
+                    left: -235px;
+                }
+                #difficulty-label {
+                    position: relative;
+                    right: -275px;
                 }
                 #map-title-wrapper {
                     display: flex;
@@ -350,132 +347,52 @@
                     font-style: italic;
                 }
 
-                #cityswappr-logo-light {
-                    width: 200px;
+                .play-button {
+                    cursor: pointer;
+                    min-width: 160px;
+                    max-width: 160px;
+                    background: linear-gradient(to right, #ffffff30, #ffffff12, #ffffff23); /* Set your gradient colors */
+                    border-radius: 40px;
+                    padding: 5px 40px 5px;
+                    font-family: Helvetica, Arial, sans-serif;
+                    font-size: 16px;
+                    font-weight: 700;
+                    border: 1px solid #ffffffaa;
+                    border-bottom: 1px solid #b4b4b49f;
+                    color: #ffffff8d;
+                    line-height: 26px;
+                    /* drop shadow */
+                    box-shadow: 0 11px 15px -7px rgb(0 0 0 / 30%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
+                    z-index: 10; 
+                } 
+                .play-button:hover {
+                    box-shadow: 0px 6px 30px rgb(0 0 0 / 30%);
+                    box-shadow: 0 0 8px #77a5e9, 0 0 16px #77a5e9, 0 0 32px #77a5e9; /* Multiple layers for stronger glow */
+                    background: linear-gradient(to right, #ffffff95, #ffffff4d, #ffffffae); /* Set your gradient colors */
+                    border: 1px solid #ffffffaa;
+                    border-width: 10;
+                    border-bottom: 1px solid #b4b4b49f;
+                    font-size: 19px;
+                    color: #ffffff;
                 }
-    </style>
-
-    <style>
-        /* STYLE FOR FEATURE INFO TOOLBAR */
-        #cityswappr-nav-logo {
-            position: absolute;
-            display: flex;
-            width: 170px;
-            height: auto;
-            top: 5px;
-            left: 10px;
-            transform: translate (0,0);
-            z-index: 20;
-        }
-        /* Main toolbar container */
-        .feature-toolbar {
-            display: flex;
-            justify-content: center; /* Center the toolbar in its container */
-            padding: 4px;
-        }
-        /* CSS Styling for the feature name display */
-        #feature-name-display {
-            cursor: auto;
-            font-family: 'Helvetica', 'Arial', sans-serif;
-            text-align: center;
-            outline: 0;
-            padding: 5px 20px;
-            background-color: #e1f6f7;
-            border-radius: 15px;
-            color: #25293e;
-            font-size: 14px;
-            font-weight: 700;
-        }
-        #pending-pts-display {
-            cursor: auto;
-            font-family: 'Helvetica', 'Arial', sans-serif;
-            text-align: center;
-            outline: 0;
-            padding: 3px 20px;
-            background-color: #3e4258;
-            border-radius: 11px;
-            color: #6e7496;
-            font-size: 14px;
-            font-weight: 400;
-            padding: 6px;
-        }
-        /* CSS Styling for the Province clue button */
-        #province-clue-btn {
-            display: inline-block;
-            cursor: pointer;
-            font-family: 'Helvetica', 'Arial', sans-serif;
-            text-align: center;
-            outline: 0;
-            padding: 3px 20px;
-            border: 3px solid #2b7238e5;
-            border-bottom: 5px solid #2b7238e5;
-            border-radius: 15px;
-            background: linear-gradient(to right, #a2a846, #439462); /* Set your gradient colors */
-            color: rgb(206, 211, 223);
-            font-size: 14px;
-            font-weight: 400;
-        }
-        #province-clue-btn:hover {
-            color: rgb(255, 255, 255);
-            font-size: 14px;
-            border: 3px solid #4fe894e5;
-            border-bottom: 5px solid #4fe894e5;
-            border-radius: 15px;
-            background: linear-gradient(to right, #ebdd60, #5ede8f); /* Set your gradient colors */
-            box-shadow: 0px 6px 30px rgb(0 0 0 / 30%);
-            font-weight: 700;
-        }
-        #province-clue-btn:disabled {
-            pointer-events: none;
-            cursor: auto;
-            background: #29764de5; /* Set your gradient colors */
-            border: 0px solid #2a6177e5;
-            border-bottom: 0px solid #2a6177e5;
-            color: rgb(190, 208, 214);
-        }
-        /* COUNTRY CLUE BUTTON */
-        #country-clue-btn {
-            display: inline-block;
-            cursor: pointer;
-            font-family: 'Helvetica', 'Arial', sans-serif;
-            text-align: center;
-            outline: 0;
-            padding: 3px 20px;
-            border: 3px solid #2a6177e5;
-            border-bottom: 5px solid #2a6177e5;
-            border-radius: 15px;
-            background: linear-gradient(to right, #4686a8, #3d7575); /* Set your gradient colors */
-            color: rgb(206, 211, 223);
-            font-size: 14px;
-            font-weight: 400;
-        }
-        #country-clue-btn:hover {
-            color: rgb(255, 255, 255);
-            font-size: 14px;
-            border: 3px solid #35dbc2e5;
-            border-bottom: 5px solid #35dbc2e5;
-            border-radius: 15px;
-            background: linear-gradient(to right, #5cbaece5, #60f4dde5); /* Set your gradient colors */
-            box-shadow: 0px 6px 30px rgb(0 0 0 / 30%);
-            font-weight: 700;
-        }
-        #country-clue-btn:disabled {
-            pointer-events: none;
-            cursor: auto;
-            background: #2a6177e5; /* Set your gradient colors */
-            border: 0px solid #2a6177e5;
-            border-bottom: 0px solid #2a6177e5;
-            color: rgb(190, 208, 214);
-        }
-        #data-info-text {
-            bottom: 10%;
-            font-family: Helvetica, Arial, sans-serif;
-            font-size: 12px;
-            color: #8c8c8c;
-            background: none;
-            border: none;
-        }
-
+                .coming-soon-btn {
+                    cursor: pointer;
+                    min-width: 160px;
+                    max-width: 160px;
+                    background: linear-gradient(to right, #ffffff30, #ffffff12, #ffffff23); /* Set your gradient colors */
+                    border-radius: 40px;
+                    padding: 5px 40px 5px;
+                    font-family: Helvetica, Arial, sans-serif;
+                    font-size: 16px;
+                    font-weight: 700;
+                    border: 1px solid #ffffffaa;
+                    border-bottom: 1px solid #b4b4b49f;
+                    color: #ffffff8d;
+                    line-height: 26px;
+                    /* drop shadow */
+                    box-shadow: 0 11px 15px -7px rgb(0 0 0 / 30%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
+                    z-index: 10; 
+                } 
     </style>
   
   
@@ -483,62 +400,198 @@
     <nav class="navbar" id="navbar">
         <ul class="nav-links">
             <img id="cityswappr-nav-logo" src="cityswappr_logo_light.png" alt="CitySwappr Logo">
-            <li><a href="#home"></a></li>
+            <li><a href="index.html"></a></li>
         </ul>
     </nav>
 
     <div class="fixed-bg"></div>
     
     <!--GAME MODE TITLE PAGE CONTENT-->
-    <div id="page-container" class="container" >
+    <div id="page-container" >
         <!--INFO, ICON AND TITLE-->
         
         <!--start screen-->
         <div id="header-section">
-
-            <div id="page-title">
-                <img id="cityswappr-logo-light" src="cityswappr_logo_light.png"/>
-                <span id="game-title">A geography game with a number puzzle twist!</span>
+            <div id="game-mode-title-container">
+                    <!--<span id="game-title"> 🗺️ 🌍 🧠 CitySwappr: a geography game with a number puzzle twist</span> -->
+                    <span id="game-title">CHOOSE A MAP 🗺️👇</span> 
             </div>
-            
-            <div id="header-section-elements-container">
-
-                <div class="step-by-step-box">
-                    <span class="step-by-step-title">
-                        1. Type city names.
-                    </span>                        
-                    <img id="step-1-box" class="step-by-step-art" src=""/>
-                    <span class="game-description">
-                        Type as many city names from memory as you can!
-                    </span>
-                </div>
-
-                <div class="step-by-step-box">
-                    <span class="step-by-step-title">
-                        2. Swap for the right color.
-                    </span>  
-                    <img id="step-2-box" class="step-by-step-art" src=""/>
-                    <span class="game-description">
-                        Swap pins by number. Use items like the Inspector and the Wild pin.
-                    </span>
-                </div>
-                
-                <div class="step-by-step-box">
-                    <span class="step-by-step-title">
-                        3. Clear 5 regions to win.
-                    </span> 
-                    <img id="step-3-box" class="step-by-step-art" src=""/>
-                    <span class="game-description">
-                        Clear a region by organizing all of its numbered pins in one color. Then clear 5 regions to win!
-                    </span>
-                </div>
-            </div>
-            
         </div>
 
-        <button id="select-map-btn">SEE THE MAPS ➡️</button>
+        <!--holds all the map bars-->
+        <div id="maps-container" >
+            <!--Explainer Container-->
+            <div id="explainer-container">
+            </div>
 
-        <audio id="click-wood-tone-1" src="sounds/click-wood-tone-1.wav"></audio>        
+            <audio id="click-wood-tone-1" src="sounds/click-wood-tone-1.wav"></audio>
+
+            <!--label bar-->
+            <div id="label-bar" class="">
+                <!--left-->
+                <div id="map-title-label">
+                    <div style="display: flex; flex-direction: row; align-items: center; gap: 10px; ">
+                        <img id="ui-map-icon" src="./assets/general_art/ui_map-icon.png" class="ui-icon",>
+                        <span>Map</span>
+                    </div>
+                </div>
+                
+                <!--center (grouped)-->
+                <div id="description-label">
+                    <span>❓ Description</span>
+                </div>
+                
+                <!--right-->
+                <div id="difficulty-label">
+                    <span>Difficulty</span>
+                </div>
+            </div>
+
+            <!--map bar 0 Tutorial-->
+            <div id="map-0-tutorial" class="tutorial-bar">
+                <!--left-->
+                <div id="tutorial-title-wrapper">
+                    <div id="map-0-title" class="tutorial-title">💡🧑‍🎓 TUTORIAL</div>
+                </div>
+
+                <!--center left-->
+                <div class="description-wrapper">
+                    <p class="map-description">First time? Learn how to play here!</p>
+                </div>
+
+                <!--center right-->
+                <div class="plays-wrapper">
+                    <span id="map-0-play-count">⌛ (Approx. 4 min)</span>
+                </div>
+
+                <!--right-->
+                <button id="map-0-btn" class="play-button">PLAY</button>
+            </div>
+
+            <!--map bar 1 USA1K-->
+            <div id="map-1-usa1k-bar" class="map-bar map-bar-normal">
+                <!--left-->
+                <div id="map-title-wrapper">
+                    <div id="map-1-title" class="map-title">🇺🇸 USA 1K</div>
+                </div>
+
+                <!--center left-->
+                <div class="description-wrapper">
+                    <p class="map-description">1,000 largest cities in The United States</p>
+                </div>
+
+                <!--center right-->
+                <div class="plays-wrapper">
+                    <span id="map-1-play-count">💪(Normal)</span>
+                </div>
+
+                <!--right-->
+                <button id="map-1-btn" class="play-button">PLAY</button>
+            </div>
+
+            <!--map bar 2 WORLD1K-->
+            <div id="map-2-world1k-bar" class="map-bar map-bar-normal">
+                <div id="map-title-wrapper">
+                    <div id="map-2-title" class="map-title">🌎 World 1K</div>
+                </div>
+
+                <!--center left-->
+                <div class="description-wrapper">
+                    <p class="map-description">1,000 largest cities in the world</p>
+                </div>
+
+                <!--center right-->
+                <div class="plays-wrapper">
+                    <span id="map-2-play-count" >💪(Normal)</span>
+                </div>
+
+                <!--right-->
+                <button id="map-2-btn" class="play-button">PLAY</button>
+            </div>
+
+            <!--map bar 3 WORLD2K-->
+            <div id="map-3-world1k-bar" class="map-bar map-bar-normal">
+                <div id="map-title-wrapper">
+                    <div id="map-3-title" class="map-title">🌎🌏 World 2K</div>
+                </div>
+
+                <!--center left-->
+                <div class="description-wrapper">
+                    <p class="map-description">2,000 largest cities in the world</p>
+                </div>
+
+                <!--center right-->
+                <div class="plays-wrapper">
+                    <span id="map-3-play-count" >💪(Normal)</span>
+                </div>
+
+                <!--right-->
+                <button id="map-3-btn" class="play-button">PLAY</button>
+            </div>
+
+            <!--map bar 4 MAINLAND CHINA-->
+            <div id="map-4-china1k-bar" class="map-bar map-bar-very-hard">
+                <!--left-->
+                <div id="map-title-wrapper">
+                    <div id="map-4-title" class="map-title">🇨🇳 Mainland China 1K</div>
+                </div>
+
+                <!--center left-->
+                <div class="description-wrapper">
+                    <p class="map-description">915 largest cities in Mainland China</p>
+                </div>
+
+                <!--center right-->
+                <div class="plays-wrapper">
+                    <span id="map-4-play-count">💪💪💪(Very Hard)</span>
+                </div>
+
+                <!--right-->
+                <button id="map-4-btn" class="play-button">PLAY</button>
+            </div>
+
+            <!--map bar 5 New York City-->
+            <div id="map-5-europe1k-bar" class="map-bar map-bar-hard">
+                <!--left-->
+                <div id="map-title-wrapper">
+                    <div id="map-5-title" class="map-title">🗽 New York City</div>
+                </div>
+
+                <!--center left-->
+                <div class="description-wrapper">
+                    <p class="map-description">Clear the Big Apple's 5 boroughs! (Around 200 neighborhoods)</p>
+                </div>
+
+                <!--center right-->
+                <div class="plays-wrapper">
+                    <span id="map-5-play-count">💪💪(Hard)</span>
+                </div>
+
+                <!--right-->
+                <button id="map-5-btn" class="play-button">PLAY</button>
+            </div>
+            
+            <!--map bar 6 Europe 1K-->
+            <div id="map-6-europe1k-bar" class="coming-soon-map-bar">
+                <!--left-->
+                <div id="map-title-wrapper">
+                    <div id="map-6-title" class="map-title">🌍🏰 Europe 1K</div>
+                </div>
+
+                <!--center left-->
+                <div class="description-wrapper">
+                    <p class="map-description">1,000 largest cities in Europe</p>
+                </div>
+
+                <!--center right-->
+                <div class="plays-wrapper">
+                    <span id="map-5-play-count">Working on it!</span>
+                </div>
+            </div>
+        </div>
+        
+        <span id="data-info-text">Data from citypopulation.de, wikipedia.org, other sources</span>
+        
     </div>
     
     
@@ -555,6 +608,12 @@
         // AUDIO
         const click1 = document.getElementById('click-wood-tone-1');
         click1.volume = 0.5;
+
+        //site logo clickability
+        const cityswapprNavLogo = document.getElementById('cityswappr-nav-logo')
+        cityswapprNavLogo.addEventListener('click', () => {
+            window.location.href = "index.html";
+        })
               
         // Import the functions you need from the SDKs you need
         //import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
@@ -585,19 +644,35 @@
         }
 
         const pinTheme = 'triangles';
-
-        const step1Box = document.getElementById("step-1-box");
-            step1Box.src = `./assets/pin_sets/${pinTheme}/pins/how-to-gif-1.gif`;
-        const step2Box = document.getElementById("step-2-box");
-            step2Box.src = `./assets/pin_sets/${pinTheme}/pins/how-to-gif-2.gif`;
-        const step3Box = document.getElementById("step-3-box");
-            step3Box.src = `./assets/pin_sets/${pinTheme}/pins/how-to-gif-3.gif`;
       
-        const selectMapBtn = document.getElementById("select-map-btn")
-        selectMapBtn.addEventListener("click", () => {
+        const buttons = [
+          { btn: document.getElementById('map-0-btn'), span: document.getElementById('map-1-play-count'), key: "map1", url: "cityswappr_tutorial.html" },
+          { btn: document.getElementById('map-1-btn'), span: document.getElementById('map-1-play-count'), key: "map1", url: "cityswappr_usa1k.html" },
+          { btn: document.getElementById('map-2-btn'), span: document.getElementById('map-2-play-count'), key: "map2", url: "cityswappr_world1k.html" },
+          { btn: document.getElementById('map-3-btn'), span: document.getElementById('map-3-play-count'), key: "map3", url: "cityswappr_world2k.html" },
+          { btn: document.getElementById('map-4-btn'), span: document.getElementById('map-4-play-count'), key: "map4", url: "cityswappr_china1k.html" },
+          { btn: document.getElementById('map-5-btn'), span: document.getElementById('map-5-play-count'), key: "map5", url: "cityswappr_newyorkcity.html" },
+          { btn: document.getElementById('map-6-btn'), span: document.getElementById('map-6-play-count'), key: "map6", url: "cityswappr_uk1k.html" },
+        ];
+
+      
+        // Listen for clicks & updates
+        buttons.forEach(({ btn, span, key, url }) => {
+          //const clicksRef = ref(db, "clicks/" + key);
+          //onValue(clicksRef, snapshot => {
+            //span.textContent = snapshot.val() || 0;
+          //});
+      
+          btn.addEventListener("click", () => {
+            //incrementClick(key);
             click1.play();
-            setTimeout(() => { window.location.href = "cityswappr_map_selection.html"; }, 300);
-          })
+            setTimeout(() => { window.location.href = url; }, 300);
+          });
+        });
+
+        // disable coming soon buttons 
+        const map6Button = document.getElementById('map-6-btn');
+        map6Button.disabled = true;
 
     </script>
       
