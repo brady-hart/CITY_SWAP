@@ -30,6 +30,7 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
         }
         #cityswappr-nav-logo {
+            cursor: pointer;
             position: absolute;
             display: flex;
             width: 170px;
@@ -69,6 +70,7 @@
             justify-content: center;
             min-width: none;
             max-width: fit-content;
+            gap: 25px;
         }
         #mode-header {
             display: flex;
@@ -202,197 +204,201 @@
             padding: 10px 0px 10px 0px;
         }
 
-                /* MAP BARS */
-                .tutorial-bar {
-                    display: grid;
-                    grid-template-columns: auto 1fr auto auto;
-                    text-align: left;
-                    align-items: center;
-                    justify-content: space-between;
-                    min-width: 1300px;
-                    color: rgba(255, 255, 255, 0.747);
-                    font-family: Helvetica, Arial, sans-serif;
-                    outline: solid 1px #838383;
-                    background-color: #0f15166e;
-                    border-radius: 25px;
-                    padding: 0px 0px 0px 0px;
-                    box-shadow: 3px 3px 35px rgba(0, 0, 0, 0.5);
-                }
-                .tutorial-bar:hover {
-                    color: rgb(255, 255, 255);
-                    background-color: #4450526e;
-                }
-                .map-bar {
-                    display: grid;
-                    grid-template-columns: auto 1fr auto auto;
-                    text-align: left;
-                    align-items: center;
-                    justify-content: space-between;
-                    min-width: 1300px;
-                    color: rgba(255, 255, 255, 0.747);
-                    font-family: Helvetica, Arial, sans-serif;
-                    outline: solid 1px #ffffff;
-                    background-color: #b3e2e76e;
-                    border-radius: 25px;
-                    padding: 0px 0px 0px 0px;
-                    box-shadow: 3px 3px 35px rgba(0, 0, 0, 0.5);
-                } 
+        /* MAP BARS */
+        .tutorial-bar {
+            display: grid;
+            grid-template-columns: auto 1fr auto auto;
+            text-align: left;
+            align-items: center;
+            justify-content: space-between;
+            min-width: 1300px;
+            color: rgba(255, 255, 255, 0.747);
+            font-family: Helvetica, Arial, sans-serif;
+            outline: solid 1px #838383;
+            background-color: #0f15166e;
+            border-radius: 25px;
+            box-shadow: 3px 3px 35px rgba(0, 0, 0, 0.5);
+        }
+        .tutorial-bar:hover {
+            color: rgb(255, 255, 255);
+            background-color: #4450526e;
+        }
+        .map-bar {
+            display: grid;
+            grid-template-columns: auto 1fr auto auto;
+            text-align: left;
+            align-items: center;
+            justify-content: space-between;
+            min-width: 1300px;
+            color: rgba(255, 255, 255, 0.747);
+            font-family: Helvetica, Arial, sans-serif;
+            outline: solid 1px #ffffff;
+            background-color: #b3e2e76e;
+            border-radius: 25px;
+            padding: 0px 0px 0px 0px;
+            box-shadow: 3px 3px 35px rgba(0, 0, 0, 0.5);
+        } 
 
-                .map-bar:hover {
-                    background-color: #b3dae7ac;
-                }
-                .map-bar-normal {
-                    background-color: #4cc98a6e;
-                }
-                .map-bar-hard {
-                    background-color: #c9c94c6e;
-                }
-                .map-bar-very-hard {
-                    background-color: #dd6b6b6e;
-                }
-                .coming-soon-map-bar {
-                    display: grid;
-                    grid-template-columns: auto 1fr auto auto;
-                    text-align: left;
-                    align-items: center;
-                    justify-content: space-between;
-                    min-width: 1300px;
-                    color: rgba(193, 193, 193, 0.747);
-                    font-family: Helvetica, Arial, sans-serif;
-                    outline: solid 1px #ffffff;
-                    background-color: #4e52536e;
-                    border-radius: 25px;
-                    padding: 0px 0px 0px 0px;
-                    box-shadow: 3px 3px 35px rgba(0, 0, 0, 0.5);
-                }
-                
-                #label-bar {
-                    display: grid;
-                    grid-template-columns: auto 1fr auto auto;
-                    text-align: left;
-                    align-items: center;
-                    color: rgba(255, 255, 255, 0.5);
-                    font-size: 14px;
-                    font-family: Helvetica, Arial, sans-serif;
-                    justify-content: space-between;
-                    padding: 0px 0px 0px 0px;
-                }
-                #map-title-label {
-                    position: fixed;
-                    left: 20px;
-                }
-                #description-label {
-                    position: relative;
-                    left: -235px;
-                }
-                #difficulty-label {
-                    position: relative;
-                    right: -275px;
-                }
-                #map-title-wrapper {
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    justify-content: left;
-                    min-width: 250px;
-                    min-height: 38px;
-                    padding: 0px 20px 0px 20px;
-                    gap: 10px;
-                    border-radius: 20px;
-                    background-color: #1e1f21df;
-                }
-                #tutorial-title-wrapper {
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    justify-content: left;
-                    min-width: 250px;
-                    min-height: 38px;
-                    padding: 0px 20px 0px 20px;
-                    gap: 10px;
-                    border-radius: 20px;
-                    background-color: #47494d00;
-                }
-                .tutorial-title {
-                    display: block;
-                    font-family: Helvetica, Arial, sans-serif;
-                    font-weight: 400;
-                    font-size: 14px;
-                }
-                .description-wrapper, .plays-wrapper {
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    justify-content: left;
-                    min-width: 300px;
-                    min-height: 38px;
-                    padding: 0px 50px 0px 100px;
-                    gap: 0px;
-                    border-radius: 20px;
-                    background-color: none;
-                }
+        .map-bar:hover {
+            background-color: #b3dae7ac;
+        }
+        .map-bar-normal {
+            background-color: #4cc98a6e;
+        }
+        .map-bar-hard {
+            background-color: #c9c94c6e;
+        }
+        .map-bar-very-hard {
+            background-color: #dd6b6b6e;
+        }
+        .coming-soon-map-bar {
+            display: grid;
+            grid-template-columns: auto 1fr auto auto;
+            text-align: left;
+            align-items: center;
+            justify-content: space-between;
+            min-width: 1300px;
+            color: rgba(193, 193, 193, 0.747);
+            font-family: Helvetica, Arial, sans-serif;
+            outline: solid 1px #ffffff;
+            background-color: #4e52536e;
+            border-radius: 25px;
+            padding: 0px 0px 0px 0px;
+            box-shadow: 3px 3px 35px rgba(0, 0, 0, 0.5);
+        }
+        
+        #label-bar {
+            display: grid;
+            grid-template-columns: auto 1fr auto auto;
+            text-align: left;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+            font-family: Helvetica, Arial, sans-serif;
+            justify-content: space-between;
+            padding: 0px 0px 0px 0px;
+        }
+        #map-title-label {
+            position: fixed;
+            left: 20px;
+        }
+        #description-label {
+            position: relative;
+            left: -235px;
+        }
+        #difficulty-label {
+            position: relative;
+            right: -275px;
+        }
+        #map-title-wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: left;
+            min-width: 250px;
+            min-height: 38px;
+            padding: 0px 20px 0px 20px;
+            gap: 10px;
+            border-radius: 20px;
+            background-color: #1e1f21df;
+        }
+        #tutorial-title-wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: left;
+            min-width: 250px;
+            min-height: 38px;
+            padding: 0px 20px 0px 20px;
+            gap: 10px;
+            border-radius: 20px;
+            background-color: #47494d00;
+        }
+        .tutorial-title {
+            display: block;
+            font-family: Helvetica, Arial, sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+        }
+        .description-wrapper, .plays-wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: left;
+            min-width: 300px;
+            min-height: 38px;
+            padding: 0px 50px 0px 100px;
+            gap: 0px;
+            border-radius: 20px;
+            background-color: none;
+        }
 
 
-                .ui-icon {
-                    max-width: 40px;
-                    max-height: 40px;
-                }
-                .map-title {
-                    display: block;
-                    font-family: Helvetica, Arial, sans-serif;
-                    font-weight: 700;
-                    font-size: 20px;
-                }
-                .map-description {
-                    font-style: italic;
-                }
+        .ui-icon {
+            max-width: 40px;
+            max-height: 40px;
+        }
+        .map-title {
+            display: block;
+            font-family: Helvetica, Arial, sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        .map-description {
+            font-style: italic;
+        }
 
-                .play-button {
-                    cursor: pointer;
-                    min-width: 160px;
-                    max-width: 160px;
-                    background: linear-gradient(to right, #ffffff30, #ffffff12, #ffffff23); /* Set your gradient colors */
-                    border-radius: 40px;
-                    padding: 5px 40px 5px;
-                    font-family: Helvetica, Arial, sans-serif;
-                    font-size: 16px;
-                    font-weight: 700;
-                    border: 1px solid #ffffffaa;
-                    border-bottom: 1px solid #b4b4b49f;
-                    color: #ffffff8d;
-                    line-height: 26px;
-                    /* drop shadow */
-                    box-shadow: 0 11px 15px -7px rgb(0 0 0 / 30%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
-                    z-index: 10; 
-                } 
-                .play-button:hover {
-                    box-shadow: 0px 6px 30px rgb(0 0 0 / 30%);
-                    box-shadow: 0 0 8px #77a5e9, 0 0 16px #77a5e9, 0 0 32px #77a5e9; /* Multiple layers for stronger glow */
-                    background: linear-gradient(to right, #ffffff95, #ffffff4d, #ffffffae); /* Set your gradient colors */
-                    border: 1px solid #ffffffaa;
-                    border-width: 10;
-                    border-bottom: 1px solid #b4b4b49f;
-                    font-size: 19px;
-                    color: #ffffff;
-                }
-                .coming-soon-btn {
-                    cursor: pointer;
-                    min-width: 160px;
-                    max-width: 160px;
-                    background: linear-gradient(to right, #ffffff30, #ffffff12, #ffffff23); /* Set your gradient colors */
-                    border-radius: 40px;
-                    padding: 5px 40px 5px;
-                    font-family: Helvetica, Arial, sans-serif;
-                    font-size: 16px;
-                    font-weight: 700;
-                    border: 1px solid #ffffffaa;
-                    border-bottom: 1px solid #b4b4b49f;
-                    color: #ffffff8d;
-                    line-height: 26px;
-                    /* drop shadow */
-                    box-shadow: 0 11px 15px -7px rgb(0 0 0 / 30%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
-                    z-index: 10; 
-                } 
+        .play-button {
+            cursor: pointer;
+            min-width: 160px;
+            max-width: 160px;
+            background: linear-gradient(to right, #ffffff30, #ffffff12, #ffffff23); /* Set your gradient colors */
+            border-radius: 40px;
+            padding: 5px 40px 5px;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            border: 1px solid #ffffffaa;
+            border-bottom: 1px solid #b4b4b49f;
+            color: #ffffff8d;
+            line-height: 26px;
+            /* drop shadow */
+            box-shadow: 0 11px 15px -7px rgb(0 0 0 / 30%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
+            z-index: 10; 
+        } 
+        .play-button:hover {
+            box-shadow: 0px 6px 30px rgb(0 0 0 / 30%);
+            box-shadow: 0 0 8px #77a5e9, 0 0 16px #77a5e9, 0 0 32px #77a5e9; /* Multiple layers for stronger glow */
+            background: linear-gradient(to right, #ffffff95, #ffffff4d, #ffffffae); /* Set your gradient colors */
+            border: 1px solid #ffffffaa;
+            border-width: 10;
+            border-bottom: 1px solid #b4b4b49f;
+            font-size: 19px;
+            color: #ffffff;
+        }
+        .coming-soon-btn {
+            cursor: pointer;
+            min-width: 160px;
+            max-width: 160px;
+            background: linear-gradient(to right, #ffffff30, #ffffff12, #ffffff23); /* Set your gradient colors */
+            border-radius: 40px;
+            padding: 5px 40px 5px;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            border: 1px solid #ffffffaa;
+            border-bottom: 1px solid #b4b4b49f;
+            color: #ffffff8d;
+            line-height: 26px;
+            /* drop shadow */
+            box-shadow: 0 11px 15px -7px rgb(0 0 0 / 30%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
+            z-index: 10; 
+        }
+        #data-info-text {
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            color:rgb(103, 103, 103)
+        }
     </style>
   
   
@@ -451,7 +457,7 @@
             <div id="map-0-tutorial" class="tutorial-bar">
                 <!--left-->
                 <div id="tutorial-title-wrapper">
-                    <div id="map-0-title" class="tutorial-title">💡🧑‍🎓 TUTORIAL</div>
+                    <div id="map-0-title" class="tutorial-title">TUTORIAL</div>
                 </div>
 
                 <!--center left-->
@@ -575,7 +581,7 @@
             <div id="map-6-europe1k-bar" class="coming-soon-map-bar">
                 <!--left-->
                 <div id="map-title-wrapper">
-                    <div id="map-6-title" class="map-title">🌍🏰 Europe 1K</div>
+                    <div id="map-6-title" class="map-title">🏰 Europe 1K</div>
                 </div>
 
                 <!--center left-->
@@ -587,6 +593,9 @@
                 <div class="plays-wrapper">
                     <span id="map-5-play-count">Working on it!</span>
                 </div>
+
+                <!--right-->
+                <button id="map-6-btn" class="coming-soon-btn">...</button>
             </div>
         </div>
         
