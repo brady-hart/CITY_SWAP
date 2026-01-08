@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <base href="/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>City Swap 🌍 WORLD 1K</title>
+  <title>🌍 WORLD 1K</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <style>
@@ -34,7 +35,7 @@
 
         <!-- scoreboard and feature bar-->
         <div id="main">
-            <img id="cityswap-logo-dark" src="cityswappr_logo_dark.png" alt="City Swap Logo">
+            <img id="cityswap-logo-dark" src="cityswappr_logo_dark.png" alt="cityswappr Logo">
             <div id="scoreboard">
                 <div id="map-title-wrapper">
                     <img id="ui-map-icon" class="ui-icon" title="Map" src = "",>
@@ -94,7 +95,7 @@
                 <span style="padding: 15px"></span>
 
                 <div id="mode-container">
-                    <img id="gameoverbox-logo" src="cityswappr_logo_light.png" alt="City Swap Logo">
+                    <img id="gameoverbox-logo" src="cityswappr_logo_light.png" alt="cityswappr Logo">
                 </div>
 
                 <span style="padding: 20px"></span>
@@ -2545,7 +2546,7 @@
     })
 
     cityswapLogoDark.addEventListener('click', () => {
-        window.location.href = "index.html";
+        window.location.href = "/";
     })
 
     playAgainBtn.addEventListener('click', () => {
@@ -2553,7 +2554,7 @@
     })
 
     exitBtn.addEventListener('click', () => {
-        window.location.href = "index.html";
+        window.location.href = "/";
     })
 
     // info content box

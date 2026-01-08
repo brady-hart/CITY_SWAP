@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <base href="/">
             <meta charset="utf-8">
-            <title>CitySwappr Map Selection</title>
+            <title>Maps</title>
             <link rel="icon" type="image/png" href="favicon.png">
             <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
             <style>
@@ -406,7 +407,7 @@
     <nav class="navbar" id="navbar">
         <ul class="nav-links">
             <img id="cityswappr-nav-logo" src="cityswappr_logo_light.png" alt="CitySwappr Logo">
-            <li><a href="index.html"></a></li>
+            <li><a href="/"></a></li>
         </ul>
     </nav>
 
@@ -621,7 +622,7 @@
         //site logo clickability
         const cityswapprNavLogo = document.getElementById('cityswappr-nav-logo')
         cityswapprNavLogo.addEventListener('click', () => {
-            window.location.href = "index.html";
+            window.location.href = "/";
         })
               
         // Import the functions you need from the SDKs you need
@@ -653,15 +654,25 @@
         }
 
         const pinTheme = 'triangles';
-      
+
+        // define map urls
+        const MAP_URLS = {
+            tutorial: "/maps/tutorial/",
+            usa1k: "/maps/usa1k/",
+            world1k: "/maps/world1k/",
+            world2k: "/maps/world2k/",
+            china1k: "/maps/china1k/",
+            newyorkcity: "/maps/new-york-city/",
+            europe1k: "/maps/europe1k/"
+        };
         const buttons = [
-          { btn: document.getElementById('map-0-btn'), span: document.getElementById('map-1-play-count'), key: "map1", url: "cityswappr_tutorial.html" },
-          { btn: document.getElementById('map-1-btn'), span: document.getElementById('map-1-play-count'), key: "map1", url: "cityswappr_usa1k.html" },
-          { btn: document.getElementById('map-2-btn'), span: document.getElementById('map-2-play-count'), key: "map2", url: "cityswappr_world1k.html" },
-          { btn: document.getElementById('map-3-btn'), span: document.getElementById('map-3-play-count'), key: "map3", url: "cityswappr_world2k.html" },
-          { btn: document.getElementById('map-4-btn'), span: document.getElementById('map-4-play-count'), key: "map4", url: "cityswappr_china1k.html" },
-          { btn: document.getElementById('map-5-btn'), span: document.getElementById('map-5-play-count'), key: "map5", url: "cityswappr_newyorkcity.html" },
-          { btn: document.getElementById('map-6-btn'), span: document.getElementById('map-6-play-count'), key: "map6", url: "cityswappr_uk1k.html" },
+          { btn: document.getElementById('map-0-btn'), span: document.getElementById('map-1-play-count'), key: "map1", url: MAP_URLS.tutorial },
+          { btn: document.getElementById('map-1-btn'), span: document.getElementById('map-1-play-count'), key: "map1", url: MAP_URLS.usa1k },
+          { btn: document.getElementById('map-2-btn'), span: document.getElementById('map-2-play-count'), key: "map2", url: MAP_URLS.world1k },
+          { btn: document.getElementById('map-3-btn'), span: document.getElementById('map-3-play-count'), key: "map3", url: MAP_URLS.world2k },
+          { btn: document.getElementById('map-4-btn'), span: document.getElementById('map-4-play-count'), key: "map4", url: MAP_URLS.china1k },
+          { btn: document.getElementById('map-5-btn'), span: document.getElementById('map-5-play-count'), key: "map5", url: MAP_URLS.newyorkcity },
+          { btn: document.getElementById('map-6-btn'), span: document.getElementById('map-6-play-count'), key: "map6", url: MAP_URLS.europe1k },
         ];
 
       

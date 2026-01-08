@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <base href="/">
             <meta charset="utf-8">
-            <title>CitySwappr Map Selection</title>
+            <title>CitySwappr</title>
             <link rel="icon" type="image/png" href="favicon.png">
             <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
             <style>
@@ -484,7 +485,7 @@
     <nav class="navbar" id="navbar">
         <ul class="nav-links">
             <img id="cityswappr-nav-logo" src="cityswappr_logo_light.png" alt="CitySwappr Logo">
-            <li><a href="#home"></a></li>
+            <li><a href="/"></a></li>
         </ul>
     </nav>
 
@@ -597,7 +598,7 @@
         const selectMapBtn = document.getElementById("select-map-btn")
         selectMapBtn.addEventListener("click", () => {
             click1.play();
-            setTimeout(() => { window.location.href = "cityswappr_map_selection.html"; }, 300);
+            setTimeout(() => { window.location.href = "/maps/choose/"; }, 300);
           })
 
     </script>
