@@ -63,11 +63,11 @@
             justify-content: center;
             min-width: none;
             max-width: fit-content;
-            gap: 30px;
+            gap: 10px;
         }
         #mode-header {
             display: flex;
-            gap: 50px;
+            gap: 30px;
             padding: 10px 10px 10px 10px;
         }
         #image {
@@ -93,9 +93,10 @@
             gap: 20px;
         }
         #game-title {
+            text-align: left;
             font-family: 'Helvetica', 'Arial', sans-serif;
             color: white;
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 700;
             padding: 0px, 0px, 100px, 0px;
         }
@@ -133,6 +134,7 @@
         #goto-map-page-btn {
             cursor: pointer;
             min-width: 160px;
+            margin-top: 25px;
             background: linear-gradient(to right, #ffffff30, #ffffff12, #ffffff23); /* Set your gradient colors */
             border-radius: 40px;
             padding: 5px 40px 5px;
@@ -512,6 +514,8 @@
         </div>
 
         <button id="goto-map-page-btn">PLAY NOW ➡️</button>
+
+        <span style="margin-top: 50px;"></span>
 
         <audio id="click-wood-tone-1" src="sounds/click-wood-tone-1.wav"></audio>        
     </div>

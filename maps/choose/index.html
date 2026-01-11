@@ -3,6 +3,7 @@
     <head>
         <base href="/">
             <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Maps</title>
             <link rel="icon" type="image/png" href="favicon.png">
             <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
@@ -64,13 +65,13 @@
     <style>
         #page-container {
             position: absolute;
-            top: 120px;
-            left: 50%;
-            transform: translate(-50%, 0%); /* Adjust for exact centering */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            top: 120px;
+            left: 50%;
+            transform: translate(-50%, 0%); /* Adjust for exact centering */
             min-width: none;
             max-width: fit-content;
             gap: 25px;
@@ -122,7 +123,7 @@
             border-radius: 15px;
             box-shadow: 3px 3px 35px black;
         }
-        #maps-container {
+        #map-bars-container {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -133,7 +134,7 @@
             justify-content: space-between;
             align-items: center;
             color: rgba(255, 255, 255, 0.633);
-            min-width: 1000px;
+            min-width: none;
             font-family: Helvetica, Arial, sans-serif;
             font-size: 14px;
             font-weight: 400;
@@ -174,49 +175,17 @@
             flex-direction: row;
             padding: 0px, 0px, 0px, 0px;
         }
-        #page-title {
-            font-family: Helvetica, Arial, sans-serif;
-            font-size: 26px;
-            font-weight: 700;
-            color: white;
-        }
-        .step-by-step-box {
-            display: flex;
-            flex-direction: column;
-            align-items: left;
-            max-width: 400px;
-            gap: 20px;
-        }
-        .step-by-step-title {
-            font-family: Helvetica, Arial, sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            color: white;
-        }
-        .step-by-step-art {
-            border-radius: 20px;
-            max-width: 350px;
-            max-height: 100px;
-            box-shadow: 0 11px 15px -7px rgb(0 0 0 / 30%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
-        }
-        .game-description {
-            font-family: Helvetica, Arial, sans-serif;
-            font-size: 16px;
-            font-weight: 300;
-            color: white;
-            padding: 10px 0px 10px 0px;
-        }
 
         /* MAP BARS */
         .tutorial-bar {
-            display: grid;
-            grid-template-columns: auto 1fr auto auto;
-            text-align: left;
+            display: flex;
             align-items: center;
             justify-content: space-between;
-            min-width: 1300px;
+
+            text-align: center;
             color: rgba(255, 255, 255, 0.747);
             font-family: Helvetica, Arial, sans-serif;
+
             outline: solid 1px #838383;
             background-color: #0f15166e;
             border-radius: 25px;
@@ -226,13 +195,22 @@
             color: rgb(255, 255, 255);
             background-color: #4450526e;
         }
+        @media (max-width: 768px) {
+            .tutorial-bar {
+                flex-direction: column;
+                align-items: center;
+                text-align: 10px;
+                gap: 10px;
+                padding: 14px;
+            }
+        }
         .map-bar {
-            display: grid;
-            grid-template-columns: auto 1fr auto auto;
+            display: flex;
+            justify-content: space-between;
+
             text-align: left;
             align-items: center;
-            justify-content: space-between;
-            min-width: 1300px;
+            
             color: rgba(255, 255, 255, 0.747);
             font-family: Helvetica, Arial, sans-serif;
             outline: solid 1px #ffffff;
@@ -241,26 +219,43 @@
             padding: 0px 0px 0px 0px;
             box-shadow: 3px 3px 35px rgba(0, 0, 0, 0.5);
         } 
-
         .map-bar:hover {
             background-color: #b3dae7ac;
         }
         .map-bar-normal {
             background-color: #4cc98a6e;
         }
+        .map-bar-normal:hover {
+            background-color: #5ae6a0a3;
+        }
         .map-bar-hard {
             background-color: #c9c94c6e;
+        }
+        .map-bar-hard:hover {
+            background-color: #e6e64db6;
         }
         .map-bar-very-hard {
             background-color: #dd6b6b6e;
         }
+        .map-bar-very-hard:hover {
+            background-color: #ef5f5faf;
+        }
+        @media (max-width: 768px) {
+            .map-bar {
+                flex-direction: column;
+                align-items: center;
+                text-align: 10px;
+                gap: 10px;
+                padding: 14px;
+            }
+        }
         .coming-soon-map-bar {
-            display: grid;
-            grid-template-columns: auto 1fr auto auto;
-            text-align: left;
-            align-items: center;
+            display: flex;
             justify-content: space-between;
-            min-width: 1300px;
+
+            text-align: center;
+            align-items: center;
+
             color: rgba(193, 193, 193, 0.747);
             font-family: Helvetica, Arial, sans-serif;
             outline: solid 1px #ffffff;
@@ -269,9 +264,18 @@
             padding: 0px 0px 0px 0px;
             box-shadow: 3px 3px 35px rgba(0, 0, 0, 0.5);
         }
+        @media (max-width: 768px) {
+            .coming-soon-map-bar {
+                flex-direction: column;
+                align-items: center;
+                text-align: 10px;
+                gap: 10px;
+                padding: 14px;
+            }
+        }
         
         #label-bar {
-            display: grid;
+            display: none;
             grid-template-columns: auto 1fr auto auto;
             text-align: left;
             align-items: center;
@@ -297,11 +301,10 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content: left;
+            justify-content: center;
             min-width: 250px;
             min-height: 38px;
-            padding: 0px 20px 0px 20px;
-            gap: 10px;
+            padding: 0px 0px 0px 0px;
             border-radius: 20px;
             background-color: #1e1f21df;
         }
@@ -309,16 +312,16 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content: left;
+            justify-content: center;
             min-width: 250px;
             min-height: 38px;
-            padding: 0px 20px 0px 20px;
+            padding: 0px 00px 0px 00px;
             gap: 10px;
             border-radius: 20px;
-            background-color: #47494d00;
+            background-color: #1e1f21df;
         }
         .tutorial-title {
-            display: block;
+            display: flex;
             font-family: Helvetica, Arial, sans-serif;
             font-weight: 400;
             font-size: 18px;
@@ -327,10 +330,9 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content: left;
+            justify-content: center;
             min-width: 300px;
             min-height: 38px;
-            padding: 0px 50px 0px 100px;
             gap: 0px;
             border-radius: 20px;
             background-color: none;
@@ -371,7 +373,7 @@
         } 
         .play-button:hover {
             box-shadow: 0px 6px 30px rgb(0 0 0 / 30%);
-            box-shadow: 0 0 8px #77a5e9, 0 0 16px #77a5e9, 0 0 32px #77a5e9; /* Multiple layers for stronger glow */
+            box-shadow: 0 0 8px #cde1ff, 0 0 16px #a2c0ed, 0 0 32px #bad4fc; /* Multiple layers for stronger glow */
             background: linear-gradient(to right, #ffffff95, #ffffff4d, #ffffffae); /* Set your gradient colors */
             border: 1px solid #ffffffaa;
             border-width: 10;
@@ -428,7 +430,7 @@
         </div>
 
         <!--holds all the map bars-->
-        <div id="maps-container" >
+        <div id="map-bars-container" >
             <!--Explainer Container-->
             <div id="explainer-container">
             </div>
@@ -465,12 +467,12 @@
 
                 <!--center left-->
                 <div class="description-wrapper">
-                    <p class="map-description">First time? Learn how to play here!</p>
+                    <p class="map-description">First time? Learn how to play!</p>
                 </div>
 
                 <!--center right-->
                 <div class="plays-wrapper">
-                    <span id="map-0-play-count">⌛ (Approx. 4 min)</span>
+                    <span id="map-0-play-count">⌛5 min</span>
                 </div>
 
                 <!--right-->
@@ -486,7 +488,7 @@
 
                 <!--center left-->
                 <div class="description-wrapper">
-                    <p class="map-description">1,000 largest cities in The United States</p>
+                    <p class="map-description">1,000 largest cities in The US</p>
                 </div>
 
                 <!--center right-->
@@ -547,7 +549,7 @@
 
                 <!--center left-->
                 <div class="description-wrapper">
-                    <p class="map-description">915 largest cities in Mainland China</p>
+                    <p class="map-description">915 largest cities in M. China</p>
                 </div>
 
                 <!--center right-->
@@ -568,7 +570,7 @@
 
                 <!--center left-->
                 <div class="description-wrapper">
-                    <p class="map-description">Clear the Big Apple's 5 boroughs! (Around 200 neighborhoods)</p>
+                    <p class="map-description">200 neighborhoods in NYC</p>
                 </div>
 
                 <!--center right-->
@@ -589,12 +591,12 @@
 
                 <!--center left-->
                 <div class="description-wrapper">
-                    <p class="map-description">1,000 largest cities in Europe</p>
+                    <p class="map-description">Working on it!</p>
                 </div>
 
                 <!--center right-->
                 <div class="plays-wrapper">
-                    <span id="map-5-play-count">Working on it!</span>
+                    <span id="map-5-play-count">---</span>
                 </div>
 
                 <!--right-->
