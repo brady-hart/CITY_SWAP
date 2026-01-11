@@ -3,6 +3,7 @@
     <head>
         <base href="/">
             <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>CitySwappr</title>
             <link rel="icon" type="image/png" href="favicon.png">
             <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
@@ -75,34 +76,6 @@
             border-radius: 55px;
             box-shadow: 3px 3px 35px black;
         }
-        #mode-info-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            width: 100%;
-        }
-        #mode-title {
-            font-family: Helvetica, Arial, sans-serif;
-            color: white;
-            margin-top: 0px;
-            font-size: 60px;
-            font-weight: 700;
-        }
-        #mode-info-paragraph {
-            font-family: Helvetica, Arial, sans-serif;
-            color: white;
-            font-size: 21px;
-            font-weight: 300;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            text-shadow: 0px 0px 15px #000000;
-        }
-        #traits-container {
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-        }
 
         #how-to-gif-type-name, #how-to-gif-swap, #how-to-gif-clear-region {
             display: none;
@@ -110,17 +83,6 @@
             height: auto;
             border-radius: 15px;
             box-shadow: 3px 3px 35px black;
-        }
-        #explainer-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: rgba(255, 255, 255, 0.633);
-            min-width: 1000px;
-            font-family: Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            font-weight: 400;
-            padding: 0px 30px 0px 20px;
         }
 
         /* Start Screen stuff */
@@ -154,13 +116,21 @@
             align-items: center;
             gap: 50px;
         }
-        #header-section-elements-container {
+        #step-by-step-container {
             display: flex;
             flex-direction: row;
             gap: 30px;
             padding: 0px, 0px, 0px, 0px;
         }
-        #select-map-btn {
+        @media (max-width: 768px) {
+            #step-by-step-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+
+        #goto-map-page-btn {
             cursor: pointer;
             min-width: 160px;
             background: linear-gradient(to right, #ffffff30, #ffffff12, #ffffff23); /* Set your gradient colors */
@@ -177,7 +147,7 @@
             box-shadow: 0 11px 15px -7px rgb(0 0 0 / 30%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
             z-index: 10; 
         }
-        #select-map-btn:hover {
+        #goto-map-page-btn:hover {
             box-shadow: 0px 6px 30px rgb(0 0 0 / 30%);
             box-shadow: 0 0 8px #77a5e9, 0 0 16px #77a5e9, 0 0 32px #77a5e9; /* Multiple layers for stronger glow */
             background: linear-gradient(to right, #ffffff95, #ffffff4d, #ffffffae); /* Set your gradient colors */
@@ -191,7 +161,8 @@
             display: flex;
             flex-direction: column;
             align-items: left;
-            max-width: 250px;
+            width: 100%;
+            max-width: 420px;
             gap: 20px;
         }
         .step-by-step-title {
@@ -505,7 +476,7 @@
                 <span id="game-title">A geography game with a number puzzle twist!</span>
             </div>
             
-            <div id="header-section-elements-container">
+            <div id="step-by-step-container">
 
                 <div class="step-by-step-box">
                     <span class="step-by-step-title">
@@ -540,7 +511,7 @@
             
         </div>
 
-        <button id="select-map-btn">SEE THE MAPS ➡️</button>
+        <button id="goto-map-page-btn">PLAY NOW ➡️</button>
 
         <audio id="click-wood-tone-1" src="sounds/click-wood-tone-1.wav"></audio>        
     </div>
@@ -597,7 +568,7 @@
         const step3Box = document.getElementById("step-3-box");
             step3Box.src = `./assets/pin_sets/${pinTheme}/pins/how-to-gif-3.gif`;
       
-        const selectMapBtn = document.getElementById("select-map-btn")
+        const selectMapBtn = document.getElementById("goto-map-page-btn")
         selectMapBtn.addEventListener("click", () => {
             click1.play();
             setTimeout(() => { window.location.href = "/maps/choose/"; }, 300);
