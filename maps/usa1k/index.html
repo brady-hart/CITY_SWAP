@@ -229,7 +229,7 @@
             display: flex;
             flex-direction: column;
             width: 100%;
-            height: 350px;
+            height: 300px;
             left: 50%;
             transform: translate(-50%, 100%);
             background: linear-gradient(to right, #3a404ef3, #4a4f4beb); /* Set your gradient colors */
@@ -237,6 +237,11 @@
             justify-content: center;
             gap: 10px;
             box-shadow: 6px 8px 20px #00000094;
+        }
+        @media (max-width: 768px) {
+            #start-screen {
+                top: -100px;
+            }
         }
         #start-screen-elements-container {
             display: flex;
@@ -545,7 +550,7 @@
         #hint-display {
             text-align: center;
             font-family: 'Helvetica', 'Arial', sans-serif;
-            font-size: 28px;
+            font-size: 21px;
             font-weight: 400;
             margin-left: 25px;
             margin-right: 25px;
