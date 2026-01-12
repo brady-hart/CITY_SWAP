@@ -67,6 +67,11 @@
                         <div id="swap-count-display">0</div>
                     </div>
                 </div>
+                
+            </div>
+
+            <div id="timer-wrapper">
+                <div id="timer-display">00:00</div>
             </div>
 
             <!--start screen-->
@@ -157,7 +162,6 @@
                     <button class="info-toggle" id="infoToggle">
                         🔍 How to Play ▸
                     </button>
-
                     <div class="info-content" id="infoContent">
                         <p style="font-weight: 600;">
                         The goal of the game is to "clear" any 5 regions (or subdivisions) on the map by following these steps:
@@ -173,9 +177,6 @@
                         </p>
                     </div>
                 </div>
-                <div id="timer-wrapper">
-                    <div id="timer-display">00:00</div>
-                </div>
             </div>
 
 <!--CONTROLS-->
@@ -189,6 +190,11 @@
             top: 0px;
             left: 75px;
             z-index: 20;
+        }
+        @media (max-width: 768px) {
+            #cityswap-logo-dark {
+                display: none;
+            }
         }
         #cityswap-logo-light {
             position: absolute;
@@ -304,7 +310,8 @@
             align-items: center;
             flex-direction: column;
             bottom: 5px;
-            left: auto;
+            left: 50%;
+            transform: translate(-50%);
             width: 100%;
             justify-content: center;
             z-index: 1000; /* Ensure it's above the map */
@@ -407,7 +414,6 @@
 
             background-color: #8d8d8d56;
             border-radius: 18px;
-            padding: 2px 10px 10px 10px;
             gap: 10px;
         }
         @media (max-width: 768px) {
@@ -416,16 +422,12 @@
                 right: auto;
                 left: 50%;
                 transform: translateX(-50%);
-                bottom: 15%;
-                padding: 6px 10px;
-                gap: 6px;
+                bottom: 100px;
+                gap: 10px;
                 border-radius: 14px;
-
                 font-size: 0.85rem;
             }
         }
-
-
         #held-pin-img {
             max-width: 120px;
             max-height: 120px;
@@ -441,7 +443,11 @@
             font-family: helvetica, sans-serif;
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
-
+        @media (max-width: 768px) {
+            #info-box {
+                display: none;
+            }
+        }
         .info-toggle {
             width: 100%;
             background: none;
@@ -456,19 +462,16 @@
         .info-toggle:hover {
             background: rgba(147, 147, 147, 0.236);
         }
-
         .info-content {
             max-height: 0;
             overflow: hidden;
             padding: 0 16px;
             transition: max-height 0.3s ease, padding 0.3s ease;
         }
-
         .info-content.open {
             max-height: 80%; /* enough for a few paragraphs */
             padding: 12px 16px 16px;
         }
-
         .info-content p {
         margin: 0 0 10px;
         font-size: 12px;
@@ -665,6 +668,7 @@
         @media (max-width: 768px) {
             #scoreboard {
                 flex-direction: column;
+                border-radius: 20px;
             }
         }
         #map-title-wrapper {
@@ -688,8 +692,7 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            padding: 0px 20px 0px 20px;
-            gap: 5px;
+            padding: 0px 10px 0px 10px;
             border: none;
             border-radius: 20px;
             background-color: #2a3344cd;
