@@ -581,12 +581,33 @@
                 <!--right-->
                 <button id="map-5-btn" class="play-button">PLAY</button>
             </div>
-            
-            <!--map bar 6 Europe 1K-->
-            <div id="map-6-europe1k-bar" class="coming-soon-map-bar">
+
+            <!--map bar 6 Iran-->
+            <div id="map-6-europe1k-bar" class="map-bar map-bar-very-hard">
                 <!--left-->
                 <div id="map-title-wrapper">
-                    <div id="map-6-title" class="map-title">🏰 Europe 1K</div>
+                    <div id="map-6-title" class="map-title">🇮🇷 Iran 500</div>
+                </div>
+
+                <!--center left-->
+                <div class="description-wrapper">
+                    <p class="map-description">501 largest cities in Iran</p>
+                </div>
+
+                <!--center right-->
+                <div class="plays-wrapper">
+                    <span id="map-6-play-count">💪💪💪(Very Hard)</span>
+                </div>
+
+                <!--right-->
+                <button id="map-6-btn" class="play-button">PLAY</button>
+            </div>
+            
+            <!--map bar 6 Europe 1K-->
+            <div id="map-coming-europe1k-bar" class="coming-soon-map-bar">
+                <!--left-->
+                <div id="map-title-wrapper">
+                    <div id="map-coming-title" class="map-title">🏰 Europe 1K</div>
                 </div>
 
                 <!--center left-->
@@ -596,15 +617,15 @@
 
                 <!--center right-->
                 <div class="plays-wrapper">
-                    <span id="map-5-play-count">---</span>
+                    <span id="map-coming-play-count">---</span>
                 </div>
 
                 <!--right-->
-                <button id="map-6-btn" class="coming-soon-btn">...</button>
+                <button id="map-coming-btn" class="coming-soon-btn">...</button>
             </div>
         </div>
         
-        <span id="data-info-text">Data from citypopulation.de, wikipedia.org, other sources</span>
+        <span id="data-info-text">Data from simplemaps.com/data/world-cities, citypopulation.de, wikipedia.org, other sources</span>
         
     </div>
     
@@ -667,6 +688,7 @@
             world2k: "/maps/world2k/",
             china1k: "/maps/china1k/",
             newyorkcity: "/maps/new-york-city/",
+            iran500: "/maps/iran500/",
             europe1k: "/maps/europe1k/"
         };
         const buttons = [
@@ -676,7 +698,8 @@
           { btn: document.getElementById('map-3-btn'), span: document.getElementById('map-3-play-count'), key: "map3", url: MAP_URLS.world2k },
           { btn: document.getElementById('map-4-btn'), span: document.getElementById('map-4-play-count'), key: "map4", url: MAP_URLS.china1k },
           { btn: document.getElementById('map-5-btn'), span: document.getElementById('map-5-play-count'), key: "map5", url: MAP_URLS.newyorkcity },
-          { btn: document.getElementById('map-6-btn'), span: document.getElementById('map-6-play-count'), key: "map6", url: MAP_URLS.europe1k },
+          { btn: document.getElementById('map-6-btn'), span: document.getElementById('map-6-play-count'), key: "map6", url: MAP_URLS.iran500 },
+          { btn: document.getElementById('map-coming-btn'), span: document.getElementById('map-coming-play-count'), key: "map6", url: MAP_URLS.europe1k },
         ];
 
       
@@ -695,7 +718,7 @@
         });
 
         // disable coming soon buttons 
-        const map6Button = document.getElementById('map-6-btn');
+        const map6Button = document.getElementById('map-coming-btn');
         map6Button.disabled = true;
 
     </script>
