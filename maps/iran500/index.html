@@ -28,7 +28,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
     
         <div id="controls">
-            <input type="text" id="input-field" placeholder="Type city name"/>
+            <div id="input-bar-wrapper">
+                <input type="text" id="input-field" placeholder="Type city name" />
+                <button id="main-exit-btn">EXIT</button>
+            </div>
             <button id="about-creator-btn">Copyright © 2025 Brady Hart LLC. All rights reserved.</button>
         </div>
 
@@ -90,18 +93,19 @@
 
             <!--game over screen-->
             <div id="game-over-box">
-                <div id="end-screen-map-title-display">You won!</div>
+                            
+                <span style="padding: 10px"></span>
                 
-                <span style="padding: 15px"></span>
-
                 <div id="mode-container">
                     <img id="gameoverbox-logo" src="cityswappr_logo_light.png" alt="cityswappr Logo">
                 </div>
-
-                <span style="padding: 20px"></span>
+                
+                <div id="end-screen-map-title-display">You won!</div>
+                
+                <span style="padding: 15px"></span>
                 
                 <!--scoreboard gets inserted here upon gameover-->
-        
+
                 <div id="final-stats-bar">
                     <div id="final-score-container">
                         <div id="final-score-display">0</div>
@@ -124,8 +128,8 @@
                 <span style="padding: 15px"></span>
 
                 <div id="btns-container">
-                  <button id="play-again-btn">PLAY AGAIN</button>
-                  <button id="exit-btn">EXIT</button>
+                <button id="play-again-btn">PLAY AGAIN</button>
+                <button id="exit-btn">EXIT</button>
                 </div>
                 
                 <span style="padding: 20px"></span>
@@ -212,8 +216,8 @@
             display: flex;
             width: 200px;
             height: auto;
-            top: 10px;
-            left: 50px;
+            left: 50%;
+            transform: translate(-50%, 60%);
             z-index: 20;
         }
 
@@ -324,6 +328,11 @@
             z-index: 1000; /* Ensure it's above the map */
             padding: 10px;
             border-radius: 5px;
+        }
+        #input-bar-wrapper {
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
         }
         #about-creator-btn {
             display: block;
@@ -502,6 +511,11 @@
             padding: 20px 0px 20px 0px;
             box-shadow: 6px 8px 20px #00000094;
         }
+        @media (max-width: 768px) {
+            #game-over-box {
+                height: 600px;
+            }
+        }
         #final-stats-bar {
             display: flex;
             flex-direction: row;
@@ -520,6 +534,7 @@
         #mode-container {
             display: flex;
             flex-direction: row;
+            align-items: center;
             justify-content: space-between; /* or `justify-content: flex-start;` */
             gap: 15px; /* Optional: adds spacing between buttons */
         }
@@ -564,7 +579,7 @@
             font-family: 'Helvetica', 'Arial', sans-serif;
             font-size: 32px;
             font-weight: 700;
-            padding: 0px, 10px, 10px, 0px;
+            padding: 10px;
             color: white;
             background-color: none;
             border: none;
@@ -622,7 +637,7 @@
             font-size: 19px;
             color: #ffffff;
         }
-        #exit-btn {
+        #exit-btn, #main-exit-btn{
             cursor: pointer;
             min-width: 160;
             border: transparent;
@@ -638,8 +653,11 @@
             box-shadow: 0 11px 15px -7px rgb(0 0 0 / 30%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
             z-index: 10;
         }
-        #exit-btn:hover {
+        #exit-btn:hover, #main-exit-btn:hover {
             font-size: 17px;
+        }
+        #main-exit-btn {
+            max-height: 40px;
         }
         #space-key-prompt {
             display: none;
@@ -2178,6 +2196,7 @@
     const gameOverBox = document.getElementById("game-over-box")
     const finalStatsBar = document.getElementById("final-stats-bar")
     const playAgainBtn = document.getElementById("play-again-btn")
+    const mainExitBtn = document.getElementById("main-exit-btn")
     const exitBtn = document.getElementById("exit-btn")
 
 
@@ -2592,8 +2611,11 @@
         location.reload();
     })
 
+    mainExitBtn.addEventListener('click', () => {
+        window.location.href = "/maps/choose/";
+    })
     exitBtn.addEventListener('click', () => {
-        window.location.href = "/";
+        window.location.href = "/maps/choose/";
     })
 
     // info content box
