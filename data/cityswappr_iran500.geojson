@@ -172,8 +172,8 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Ardabīl",
-        "parent": "Ardabīl",
+        "name": "Ardabil",
+        "parent": "Ardabil",
         "slot": 1,
         "color": "random",
         "population": 529374,
@@ -194,7 +194,7 @@
       "type": "Feature",
       "properties": {
         "name": "Meshgīn Shahr",
-        "parent": "Ardabīl",
+        "parent": "Ardabil",
         "slot": 2,
         "color": "random",
         "population": 74109,
@@ -215,7 +215,7 @@
       "type": "Feature",
       "properties": {
         "name": "Khalkhāl",
-        "parent": "Ardabīl",
+        "parent": "Ardabil",
         "slot": 3,
         "color": "random",
         "population": 38521,
@@ -236,7 +236,7 @@
       "type": "Feature",
       "properties": {
         "name": "Germī",
-        "parent": "Ardabīl",
+        "parent": "Ardabil",
         "slot": 4,
         "color": "random",
         "population": 28967,
@@ -257,7 +257,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bīleh Savār",
-        "parent": "Ardabīl",
+        "parent": "Ardabil",
         "slot": 5,
         "color": "random",
         "population": 16188,
@@ -278,7 +278,7 @@
       "type": "Feature",
       "properties": {
         "name": "Namīn",
-        "parent": "Ardabīl",
+        "parent": "Ardabil",
         "slot": 6,
         "color": "random",
         "population": 13659,
@@ -299,7 +299,7 @@
       "type": "Feature",
       "properties": {
         "name": "Orūmīyeh",
-        "parent": "Āz̄arbāyjān-e Gharbī",
+        "parent": "Azerbaijan West",
         "slot": 1,
         "color": "random",
         "population": 736224,
@@ -320,7 +320,7 @@
       "type": "Feature",
       "properties": {
         "name": "Khowy",
-        "parent": "Āz̄arbāyjān-e Gharbī",
+        "parent": "Azerbaijan West",
         "slot": 2,
         "color": "random",
         "population": 198845,
@@ -341,7 +341,7 @@
       "type": "Feature",
       "properties": {
         "name": "Būkān",
-        "parent": "Āz̄arbāyjān-e Gharbī",
+        "parent": "Azerbaijan West",
         "slot": 3,
         "color": "random",
         "population": 193501,
@@ -362,7 +362,7 @@
       "type": "Feature",
       "properties": {
         "name": "Mahābād",
-        "parent": "Āz̄arbāyjān-e Gharbī",
+        "parent": "Azerbaijan West",
         "slot": 4,
         "color": "random",
         "population": 168393,
@@ -383,7 +383,7 @@
       "type": "Feature",
       "properties": {
         "name": "Salmās",
-        "parent": "Āz̄arbāyjān-e Gharbī",
+        "parent": "Azerbaijan West",
         "slot": 5,
         "color": "random",
         "population": 127864,
@@ -404,7 +404,7 @@
       "type": "Feature",
       "properties": {
         "name": "Pīrānshahr",
-        "parent": "Āz̄arbāyjān-e Gharbī",
+        "parent": "Azerbaijan West",
         "slot": 7,
         "color": "random",
         "population": 91515,
@@ -425,7 +425,7 @@
       "type": "Feature",
       "properties": {
         "name": "Naqadeh",
-        "parent": "Āz̄arbāyjān-e Gharbī",
+        "parent": "Azerbaijan West",
         "slot": 8,
         "color": "item",
         "population": 72975,
@@ -446,7 +446,7 @@
       "type": "Feature",
       "properties": {
         "name": "Sardasht",
-        "parent": "Āz̄arbāyjān-e Gharbī",
+        "parent": "Azerbaijan West",
         "slot": 9,
         "color": "item",
         "population": 46412,
@@ -467,7 +467,7 @@
       "type": "Feature",
       "properties": {
         "name": "Takāb",
-        "parent": "Āz̄arbāyjān-e Gharbī",
+        "parent": "Azerbaijan West",
         "slot": 10,
         "color": "item",
         "population": 43702,
@@ -488,7 +488,7 @@
       "type": "Feature",
       "properties": {
         "name": "Shāhīn Dezh",
-        "parent": "Āz̄arbāyjān-e Gharbī",
+        "parent": "Azerbaijan West",
         "slot": 11,
         "color": "item",
         "population": 34204,
@@ -509,7 +509,7 @@
       "type": "Feature",
       "properties": {
         "name": "Oshnavīyeh",
-        "parent": "Āz̄arbāyjān-e Gharbī",
+        "parent": "Azerbaijan West",
         "slot": 12,
         "color": "item",
         "population": 32723,
@@ -530,7 +530,7 @@
       "type": "Feature",
       "properties": {
         "name": "Qarah Ẕīā’ od Dīn",
-        "parent": "Āz̄arbāyjān-e Gharbī",
+        "parent": "Azerbaijan West",
         "slot": 13,
         "color": "item",
         "population": 26767,
@@ -551,7 +551,7 @@
       "type": "Feature",
       "properties": {
         "name": "Showţ",
-        "parent": "Āz̄arbāyjān-e Gharbī",
+        "parent": "Azerbaijan West",
         "slot": 14,
         "color": "item",
         "population": 25381,
@@ -572,7 +572,7 @@
       "type": "Feature",
       "properties": {
         "name": "Seyah Cheshmeh",
-        "parent": "Āz̄arbāyjān-e Gharbī",
+        "parent": "Azerbaijan West",
         "slot": 15,
         "color": "item",
         "population": 17804,
@@ -593,7 +593,7 @@
       "type": "Feature",
       "properties": {
         "name": "Poldasht",
-        "parent": "Āz̄arbāyjān-e Gharbī",
+        "parent": "Azerbaijan West",
         "slot": 16,
         "color": "item",
         "population": 11472,
@@ -614,7 +614,7 @@
       "type": "Feature",
       "properties": {
         "name": "Chahār Borj-e Qadīm",
-        "parent": "Āz̄arbāyjān-e Gharbī",
+        "parent": "Azerbaijan West",
         "slot": 17,
         "color": "item",
         "population": 9406,
@@ -635,7 +635,7 @@
       "type": "Feature",
       "properties": {
         "name": "Moḩammad Yār",
-        "parent": "Āz̄arbāyjān-e Gharbī",
+        "parent": "Azerbaijan West",
         "slot": 18,
         "color": "item",
         "population": 9313,
@@ -656,7 +656,7 @@
       "type": "Feature",
       "properties": {
         "name": "Nalās",
-        "parent": "Āz̄arbāyjān-e Gharbī",
+        "parent": "Azerbaijan West",
         "slot": 19,
         "color": "item",
         "population": 8503,
@@ -677,7 +677,7 @@
       "type": "Feature",
       "properties": {
         "name": "Tabrīz",
-        "parent": "Āz̄arbāyjān-e Sharqī",
+        "parent": "Azerbaijan East",
         "slot": 1,
         "color": "random",
         "population": 1558693,
@@ -698,7 +698,7 @@
       "type": "Feature",
       "properties": {
         "name": "Marāgheh",
-        "parent": "Āz̄arbāyjān-e Sharqī",
+        "parent": "Azerbaijan East",
         "slot": 2,
         "color": "random",
         "population": 272400,
@@ -719,7 +719,7 @@
       "type": "Feature",
       "properties": {
         "name": "Marand",
-        "parent": "Āz̄arbāyjān-e Sharqī",
+        "parent": "Azerbaijan East",
         "slot": 3,
         "color": "random",
         "population": 130825,
@@ -740,7 +740,7 @@
       "type": "Feature",
       "properties": {
         "name": "Ahar",
-        "parent": "Āz̄arbāyjān-e Sharqī",
+        "parent": "Azerbaijan East",
         "slot": 4,
         "color": "random",
         "population": 100641,
@@ -761,7 +761,7 @@
       "type": "Feature",
       "properties": {
         "name": "Mīāneh",
-        "parent": "Āz̄arbāyjān-e Sharqī",
+        "parent": "Azerbaijan East",
         "slot": 5,
         "color": "random",
         "population": 98973,
@@ -782,7 +782,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bonāb",
-        "parent": "Āz̄arbāyjān-e Sharqī",
+        "parent": "Azerbaijan East",
         "slot": 6,
         "color": "random",
         "population": 75332,
@@ -803,7 +803,7 @@
       "type": "Feature",
       "properties": {
         "name": "Āz̄arshahr",
-        "parent": "Āz̄arbāyjān-e Sharqī",
+        "parent": "Azerbaijan East",
         "slot": 7,
         "color": "random",
         "population": 44887,
@@ -824,7 +824,7 @@
       "type": "Feature",
       "properties": {
         "name": "Sarāb",
-        "parent": "Āz̄arbāyjān-e Sharqī",
+        "parent": "Azerbaijan East",
         "slot": 8,
         "color": "item",
         "population": 42057,
@@ -845,7 +845,7 @@
       "type": "Feature",
       "properties": {
         "name": "‘Ajab Shīr",
-        "parent": "Āz̄arbāyjān-e Sharqī",
+        "parent": "Azerbaijan East",
         "slot": 9,
         "color": "item",
         "population": 33606,
@@ -866,7 +866,7 @@
       "type": "Feature",
       "properties": {
         "name": "Sardrūd",
-        "parent": "Āz̄arbāyjān-e Sharqī",
+        "parent": "Azerbaijan East",
         "slot": 10,
         "color": "item",
         "population": 29739,
@@ -887,7 +887,7 @@
       "type": "Feature",
       "properties": {
         "name": "Hādīshahr",
-        "parent": "Āz̄arbāyjān-e Sharqī",
+        "parent": "Azerbaijan East",
         "slot": 11,
         "color": "item",
         "population": 27842,
@@ -908,7 +908,7 @@
       "type": "Feature",
       "properties": {
         "name": "Malekān",
-        "parent": "Āz̄arbāyjān-e Sharqī",
+        "parent": "Azerbaijan East",
         "slot": 12,
         "color": "item",
         "population": 27431,
@@ -929,7 +929,7 @@
       "type": "Feature",
       "properties": {
         "name": "Shabestar",
-        "parent": "Āz̄arbāyjān-e Sharqī",
+        "parent": "Azerbaijan East",
         "slot": 13,
         "color": "item",
         "population": 22181,
@@ -950,7 +950,7 @@
       "type": "Feature",
       "properties": {
         "name": "Khosrowshahr",
-        "parent": "Āz̄arbāyjān-e Sharqī",
+        "parent": "Azerbaijan East",
         "slot": 14,
         "color": "item",
         "population": 21972,
@@ -971,7 +971,7 @@
       "type": "Feature",
       "properties": {
         "name": "Hashtrūd",
-        "parent": "Āz̄arbāyjān-e Sharqī",
+        "parent": "Azerbaijan East",
         "slot": 15,
         "color": "item",
         "population": 20572,
@@ -992,7 +992,7 @@
       "type": "Feature",
       "properties": {
         "name": "Oskū",
-        "parent": "Āz̄arbāyjān-e Sharqī",
+        "parent": "Azerbaijan East",
         "slot": 16,
         "color": "item",
         "population": 18459,
@@ -1013,7 +1013,7 @@
       "type": "Feature",
       "properties": {
         "name": "Īlkhchī",
-        "parent": "Āz̄arbāyjān-e Sharqī",
+        "parent": "Azerbaijan East",
         "slot": 17,
         "color": "item",
         "population": 16574,
@@ -1034,7 +1034,7 @@
       "type": "Feature",
       "properties": {
         "name": "Īlkhechī",
-        "parent": "Āz̄arbāyjān-e Sharqī",
+        "parent": "Azerbaijan East",
         "slot": 18,
         "color": "item",
         "population": 16574,
@@ -1055,7 +1055,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bāsmenj",
-        "parent": "Āz̄arbāyjān-e Sharqī",
+        "parent": "Azerbaijan East",
         "slot": 19,
         "color": "item",
         "population": 12692,
@@ -1076,7 +1076,7 @@
       "type": "Feature",
       "properties": {
         "name": "Mamqān",
-        "parent": "Āz̄arbāyjān-e Sharqī",
+        "parent": "Azerbaijan East",
         "slot": 20,
         "color": "item",
         "population": 11892,
@@ -1097,7 +1097,7 @@
       "type": "Feature",
       "properties": {
         "name": "Herīs",
-        "parent": "Āz̄arbāyjān-e Sharqī",
+        "parent": "Azerbaijan East",
         "slot": 21,
         "color": "item",
         "population": 10515,
@@ -1118,7 +1118,7 @@
       "type": "Feature",
       "properties": {
         "name": "Şūfīān",
-        "parent": "Āz̄arbāyjān-e Sharqī",
+        "parent": "Azerbaijan East",
         "slot": 22,
         "color": "item",
         "population": 9963,
@@ -1139,7 +1139,7 @@
       "type": "Feature",
       "properties": {
         "name": "Kaleybar",
-        "parent": "Āz̄arbāyjān-e Sharqī",
+        "parent": "Azerbaijan East",
         "slot": 23,
         "color": "item",
         "population": 9324,
@@ -1160,7 +1160,7 @@
       "type": "Feature",
       "properties": {
         "name": "Jolfā",
-        "parent": "Āz̄arbāyjān-e Sharqī",
+        "parent": "Azerbaijan East",
         "slot": 24,
         "color": "item",
         "population": 8810,
@@ -1181,7 +1181,7 @@
       "type": "Feature",
       "properties": {
         "name": "Kond Rūd",
-        "parent": "Āz̄arbāyjān-e Sharqī",
+        "parent": "Azerbaijan East",
         "slot": 25,
         "color": "item",
         "population": 8518,
@@ -1202,7 +1202,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bandar-e Būshehr",
-        "parent": "Būshehr",
+        "parent": "Bushehr",
         "slot": 1,
         "color": "random",
         "population": 223504,
@@ -1223,7 +1223,7 @@
       "type": "Feature",
       "properties": {
         "name": "Borāzjān",
-        "parent": "Būshehr",
+        "parent": "Bushehr",
         "slot": 2,
         "color": "random",
         "population": 155567,
@@ -1244,7 +1244,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bandar-e Genāveh",
-        "parent": "Būshehr",
+        "parent": "Bushehr",
         "slot": 3,
         "color": "random",
         "population": 73472,
@@ -1265,7 +1265,7 @@
       "type": "Feature",
       "properties": {
         "name": "Kangān",
-        "parent": "Būshehr",
+        "parent": "Bushehr",
         "slot": 4,
         "color": "random",
         "population": 60187,
@@ -1286,7 +1286,7 @@
       "type": "Feature",
       "properties": {
         "name": "Khowrmūj",
-        "parent": "Būshehr",
+        "parent": "Bushehr",
         "slot": 5,
         "color": "random",
         "population": 40722,
@@ -1307,7 +1307,7 @@
       "type": "Feature",
       "properties": {
         "name": "Jam",
-        "parent": "Būshehr",
+        "parent": "Bushehr",
         "slot": 6,
         "color": "random",
         "population": 31436,
@@ -1328,7 +1328,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bandar-e Deylam",
-        "parent": "Būshehr",
+        "parent": "Bushehr",
         "slot": 7,
         "color": "random",
         "population": 25730,
@@ -1349,7 +1349,7 @@
       "type": "Feature",
       "properties": {
         "name": "Deyr",
-        "parent": "Būshehr",
+        "parent": "Bushehr",
         "slot": 8,
         "color": "item",
         "population": 24083,
@@ -1370,7 +1370,7 @@
       "type": "Feature",
       "properties": {
         "name": "‘Ālī Shahr",
-        "parent": "Būshehr",
+        "parent": "Bushehr",
         "slot": 9,
         "color": "item",
         "population": 23178,
@@ -1391,7 +1391,7 @@
       "type": "Feature",
       "properties": {
         "name": "Āb Pakhsh",
-        "parent": "Būshehr",
+        "parent": "Bushehr",
         "slot": 10,
         "color": "item",
         "population": 18913,
@@ -1412,7 +1412,7 @@
       "type": "Feature",
       "properties": {
         "name": "Nakhl-e Taqī",
-        "parent": "Būshehr",
+        "parent": "Bushehr",
         "slot": 11,
         "color": "item",
         "population": 18837,
@@ -1433,7 +1433,7 @@
       "type": "Feature",
       "properties": {
         "name": "Choghādak",
-        "parent": "Būshehr",
+        "parent": "Bushehr",
         "slot": 12,
         "color": "item",
         "population": 18702,
@@ -1454,7 +1454,7 @@
       "type": "Feature",
       "properties": {
         "name": "Ahram",
-        "parent": "Būshehr",
+        "parent": "Bushehr",
         "slot": 13,
         "color": "item",
         "population": 15198,
@@ -1475,7 +1475,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bandar-e ‘Asalūyeh",
-        "parent": "Būshehr",
+        "parent": "Bushehr",
         "slot": 14,
         "color": "item",
         "population": 13557,
@@ -1496,7 +1496,7 @@
       "type": "Feature",
       "properties": {
         "name": "Vaḩdattīyeh",
-        "parent": "Būshehr",
+        "parent": "Bushehr",
         "slot": 15,
         "color": "item",
         "population": 11222,
@@ -1517,7 +1517,7 @@
       "type": "Feature",
       "properties": {
         "name": "Maḩalleh-ye Shīrīnū",
-        "parent": "Būshehr",
+        "parent": "Bushehr",
         "slot": 16,
         "color": "item",
         "population": 9976,
@@ -1538,7 +1538,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bīdkhūn",
-        "parent": "Būshehr",
+        "parent": "Bushehr",
         "slot": 17,
         "color": "item",
         "population": 8886,
@@ -1559,7 +1559,7 @@
       "type": "Feature",
       "properties": {
         "name": "Banak",
-        "parent": "Būshehr",
+        "parent": "Bushehr",
         "slot": 18,
         "color": "item",
         "population": 8753,
@@ -1580,7 +1580,7 @@
       "type": "Feature",
       "properties": {
         "name": "Shahr-e Kord",
-        "parent": "Chahār Maḩāl va Bakhtīārī",
+        "parent": "Chaharmahal and Bakhtiari",
         "slot": 1,
         "color": "random",
         "population": 190441,
@@ -1601,7 +1601,7 @@
       "type": "Feature",
       "properties": {
         "name": "Borūjen",
-        "parent": "Chahār Maḩāl va Bakhtīārī",
+        "parent": "Chaharmahal and Bakhtiari",
         "slot": 2,
         "color": "random",
         "population": 57071,
@@ -1622,7 +1622,7 @@
       "type": "Feature",
       "properties": {
         "name": "Lordegān",
-        "parent": "Chahār Maḩāl va Bakhtīārī",
+        "parent": "Chaharmahal and Bakhtiari",
         "slot": 3,
         "color": "random",
         "population": 40528,
@@ -1643,7 +1643,7 @@
       "type": "Feature",
       "properties": {
         "name": "Farrokh Shahr",
-        "parent": "Chahār Maḩāl va Bakhtīārī",
+        "parent": "Chaharmahal and Bakhtiari",
         "slot": 4,
         "color": "random",
         "population": 31739,
@@ -1664,7 +1664,7 @@
       "type": "Feature",
       "properties": {
         "name": "Fārsān",
-        "parent": "Chahār Maḩāl va Bakhtīārī",
+        "parent": "Chaharmahal and Bakhtiari",
         "slot": 5,
         "color": "random",
         "population": 30504,
@@ -1685,7 +1685,7 @@
       "type": "Feature",
       "properties": {
         "name": "Hafshejān",
-        "parent": "Chahār Maḩāl va Bakhtīārī",
+        "parent": "Chaharmahal and Bakhtiari",
         "slot": 6,
         "color": "random",
         "population": 21352,
@@ -1706,7 +1706,7 @@
       "type": "Feature",
       "properties": {
         "name": "Jūnqān",
-        "parent": "Chahār Maḩāl va Bakhtīārī",
+        "parent": "Chaharmahal and Bakhtiari",
         "slot": 7,
         "color": "random",
         "population": 14433,
@@ -1727,7 +1727,7 @@
       "type": "Feature",
       "properties": {
         "name": "Farādonbeh",
-        "parent": "Chahār Maḩāl va Bakhtīārī",
+        "parent": "Chaharmahal and Bakhtiari",
         "slot": 8,
         "color": "item",
         "population": 13317,
@@ -1748,7 +1748,7 @@
       "type": "Feature",
       "properties": {
         "name": "Ben",
-        "parent": "Chahār Maḩāl va Bakhtīārī",
+        "parent": "Chaharmahal and Bakhtiari",
         "slot": 9,
         "color": "item",
         "population": 12971,
@@ -1769,7 +1769,7 @@
       "type": "Feature",
       "properties": {
         "name": "Sūreshjān",
-        "parent": "Chahār Maḩāl va Bakhtīārī",
+        "parent": "Chaharmahal and Bakhtiari",
         "slot": 10,
         "color": "item",
         "population": 12308,
@@ -1790,7 +1790,7 @@
       "type": "Feature",
       "properties": {
         "name": "Boldājī",
-        "parent": "Chahār Maḩāl va Bakhtīārī",
+        "parent": "Chaharmahal and Bakhtiari",
         "slot": 11,
         "color": "item",
         "population": 11980,
@@ -1811,7 +1811,7 @@
       "type": "Feature",
       "properties": {
         "name": "Ardal",
-        "parent": "Chahār Maḩāl va Bakhtīārī",
+        "parent": "Chaharmahal and Bakhtiari",
         "slot": 12,
         "color": "item",
         "population": 10113,
@@ -1832,7 +1832,7 @@
       "type": "Feature",
       "properties": {
         "name": "Pardanjān",
-        "parent": "Chahār Maḩāl va Bakhtīārī",
+        "parent": "Chaharmahal and Bakhtiari",
         "slot": 13,
         "color": "item",
         "population": 8699,
@@ -1853,7 +1853,7 @@
       "type": "Feature",
       "properties": {
         "name": "Işfahān",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 1,
         "color": "random",
         "population": 2219343,
@@ -1874,7 +1874,7 @@
       "type": "Feature",
       "properties": {
         "name": "Kāshān",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 2,
         "color": "random",
         "population": 304487,
@@ -1895,7 +1895,7 @@
       "type": "Feature",
       "properties": {
         "name": "Khomeynī Shahr",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 3,
         "color": "random",
         "population": 247128,
@@ -1916,7 +1916,7 @@
       "type": "Feature",
       "properties": {
         "name": "Najafābād",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 4,
         "color": "random",
         "population": 235281,
@@ -1937,7 +1937,7 @@
       "type": "Feature",
       "properties": {
         "name": "Shāhīn Shahr",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 5,
         "color": "random",
         "population": 173329,
@@ -1958,7 +1958,7 @@
       "type": "Feature",
       "properties": {
         "name": "Shahreẕā",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 6,
         "color": "random",
         "population": 134952,
@@ -1979,7 +1979,7 @@
       "type": "Feature",
       "properties": {
         "name": "Fūlād Shahr",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 7,
         "color": "random",
         "population": 88426,
@@ -2000,7 +2000,7 @@
       "type": "Feature",
       "properties": {
         "name": "Khowrāsgān",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 8,
         "color": "item",
         "population": 86063,
@@ -2021,7 +2021,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bahārestān",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 9,
         "color": "item",
         "population": 79023,
@@ -2042,7 +2042,7 @@
       "type": "Feature",
       "properties": {
         "name": "Ārān Bīdgol",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 10,
         "color": "item",
         "population": 65404,
@@ -2063,7 +2063,7 @@
       "type": "Feature",
       "properties": {
         "name": "Mobārakeh",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 11,
         "color": "item",
         "population": 62454,
@@ -2084,7 +2084,7 @@
       "type": "Feature",
       "properties": {
         "name": "Zarrīn Shahr",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 12,
         "color": "item",
         "population": 55817,
@@ -2105,7 +2105,7 @@
       "type": "Feature",
       "properties": {
         "name": "Golpāyegān",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 13,
         "color": "item",
         "population": 47849,
@@ -2126,7 +2126,7 @@
       "type": "Feature",
       "properties": {
         "name": "Darcheh",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 14,
         "color": "item",
         "population": 43183,
@@ -2147,7 +2147,7 @@
       "type": "Feature",
       "properties": {
         "name": "Dowlatābād",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 15,
         "color": "item",
         "population": 40945,
@@ -2168,7 +2168,7 @@
       "type": "Feature",
       "properties": {
         "name": "Falāvarjān",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 16,
         "color": "item",
         "population": 37704,
@@ -2189,7 +2189,7 @@
       "type": "Feature",
       "properties": {
         "name": "Qahderījān",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 17,
         "color": "item",
         "population": 30002,
@@ -2210,7 +2210,7 @@
       "type": "Feature",
       "properties": {
         "name": "Semīrom",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 18,
         "color": "item",
         "population": 26260,
@@ -2231,7 +2231,7 @@
       "type": "Feature",
       "properties": {
         "name": "Gaz",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 19,
         "color": "item",
         "population": 24433,
@@ -2252,7 +2252,7 @@
       "type": "Feature",
       "properties": {
         "name": "Kelīshād va Sūdarjān",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 20,
         "color": "item",
         "population": 23203,
@@ -2273,7 +2273,7 @@
       "type": "Feature",
       "properties": {
         "name": "Goldasht",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 21,
         "color": "item",
         "population": 22693,
@@ -2294,7 +2294,7 @@
       "type": "Feature",
       "properties": {
         "name": "Khvānsār",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 22,
         "color": "item",
         "population": 20490,
@@ -2315,7 +2315,7 @@
       "type": "Feature",
       "properties": {
         "name": "Khowrzūq",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 23,
         "color": "item",
         "population": 20301,
@@ -2336,7 +2336,7 @@
       "type": "Feature",
       "properties": {
         "name": "Abrīsham",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 24,
         "color": "item",
         "population": 19406,
@@ -2357,7 +2357,7 @@
       "type": "Feature",
       "properties": {
         "name": "Dīzīcheh",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 25,
         "color": "item",
         "population": 17966,
@@ -2378,7 +2378,7 @@
       "type": "Feature",
       "properties": {
         "name": "Dastgerd",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 26,
         "color": "item",
         "population": 17775,
@@ -2399,7 +2399,7 @@
       "type": "Feature",
       "properties": {
         "name": "Sedeh Lanjān",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 27,
         "color": "item",
         "population": 17335,
@@ -2420,7 +2420,7 @@
       "type": "Feature",
       "properties": {
         "name": "Dehāqān",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 28,
         "color": "item",
         "population": 16899,
@@ -2441,7 +2441,7 @@
       "type": "Feature",
       "properties": {
         "name": "Ardestān",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 29,
         "color": "item",
         "population": 15744,
@@ -2462,7 +2462,7 @@
       "type": "Feature",
       "properties": {
         "name": "Tīrān",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 30,
         "color": "item",
         "population": 15673,
@@ -2483,7 +2483,7 @@
       "type": "Feature",
       "properties": {
         "name": "Chamgardān",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 31,
         "color": "item",
         "population": 15574,
@@ -2504,7 +2504,7 @@
       "type": "Feature",
       "properties": {
         "name": "Naţanz",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 32,
         "color": "item",
         "population": 14122,
@@ -2525,7 +2525,7 @@
       "type": "Feature",
       "properties": {
         "name": "Fereydūnshahr",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 33,
         "color": "item",
         "population": 13475,
@@ -2546,7 +2546,7 @@
       "type": "Feature",
       "properties": {
         "name": "Varzaneh",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 34,
         "color": "item",
         "population": 12714,
@@ -2567,7 +2567,7 @@
       "type": "Feature",
       "properties": {
         "name": "Charmahīn",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 35,
         "color": "item",
         "population": 12292,
@@ -2588,7 +2588,7 @@
       "type": "Feature",
       "properties": {
         "name": "Kūshk",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 36,
         "color": "item",
         "population": 11264,
@@ -2609,7 +2609,7 @@
       "type": "Feature",
       "properties": {
         "name": "Ḩaşşeh",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 37,
         "color": "item",
         "population": 10942,
@@ -2630,7 +2630,7 @@
       "type": "Feature",
       "properties": {
         "name": "Pīr Bakrān",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 38,
         "color": "item",
         "population": 10851,
@@ -2651,7 +2651,7 @@
       "type": "Feature",
       "properties": {
         "name": "Mīāndasht",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 39,
         "color": "item",
         "population": 9933,
@@ -2672,7 +2672,7 @@
       "type": "Feature",
       "properties": {
         "name": "Ţālkhvoncheh",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 40,
         "color": "item",
         "population": 9924,
@@ -2693,7 +2693,7 @@
       "type": "Feature",
       "properties": {
         "name": "Qahjāvarestān",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 41,
         "color": "item",
         "population": 9712,
@@ -2714,7 +2714,7 @@
       "type": "Feature",
       "properties": {
         "name": "Gorgāb",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 42,
         "color": "item",
         "population": 9690,
@@ -2735,7 +2735,7 @@
       "type": "Feature",
       "properties": {
         "name": "Shahr-e Majlesī",
-        "parent": "Eşfahān",
+        "parent": "Isfahan",
         "slot": 43,
         "color": "item",
         "population": 9363,
@@ -2756,7 +2756,7 @@
       "type": "Feature",
       "properties": {
         "name": "Shīrāz",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 1,
         "color": "random",
         "population": 1565572,
@@ -2777,7 +2777,7 @@
       "type": "Feature",
       "properties": {
         "name": "Marvdasht",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 2,
         "color": "random",
         "population": 148858,
@@ -2798,7 +2798,7 @@
       "type": "Feature",
       "properties": {
         "name": "Jahrom",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 3,
         "color": "random",
         "population": 141634,
@@ -2819,7 +2819,7 @@
       "type": "Feature",
       "properties": {
         "name": "Fasā",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 4,
         "color": "random",
         "population": 110825,
@@ -2840,7 +2840,7 @@
       "type": "Feature",
       "properties": {
         "name": "Kāzerūn",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 5,
         "color": "random",
         "population": 96683,
@@ -2861,7 +2861,7 @@
       "type": "Feature",
       "properties": {
         "name": "Neyrīz",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 6,
         "color": "random",
         "population": 49850,
@@ -2882,7 +2882,7 @@
       "type": "Feature",
       "properties": {
         "name": "Eqlīd",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 7,
         "color": "random",
         "population": 44341,
@@ -2903,7 +2903,7 @@
       "type": "Feature",
       "properties": {
         "name": "Estahbān",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 8,
         "color": "item",
         "population": 36410,
@@ -2924,7 +2924,7 @@
       "type": "Feature",
       "properties": {
         "name": "Gerāsh",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 9,
         "color": "item",
         "population": 34469,
@@ -2945,7 +2945,7 @@
       "type": "Feature",
       "properties": {
         "name": "Zarqān",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 10,
         "color": "item",
         "population": 32261,
@@ -2966,7 +2966,7 @@
       "type": "Feature",
       "properties": {
         "name": "Kavār",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 11,
         "color": "item",
         "population": 31711,
@@ -2987,7 +2987,7 @@
       "type": "Feature",
       "properties": {
         "name": "Lāmerd",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 12,
         "color": "item",
         "population": 29380,
@@ -3008,7 +3008,7 @@
       "type": "Feature",
       "properties": {
         "name": "Şafāshahr",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 13,
         "color": "item",
         "population": 26933,
@@ -3029,7 +3029,7 @@
       "type": "Feature",
       "properties": {
         "name": "Qā’emīyeh",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 14,
         "color": "item",
         "population": 26918,
@@ -3050,7 +3050,7 @@
       "type": "Feature",
       "properties": {
         "name": "Farāshband",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 15,
         "color": "item",
         "population": 20320,
@@ -3071,7 +3071,7 @@
       "type": "Feature",
       "properties": {
         "name": "Evaz",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 16,
         "color": "item",
         "population": 19987,
@@ -3092,7 +3092,7 @@
       "type": "Feature",
       "properties": {
         "name": "Khonj",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 17,
         "color": "item",
         "population": 19217,
@@ -3113,7 +3113,7 @@
       "type": "Feature",
       "properties": {
         "name": "Kherāmeh",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 18,
         "color": "item",
         "population": 18477,
@@ -3134,7 +3134,7 @@
       "type": "Feature",
       "properties": {
         "name": "Sarvestān",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 19,
         "color": "item",
         "population": 18187,
@@ -3155,7 +3155,7 @@
       "type": "Feature",
       "properties": {
         "name": "Arsanjān",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 20,
         "color": "item",
         "population": 17642,
@@ -3176,7 +3176,7 @@
       "type": "Feature",
       "properties": {
         "name": "Sa‘ādat Shahr",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 21,
         "color": "item",
         "population": 17131,
@@ -3197,7 +3197,7 @@
       "type": "Feature",
       "properties": {
         "name": "Sepīdān",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 22,
         "color": "item",
         "population": 14633,
@@ -3218,7 +3218,7 @@
       "type": "Feature",
       "properties": {
         "name": "Dowbarān",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 23,
         "color": "item",
         "population": 13809,
@@ -3239,7 +3239,7 @@
       "type": "Feature",
       "properties": {
         "name": "Jannat Shahr",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 24,
         "color": "item",
         "population": 13598,
@@ -3260,7 +3260,7 @@
       "type": "Feature",
       "properties": {
         "name": "Qaşr-e Qomsheh",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 25,
         "color": "item",
         "population": 10890,
@@ -3281,7 +3281,7 @@
       "type": "Feature",
       "properties": {
         "name": "Meymand",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 26,
         "color": "item",
         "population": 10120,
@@ -3302,7 +3302,7 @@
       "type": "Feature",
       "properties": {
         "name": "Galleh Dār",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 27,
         "color": "item",
         "population": 9982,
@@ -3323,7 +3323,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bavānāt",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 28,
         "color": "item",
         "population": 9776,
@@ -3344,7 +3344,7 @@
       "type": "Feature",
       "properties": {
         "name": "Zāhed Shahr",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 29,
         "color": "item",
         "population": 9719,
@@ -3365,7 +3365,7 @@
       "type": "Feature",
       "properties": {
         "name": "Khesht",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 30,
         "color": "item",
         "population": 9599,
@@ -3386,7 +3386,7 @@
       "type": "Feature",
       "properties": {
         "name": "Eshkanān",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 31,
         "color": "item",
         "population": 9115,
@@ -3407,7 +3407,7 @@
       "type": "Feature",
       "properties": {
         "name": "Banārūyeh",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 32,
         "color": "item",
         "population": 9077,
@@ -3428,7 +3428,7 @@
       "type": "Feature",
       "properties": {
         "name": "Shahr-e Pīr",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 33,
         "color": "item",
         "population": 8927,
@@ -3449,7 +3449,7 @@
       "type": "Feature",
       "properties": {
         "name": "Seyyedān",
-        "parent": "Fārs",
+        "parent": "Fars",
         "slot": 34,
         "color": "item",
         "population": 8574,
@@ -3470,7 +3470,7 @@
       "type": "Feature",
       "properties": {
         "name": "Rasht",
-        "parent": "Gīlān",
+        "parent": "Gilan",
         "slot": 1,
         "color": "random",
         "population": 679995,
@@ -3491,7 +3491,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bandar-e Anzalī",
-        "parent": "Gīlān",
+        "parent": "Gilan",
         "slot": 2,
         "color": "random",
         "population": 118564,
@@ -3512,7 +3512,7 @@
       "type": "Feature",
       "properties": {
         "name": "Langarūd",
-        "parent": "Gīlān",
+        "parent": "Gilan",
         "slot": 3,
         "color": "random",
         "population": 79445,
@@ -3533,7 +3533,7 @@
       "type": "Feature",
       "properties": {
         "name": "Hashtpar",
-        "parent": "Gīlān",
+        "parent": "Gilan",
         "slot": 4,
         "color": "random",
         "population": 54178,
@@ -3554,7 +3554,7 @@
       "type": "Feature",
       "properties": {
         "name": "Şowme‘eh Sarā",
-        "parent": "Gīlān",
+        "parent": "Gilan",
         "slot": 5,
         "color": "random",
         "population": 47083,
@@ -3575,7 +3575,7 @@
       "type": "Feature",
       "properties": {
         "name": "Āstāneh-ye Ashrafīyeh",
-        "parent": "Gīlān",
+        "parent": "Gilan",
         "slot": 6,
         "color": "random",
         "population": 44941,
@@ -3596,7 +3596,7 @@
       "type": "Feature",
       "properties": {
         "name": "Rūdsar",
-        "parent": "Gīlān",
+        "parent": "Gilan",
         "slot": 7,
         "color": "random",
         "population": 37998,
@@ -3617,7 +3617,7 @@
       "type": "Feature",
       "properties": {
         "name": "Fūman",
-        "parent": "Gīlān",
+        "parent": "Gilan",
         "slot": 8,
         "color": "item",
         "population": 27763,
@@ -3638,7 +3638,7 @@
       "type": "Feature",
       "properties": {
         "name": "Sīāhkal",
-        "parent": "Gīlān",
+        "parent": "Gilan",
         "slot": 9,
         "color": "item",
         "population": 19924,
@@ -3659,7 +3659,7 @@
       "type": "Feature",
       "properties": {
         "name": "Manjīl",
-        "parent": "Gīlān",
+        "parent": "Gilan",
         "slot": 10,
         "color": "item",
         "population": 15630,
@@ -3680,7 +3680,7 @@
       "type": "Feature",
       "properties": {
         "name": "Amlash",
-        "parent": "Gīlān",
+        "parent": "Gilan",
         "slot": 11,
         "color": "item",
         "population": 15047,
@@ -3701,7 +3701,7 @@
       "type": "Feature",
       "properties": {
         "name": "Kīāshahr",
-        "parent": "Gīlān",
+        "parent": "Gilan",
         "slot": 12,
         "color": "item",
         "population": 14022,
@@ -3722,7 +3722,7 @@
       "type": "Feature",
       "properties": {
         "name": "Rostamābād",
-        "parent": "Gīlān",
+        "parent": "Gilan",
         "slot": 13,
         "color": "item",
         "population": 13746,
@@ -3743,7 +3743,7 @@
       "type": "Feature",
       "properties": {
         "name": "Lowshān",
-        "parent": "Gīlān",
+        "parent": "Gilan",
         "slot": 14,
         "color": "item",
         "population": 13032,
@@ -3764,7 +3764,7 @@
       "type": "Feature",
       "properties": {
         "name": "Khomām",
-        "parent": "Gīlān",
+        "parent": "Gilan",
         "slot": 15,
         "color": "item",
         "population": 12901,
@@ -3785,7 +3785,7 @@
       "type": "Feature",
       "properties": {
         "name": "Sangar",
-        "parent": "Gīlān",
+        "parent": "Gilan",
         "slot": 16,
         "color": "item",
         "population": 12583,
@@ -3806,7 +3806,7 @@
       "type": "Feature",
       "properties": {
         "name": "Kalā Chāy",
-        "parent": "Gīlān",
+        "parent": "Gilan",
         "slot": 17,
         "color": "item",
         "population": 12379,
@@ -3827,7 +3827,7 @@
       "type": "Feature",
       "properties": {
         "name": "Reẕvānshahr",
-        "parent": "Gīlān",
+        "parent": "Gilan",
         "slot": 18,
         "color": "item",
         "population": 12355,
@@ -3848,7 +3848,7 @@
       "type": "Feature",
       "properties": {
         "name": "Lavandevīl",
-        "parent": "Gīlān",
+        "parent": "Gilan",
         "slot": 19,
         "color": "item",
         "population": 11235,
@@ -3869,7 +3869,7 @@
       "type": "Feature",
       "properties": {
         "name": "Asālem",
-        "parent": "Gīlān",
+        "parent": "Gilan",
         "slot": 20,
         "color": "item",
         "population": 10720,
@@ -3890,7 +3890,7 @@
       "type": "Feature",
       "properties": {
         "name": "Lasht-e Neshā",
-        "parent": "Gīlān",
+        "parent": "Gilan",
         "slot": 21,
         "color": "item",
         "population": 10539,
@@ -3911,7 +3911,7 @@
       "type": "Feature",
       "properties": {
         "name": "Kūcheşfahān",
-        "parent": "Gīlān",
+        "parent": "Gilan",
         "slot": 22,
         "color": "item",
         "population": 10026,
@@ -3932,7 +3932,7 @@
       "type": "Feature",
       "properties": {
         "name": "Pā’īn Chāf",
-        "parent": "Gīlān",
+        "parent": "Gilan",
         "slot": 23,
         "color": "item",
         "population": 8840,
@@ -3953,7 +3953,7 @@
       "type": "Feature",
       "properties": {
         "name": "Gorgān",
-        "parent": "Golestān",
+        "parent": "Golestan",
         "slot": 1,
         "color": "random",
         "population": 312223,
@@ -3974,7 +3974,7 @@
       "type": "Feature",
       "properties": {
         "name": "Gonbad-e Kāvūs",
-        "parent": "Golestān",
+        "parent": "Golestan",
         "slot": 2,
         "color": "random",
         "population": 151910,
@@ -3995,7 +3995,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bandar-e Torkaman",
-        "parent": "Golestān",
+        "parent": "Golestan",
         "slot": 3,
         "color": "random",
         "population": 53970,
@@ -4016,7 +4016,7 @@
       "type": "Feature",
       "properties": {
         "name": "‘Alīābād-e Katūl",
-        "parent": "Golestān",
+        "parent": "Golestan",
         "slot": 4,
         "color": "random",
         "population": 52838,
@@ -4037,7 +4037,7 @@
       "type": "Feature",
       "properties": {
         "name": "Āzādshahr",
-        "parent": "Golestān",
+        "parent": "Golestan",
         "slot": 5,
         "color": "random",
         "population": 43760,
@@ -4058,7 +4058,7 @@
       "type": "Feature",
       "properties": {
         "name": "Kord Kūy",
-        "parent": "Golestān",
+        "parent": "Golestan",
         "slot": 6,
         "color": "random",
         "population": 39881,
@@ -4079,7 +4079,7 @@
       "type": "Feature",
       "properties": {
         "name": "Kalāleh",
-        "parent": "Golestān",
+        "parent": "Golestan",
         "slot": 7,
         "color": "random",
         "population": 36176,
@@ -4100,7 +4100,7 @@
       "type": "Feature",
       "properties": {
         "name": "Mīnūdasht",
-        "parent": "Golestān",
+        "parent": "Golestan",
         "slot": 8,
         "color": "item",
         "population": 30085,
@@ -4121,7 +4121,7 @@
       "type": "Feature",
       "properties": {
         "name": "Gālīkesh",
-        "parent": "Golestān",
+        "parent": "Golestan",
         "slot": 9,
         "color": "item",
         "population": 23394,
@@ -4142,7 +4142,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bandar-e Gaz",
-        "parent": "Golestān",
+        "parent": "Golestan",
         "slot": 10,
         "color": "item",
         "population": 20742,
@@ -4163,7 +4163,7 @@
       "type": "Feature",
       "properties": {
         "name": "Gomīshān",
-        "parent": "Golestān",
+        "parent": "Golestan",
         "slot": 11,
         "color": "item",
         "population": 19191,
@@ -4184,7 +4184,7 @@
       "type": "Feature",
       "properties": {
         "name": "Sīmīn Shahr",
-        "parent": "Golestān",
+        "parent": "Golestan",
         "slot": 12,
         "color": "item",
         "population": 17205,
@@ -4205,7 +4205,7 @@
       "type": "Feature",
       "properties": {
         "name": "Khān Bebīn",
-        "parent": "Golestān",
+        "parent": "Golestan",
         "slot": 13,
         "color": "item",
         "population": 10878,
@@ -4226,7 +4226,7 @@
       "type": "Feature",
       "properties": {
         "name": "Marāveh Tappeh",
-        "parent": "Golestān",
+        "parent": "Golestan",
         "slot": 14,
         "color": "item",
         "population": 8671,
@@ -4247,7 +4247,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bahār",
-        "parent": "Hamadān",
+        "parent": "Hamadan",
         "slot": 1,
         "color": "random",
         "population": 673405,
@@ -4268,7 +4268,7 @@
       "type": "Feature",
       "properties": {
         "name": "Hamadān",
-        "parent": "Hamadān",
+        "parent": "Hamadan",
         "slot": 2,
         "color": "random",
         "population": 554406,
@@ -4289,7 +4289,7 @@
       "type": "Feature",
       "properties": {
         "name": "Malāyer",
-        "parent": "Hamadān",
+        "parent": "Hamadan",
         "slot": 3,
         "color": "random",
         "population": 170237,
@@ -4310,7 +4310,7 @@
       "type": "Feature",
       "properties": {
         "name": "Nahāvand",
-        "parent": "Hamadān",
+        "parent": "Hamadan",
         "slot": 4,
         "color": "random",
         "population": 76162,
@@ -4331,7 +4331,7 @@
       "type": "Feature",
       "properties": {
         "name": "Asadābād",
-        "parent": "Hamadān",
+        "parent": "Hamadan",
         "slot": 5,
         "color": "random",
         "population": 55703,
@@ -4352,7 +4352,7 @@
       "type": "Feature",
       "properties": {
         "name": "Tūyserkān",
-        "parent": "Hamadān",
+        "parent": "Hamadan",
         "slot": 6,
         "color": "random",
         "population": 50455,
@@ -4373,7 +4373,7 @@
       "type": "Feature",
       "properties": {
         "name": "Kabūdarāhang",
-        "parent": "Hamadān",
+        "parent": "Hamadan",
         "slot": 7,
         "color": "random",
         "population": 19216,
@@ -4394,7 +4394,7 @@
       "type": "Feature",
       "properties": {
         "name": "Lālejīn",
-        "parent": "Hamadān",
+        "parent": "Hamadan",
         "slot": 8,
         "color": "item",
         "population": 14916,
@@ -4415,7 +4415,7 @@
       "type": "Feature",
       "properties": {
         "name": "Razan",
-        "parent": "Hamadān",
+        "parent": "Hamadan",
         "slot": 9,
         "color": "item",
         "population": 14275,
@@ -4436,7 +4436,7 @@
       "type": "Feature",
       "properties": {
         "name": "Fāmenīn",
-        "parent": "Hamadān",
+        "parent": "Hamadan",
         "slot": 10,
         "color": "item",
         "population": 14019,
@@ -4457,7 +4457,7 @@
       "type": "Feature",
       "properties": {
         "name": "Maryānaj",
-        "parent": "Hamadān",
+        "parent": "Hamadan",
         "slot": 11,
         "color": "item",
         "population": 10848,
@@ -4478,7 +4478,7 @@
       "type": "Feature",
       "properties": {
         "name": "Qorveh",
-        "parent": "Hamadān",
+        "parent": "Hamadan",
         "slot": 12,
         "color": "item",
         "population": 9540,
@@ -4499,7 +4499,7 @@
       "type": "Feature",
       "properties": {
         "name": "Jūraqān",
-        "parent": "Hamadān",
+        "parent": "Hamadan",
         "slot": 13,
         "color": "item",
         "population": 9234,
@@ -4520,7 +4520,7 @@
       "type": "Feature",
       "properties": {
         "name": "Azandarīān",
-        "parent": "Hamadān",
+        "parent": "Hamadan",
         "slot": 14,
         "color": "item",
         "population": 8685,
@@ -4541,7 +4541,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bandar ‘Abbās",
-        "parent": "Hormozgān",
+        "parent": "Hormozgan",
         "slot": 1,
         "color": "random",
         "population": 526648,
@@ -4562,7 +4562,7 @@
       "type": "Feature",
       "properties": {
         "name": "Qeshm",
-        "parent": "Hormozgān",
+        "parent": "Hormozgan",
         "slot": 2,
         "color": "random",
         "population": 40678,
@@ -4583,7 +4583,7 @@
       "type": "Feature",
       "properties": {
         "name": "Kīsh",
-        "parent": "Hormozgān",
+        "parent": "Hormozgan",
         "slot": 3,
         "color": "random",
         "population": 39853,
@@ -4604,7 +4604,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bandar-e Lengeh",
-        "parent": "Hormozgān",
+        "parent": "Hormozgan",
         "slot": 4,
         "color": "random",
         "population": 30435,
@@ -4625,7 +4625,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bandar-e Kong",
-        "parent": "Hormozgān",
+        "parent": "Hormozgan",
         "slot": 5,
         "color": "random",
         "population": 19213,
@@ -4646,7 +4646,7 @@
       "type": "Feature",
       "properties": {
         "name": "Jāsk",
-        "parent": "Hormozgān",
+        "parent": "Hormozgan",
         "slot": 6,
         "color": "random",
         "population": 16860,
@@ -4667,7 +4667,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bandar-e Khamīr",
-        "parent": "Hormozgān",
+        "parent": "Hormozgan",
         "slot": 7,
         "color": "random",
         "population": 15320,
@@ -4688,7 +4688,7 @@
       "type": "Feature",
       "properties": {
         "name": "Dargahān",
-        "parent": "Hormozgān",
+        "parent": "Hormozgan",
         "slot": 8,
         "color": "item",
         "population": 14525,
@@ -4709,7 +4709,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bastak",
-        "parent": "Hormozgān",
+        "parent": "Hormozgan",
         "slot": 9,
         "color": "item",
         "population": 9959,
@@ -4730,7 +4730,7 @@
       "type": "Feature",
       "properties": {
         "name": "Īlām",
-        "parent": "Īlām",
+        "parent": "Ilam",
         "slot": 1,
         "color": "random",
         "population": 194030,
@@ -4751,7 +4751,7 @@
       "type": "Feature",
       "properties": {
         "name": "Dehlorān",
-        "parent": "Īlām",
+        "parent": "Ilam",
         "slot": 2,
         "color": "random",
         "population": 32941,
@@ -4772,7 +4772,7 @@
       "type": "Feature",
       "properties": {
         "name": "Eyvān",
-        "parent": "Īlām",
+        "parent": "Ilam",
         "slot": 3,
         "color": "random",
         "population": 31299,
@@ -4793,7 +4793,7 @@
       "type": "Feature",
       "properties": {
         "name": "Darreh Shahr",
-        "parent": "Īlām",
+        "parent": "Ilam",
         "slot": 4,
         "color": "random",
         "population": 21900,
@@ -4814,7 +4814,7 @@
       "type": "Feature",
       "properties": {
         "name": "Mehrān",
-        "parent": "Īlām",
+        "parent": "Ilam",
         "slot": 5,
         "color": "random",
         "population": 17435,
@@ -4835,7 +4835,7 @@
       "type": "Feature",
       "properties": {
         "name": "Sarābleh",
-        "parent": "Īlām",
+        "parent": "Ilam",
         "slot": 6,
         "color": "random",
         "population": 12393,
@@ -4856,7 +4856,7 @@
       "type": "Feature",
       "properties": {
         "name": "Arakvāz-e Malekshāhī",
-        "parent": "Īlām",
+        "parent": "Ilam",
         "slot": 7,
         "color": "random",
         "population": 11977,
@@ -4877,7 +4877,7 @@
       "type": "Feature",
       "properties": {
         "name": "Kermān",
-        "parent": "Kermān",
+        "parent": "Kerman",
         "slot": 1,
         "color": "random",
         "population": 738374,
@@ -4898,7 +4898,7 @@
       "type": "Feature",
       "properties": {
         "name": "Sīrjān",
-        "parent": "Kermān",
+        "parent": "Kerman",
         "slot": 2,
         "color": "random",
         "population": 175000,
@@ -4919,7 +4919,7 @@
       "type": "Feature",
       "properties": {
         "name": "Rafsanjān",
-        "parent": "Kermān",
+        "parent": "Kerman",
         "slot": 3,
         "color": "random",
         "population": 161909,
@@ -4940,7 +4940,7 @@
       "type": "Feature",
       "properties": {
         "name": "Jīroft",
-        "parent": "Kermān",
+        "parent": "Kerman",
         "slot": 4,
         "color": "random",
         "population": 130429,
@@ -4961,7 +4961,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bam",
-        "parent": "Kermān",
+        "parent": "Kerman",
         "slot": 5,
         "color": "random",
         "population": 127396,
@@ -4982,7 +4982,7 @@
       "type": "Feature",
       "properties": {
         "name": "Zarand",
-        "parent": "Kermān",
+        "parent": "Kerman",
         "slot": 6,
         "color": "random",
         "population": 57749,
@@ -5003,7 +5003,7 @@
       "type": "Feature",
       "properties": {
         "name": "Kahnūj",
-        "parent": "Kermān",
+        "parent": "Kerman",
         "slot": 7,
         "color": "random",
         "population": 52624,
@@ -5024,7 +5024,7 @@
       "type": "Feature",
       "properties": {
         "name": "Shahr-e Bābak",
-        "parent": "Kermān",
+        "parent": "Kerman",
         "slot": 8,
         "color": "item",
         "population": 43916,
@@ -5045,7 +5045,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bāft",
-        "parent": "Kermān",
+        "parent": "Kerman",
         "slot": 9,
         "color": "item",
         "population": 34517,
@@ -5066,7 +5066,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bardsīr",
-        "parent": "Kermān",
+        "parent": "Kerman",
         "slot": 10,
         "color": "item",
         "population": 25152,
@@ -5087,7 +5087,7 @@
       "type": "Feature",
       "properties": {
         "name": "Baravāt",
-        "parent": "Kermān",
+        "parent": "Kerman",
         "slot": 11,
         "color": "item",
         "population": 22761,
@@ -5108,7 +5108,7 @@
       "type": "Feature",
       "properties": {
         "name": "Rāvar",
-        "parent": "Kermān",
+        "parent": "Kerman",
         "slot": 12,
         "color": "item",
         "population": 22729,
@@ -5129,7 +5129,7 @@
       "type": "Feature",
       "properties": {
         "name": "Moḩammadābād",
-        "parent": "Kermān",
+        "parent": "Kerman",
         "slot": 13,
         "color": "item",
         "population": 20720,
@@ -5150,7 +5150,7 @@
       "type": "Feature",
       "properties": {
         "name": "‘Anbarābād",
-        "parent": "Kermān",
+        "parent": "Kerman",
         "slot": 14,
         "color": "item",
         "population": 18185,
@@ -5171,7 +5171,7 @@
       "type": "Feature",
       "properties": {
         "name": "Manūjān",
-        "parent": "Kermān",
+        "parent": "Kerman",
         "slot": 15,
         "color": "item",
         "population": 15634,
@@ -5192,7 +5192,7 @@
       "type": "Feature",
       "properties": {
         "name": "Anār",
-        "parent": "Kermān",
+        "parent": "Kerman",
         "slot": 16,
         "color": "item",
         "population": 15532,
@@ -5213,7 +5213,7 @@
       "type": "Feature",
       "properties": {
         "name": "Rābor",
-        "parent": "Kermān",
+        "parent": "Kerman",
         "slot": 17,
         "color": "item",
         "population": 13263,
@@ -5234,7 +5234,7 @@
       "type": "Feature",
       "properties": {
         "name": "Qal‘eh Ganj",
-        "parent": "Kermān",
+        "parent": "Kerman",
         "slot": 18,
         "color": "item",
         "population": 13169,
@@ -5255,7 +5255,7 @@
       "type": "Feature",
       "properties": {
         "name": "Kūhbanān",
-        "parent": "Kermān",
+        "parent": "Kerman",
         "slot": 19,
         "color": "item",
         "population": 10761,
@@ -5276,7 +5276,7 @@
       "type": "Feature",
       "properties": {
         "name": "Deh Bakrī",
-        "parent": "Kermān",
+        "parent": "Kerman",
         "slot": 20,
         "color": "item",
         "population": 10726,
@@ -5297,7 +5297,7 @@
       "type": "Feature",
       "properties": {
         "name": "Darb-e Behesht",
-        "parent": "Kermān",
+        "parent": "Kerman",
         "slot": 21,
         "color": "item",
         "population": 10670,
@@ -5318,7 +5318,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bāghīn",
-        "parent": "Kermān",
+        "parent": "Kerman",
         "slot": 22,
         "color": "item",
         "population": 10407,
@@ -5339,7 +5339,7 @@
       "type": "Feature",
       "properties": {
         "name": "Rāyen",
-        "parent": "Kermān",
+        "parent": "Kerman",
         "slot": 23,
         "color": "item",
         "population": 10286,
@@ -5360,7 +5360,7 @@
       "type": "Feature",
       "properties": {
         "name": "Golbāf",
-        "parent": "Kermān",
+        "parent": "Kerman",
         "slot": 24,
         "color": "item",
         "population": 9205,
@@ -5381,7 +5381,7 @@
       "type": "Feature",
       "properties": {
         "name": "Zeydābād",
-        "parent": "Kermān",
+        "parent": "Kerman",
         "slot": 25,
         "color": "item",
         "population": 9112,
@@ -5402,7 +5402,7 @@
       "type": "Feature",
       "properties": {
         "name": "Sa‘īdī",
-        "parent": "Kermān",
+        "parent": "Kerman",
         "slot": 26,
         "color": "item",
         "population": 8626,
@@ -5675,7 +5675,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bīrjand",
-        "parent": "Khorāsān-e Jonūbī",
+        "parent": "Khorasan South",
         "slot": 1,
         "color": "random",
         "population": 203636,
@@ -5696,7 +5696,7 @@
       "type": "Feature",
       "properties": {
         "name": "Qā’en",
-        "parent": "Khorāsān-e Jonūbī",
+        "parent": "Khorasan South",
         "slot": 2,
         "color": "random",
         "population": 42323,
@@ -5717,7 +5717,7 @@
       "type": "Feature",
       "properties": {
         "name": "Ţabas",
-        "parent": "Khorāsān-e Jonūbī",
+        "parent": "Khorasan South",
         "slot": 3,
         "color": "random",
         "population": 39676,
@@ -5738,7 +5738,7 @@
       "type": "Feature",
       "properties": {
         "name": "Ferdows",
-        "parent": "Khorāsān-e Jonūbī",
+        "parent": "Khorasan South",
         "slot": 4,
         "color": "random",
         "population": 28695,
@@ -5759,7 +5759,7 @@
       "type": "Feature",
       "properties": {
         "name": "Nehbandān",
-        "parent": "Khorāsān-e Jonūbī",
+        "parent": "Khorasan South",
         "slot": 5,
         "color": "random",
         "population": 18304,
@@ -5780,7 +5780,7 @@
       "type": "Feature",
       "properties": {
         "name": "Boshrūyeh",
-        "parent": "Khorāsān-e Jonūbī",
+        "parent": "Khorasan South",
         "slot": 6,
         "color": "random",
         "population": 16426,
@@ -5801,7 +5801,7 @@
       "type": "Feature",
       "properties": {
         "name": "Sarāyān",
-        "parent": "Khorāsān-e Jonūbī",
+        "parent": "Khorasan South",
         "slot": 7,
         "color": "random",
         "population": 13795,
@@ -5822,7 +5822,7 @@
       "type": "Feature",
       "properties": {
         "name": "Sarbīsheh",
-        "parent": "Khorāsān-e Jonūbī",
+        "parent": "Khorasan South",
         "slot": 8,
         "color": "item",
         "population": 8715,
@@ -6536,7 +6536,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bojnūrd",
-        "parent": "Khorāsān-e Shomālī",
+        "parent": "Khorasan North",
         "slot": 1,
         "color": "random",
         "population": 228931,
@@ -6557,7 +6557,7 @@
       "type": "Feature",
       "properties": {
         "name": "Shīrvān",
-        "parent": "Khorāsān-e Shomālī",
+        "parent": "Khorasan North",
         "slot": 2,
         "color": "random",
         "population": 82689,
@@ -6578,7 +6578,7 @@
       "type": "Feature",
       "properties": {
         "name": "Esfarāyen",
-        "parent": "Khorāsān-e Shomālī",
+        "parent": "Khorasan North",
         "slot": 3,
         "color": "random",
         "population": 59490,
@@ -6599,7 +6599,7 @@
       "type": "Feature",
       "properties": {
         "name": "Āshkhāneh",
-        "parent": "Khorāsān-e Shomālī",
+        "parent": "Khorasan North",
         "slot": 4,
         "color": "random",
         "population": 25104,
@@ -6620,7 +6620,7 @@
       "type": "Feature",
       "properties": {
         "name": "Jājarm",
-        "parent": "Khorāsān-e Shomālī",
+        "parent": "Khorasan North",
         "slot": 5,
         "color": "random",
         "population": 19580,
@@ -6641,7 +6641,7 @@
       "type": "Feature",
       "properties": {
         "name": "Garmeh",
-        "parent": "Khorāsān-e Shomālī",
+        "parent": "Khorasan North",
         "slot": 6,
         "color": "random",
         "population": 10933,
@@ -6662,7 +6662,7 @@
       "type": "Feature",
       "properties": {
         "name": "Ḩeşārcheh-ye Pā’īn",
-        "parent": "Khorāsān-e Shomālī",
+        "parent": "Khorasan North",
         "slot": 7,
         "color": "random",
         "population": 9826,

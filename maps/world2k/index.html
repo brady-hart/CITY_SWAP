@@ -852,13 +852,25 @@
 	    tilematrixset: 'GoogleMapsCompatible_Level'
     });
 
-    var OSM_LightNoLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
-        attribution: '© OpenStreetMap contributors'
-    })
+    // CARTO Light - No Labels
+    var OSM_LightNoLabels = L.tileLayer(
+        'https://{s}.basemaps.cartocdn.com/rastertiles/light_nolabels/{z}/{x}/{y}{r}.png?key=cb1_3rf2_1_c7a722f3c2562261e0c704eb',
+        {
+            attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+            subdomains: 'abcd',
+            maxZoom: 20
+        }
+    );
 
-    var OSM_DarkNoLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
-        attribution: '© OpenStreetMap contributors'
-    })
+    // CARTO Dark - No Labels
+    var OSM_DarkNoLabels = L.tileLayer(
+        'https://{s}.basemaps.cartocdn.com/rastertiles/dark_nolabels/{z}/{x}/{y}{r}.png?key=cb1_3rf2_1_c7a722f3c2562261e0c704eb',
+        {
+            attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+            subdomains: 'abcd',
+            maxZoom: 20
+        }
+    );
     
     OSM_LightNoLabels.addTo(map);
 

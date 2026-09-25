@@ -10,10 +10,10 @@
 
     gtag('config', 'G-4WP3L1ZB5V');
     </script>
-    <base href="/">
+  <base href="/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🗽NYC</title>
+  <title>🇺🇸 USA 1K</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
@@ -36,13 +36,13 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
     
-        <div id="controls">
-            <div id="input-bar-wrapper">
-                <input type="text" id="input-field" placeholder="Type city name" />
-                <button id="main-exit-btn">EXIT</button>
-            </div>
-            <button id="about-creator-btn">Copyright © 2025 Brady Hart LLC. All rights reserved.</button>
+    <div id="controls">
+        <div id="input-bar-wrapper">
+            <input type="text" id="input-field" placeholder="Type city name" />
+            <button id="main-exit-btn">EXIT</button>
         </div>
+        <button id="about-creator-btn">Copyright © 2025 Brady Hart LLC. All rights reserved.</button>
+    </div>
 
         <div id="map" ></div>
 
@@ -52,7 +52,7 @@
             <div id="scoreboard">
                 <div id="map-title-wrapper">
                     <img id="ui-map-icon" class="ui-icon" title="Map" src = "",>
-                    <div id="map-display">🗽 NEW YORK CITY</div>
+                    <div id="map-display">🇺🇸 USA 1K</div>
                 </div>
                 
                 <span style="padding: 3px"></span>
@@ -79,7 +79,6 @@
                         <div id="swap-count-display">0</div>
                     </div>
                 </div>
-                
             </div>
 
             <div id="timer-wrapper">
@@ -169,7 +168,7 @@
 
         <!--Held Pin Display-->
         <div id="held-pin-display">
-            <img id="held-pin-img" src="" alt="Held pin image"/>
+            <img id="held-pin-img" src="" alt="Held pin image"/>            
             <div id="info-box">
                 <button class="info-toggle" id="infoToggle">
                     🔍 How to Play ▸
@@ -191,6 +190,8 @@
                 </div>
             </div>
         </div>
+
+          
 
 <!--CONTROLS-->
     <style>
@@ -240,7 +241,7 @@
             display: flex;
             flex-direction: column;
             width: 100%;
-            height: 350px;
+            height: 300px;
             left: 50%;
             transform: translate(-50%, 100%);
             background: linear-gradient(to right, #3a404ef3, #4a4f4beb); /* Set your gradient colors */
@@ -802,8 +803,7 @@
 
 
     // Initialize the map
-    //setView([32.8872, 13.1914], 3); // Centered on world (Tripoli)
-    const map = L.map('map').setView([40.7080, -74.0110], 11); // Centered on Financial District, Manhattan
+    const map = L.map('map').setView([-10.247545, -48.379855], 5); // Centered on Palmas, Tocantins
 
     // Add OpenStreetMap tiles
     // Other map styles: 
@@ -2082,11 +2082,57 @@
     }
     
     const regionIcons = {
-        bronx: `./assets/pin_sets/${pinTheme}/regions/newyorkcity/region_bronx.png`,
-        queens: `./assets/pin_sets/${pinTheme}/regions/newyorkcity/region_queens.png`,
-        brooklyn: `./assets/pin_sets/${pinTheme}/regions/newyorkcity/region_brooklyn.png`,
-        statenisland: `./assets/pin_sets/${pinTheme}/regions/newyorkcity/region_statenisland.png`,
-        manhattan: `./assets/pin_sets/${pinTheme}/regions/newyorkcity/region_manhattan.png`,
+        alabama: `./assets/pin_sets/${pinTheme}/regions/us/region_alabama.png`,
+        alaska: `./assets/pin_sets/${pinTheme}/regions/us/region_alaska.png`,
+        arizona: `./assets/pin_sets/${pinTheme}/regions/us/region_arizona.png`,
+        arkansas: `./assets/pin_sets/${pinTheme}/regions/us/region_arkansas.png`,
+        california: `./assets/pin_sets/${pinTheme}/regions/us/region_california.png`,
+        colorado: `./assets/pin_sets/${pinTheme}/regions/us/region_colorado.png`,
+        connecticut: `./assets/pin_sets/${pinTheme}/regions/us/region_connecticut.png`,
+        delaware: `./assets/pin_sets/${pinTheme}/regions/us/region_delaware.png`,
+        florida: `./assets/pin_sets/${pinTheme}/regions/us/region_florida.png`,
+        georgia: `./assets/pin_sets/${pinTheme}/regions/us/region_georgia.png`,
+        hawaii: `./assets/pin_sets/${pinTheme}/regions/us/region_hawaii.png`,
+        idaho: `./assets/pin_sets/${pinTheme}/regions/us/region_idaho.png`,
+        illinois: `./assets/pin_sets/${pinTheme}/regions/us/region_illinois.png`,
+        indiana: `./assets/pin_sets/${pinTheme}/regions/us/region_indiana.png`,
+        iowa: `./assets/pin_sets/${pinTheme}/regions/us/region_iowa.png`,
+        kansas: `./assets/pin_sets/${pinTheme}/regions/us/region_kansas.png`,
+        kentucky: `./assets/pin_sets/${pinTheme}/regions/us/region_kentucky.png`,
+        louisiana: `./assets/pin_sets/${pinTheme}/regions/us/region_louisiana.png`,
+        maine: `./assets/pin_sets/${pinTheme}/regions/us/region_maine.png`,
+        maryland: `./assets/pin_sets/${pinTheme}/regions/us/region_maryland.png`,
+        massachusetts: `./assets/pin_sets/${pinTheme}/regions/us/region_massachusetts.png`,
+        michigan: `./assets/pin_sets/${pinTheme}/regions/us/region_michigan.png`,
+        minnesota: `./assets/pin_sets/${pinTheme}/regions/us/region_minnesota.png`,
+        mississippi: `./assets/pin_sets/${pinTheme}/regions/us/region_mississippi.png`,
+        missouri: `./assets/pin_sets/${pinTheme}/regions/us/region_missouri.png`,
+        montana: `./assets/pin_sets/${pinTheme}/regions/us/region_montana.png`,
+        nebraska: `./assets/pin_sets/${pinTheme}/regions/us/region_nebraska.png`,
+        nevada: `./assets/pin_sets/${pinTheme}/regions/us/region_nevada.png`,
+        newhampshire: `./assets/pin_sets/${pinTheme}/regions/us/region_newhampshire.png`,
+        newjersey: `./assets/pin_sets/${pinTheme}/regions/us/region_newjersey.png`,
+        newmexico: `./assets/pin_sets/${pinTheme}/regions/us/region_newmexico.png`,
+        newyork: `./assets/pin_sets/${pinTheme}/regions/us/region_newyork.png`,
+        northcarolina: `./assets/pin_sets/${pinTheme}/regions/us/region_northcarolina.png`,
+        northdakota: `./assets/pin_sets/${pinTheme}/regions/us/region_northdakota.png`,
+        ohio: `./assets/pin_sets/${pinTheme}/regions/us/region_ohio.png`,
+        oklahoma: `./assets/pin_sets/${pinTheme}/regions/us/region_oklahoma.png`,
+        oregon: `./assets/pin_sets/${pinTheme}/regions/us/region_oregon.png`,
+        pennsylvania: `./assets/pin_sets/${pinTheme}/regions/us/region_pennsylvania.png`,
+        rhodeisland: `./assets/pin_sets/${pinTheme}/regions/us/region_rhodeisland.png`,
+        southcarolina: `./assets/pin_sets/${pinTheme}/regions/us/region_southcarolina.png`,
+        southdakota: `./assets/pin_sets/${pinTheme}/regions/us/region_southdakota.png`,
+        tennessee: `./assets/pin_sets/${pinTheme}/regions/us/region_tennessee.png`,
+        texas: `./assets/pin_sets/${pinTheme}/regions/us/region_texas.png`,
+        utah: `./assets/pin_sets/${pinTheme}/regions/us/region_utah.png`,
+        vermont: `./assets/pin_sets/${pinTheme}/regions/us/region_vermont.png`,
+        virginia: `./assets/pin_sets/${pinTheme}/regions/us/region_virginia.png`,
+        washington: `./assets/pin_sets/${pinTheme}/regions/us/region_washington.png`,
+        westvirginia: `./assets/pin_sets/${pinTheme}/regions/us/region_westvirginia.png`,
+        wisconsin: `./assets/pin_sets/${pinTheme}/regions/us/region_wisconsin.png`,
+        wyoming: `./assets/pin_sets/${pinTheme}/regions/us/region_wyoming.png`,
+
     } 
 
     // Site logo
@@ -2216,7 +2262,7 @@
     
 
     // Load GeoJSON data
-    axios.get('./data/cityswappr_newyorkcity.geojson').then(response => {
+    axios.get('./data/cityswappr_usa1k.geojson').then(response => {
         
         const geojsonData = response.data;
 
@@ -2599,7 +2645,8 @@
     const isOpen = content.classList.toggle("open");
     toggleBtn.textContent = isOpen ? "🔍 How to Play ▾" : "🔍 How to Play ▸";
     });
-    
+
+
     // IDENTIFY LOGIC
     document.getElementById('input-field').addEventListener('input', () => {
 
@@ -2911,6 +2958,7 @@
     }
     
     function initiateGame() {
+        
         scoreboard.style.display
         inputField.disabled = false;
         // START GAME TIMER

@@ -855,13 +855,25 @@
 	    tilematrixset: 'GoogleMapsCompatible_Level'
     });
 
-    var OSM_LightNoLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
-        attribution: '© OpenStreetMap contributors'
-    })
+    // CARTO Light - No Labels
+    var OSM_LightNoLabels = L.tileLayer(
+        'https://{s}.basemaps.cartocdn.com/rastertiles/light_nolabels/{z}/{x}/{y}{r}.png?key=cb1_3rf2_1_c7a722f3c2562261e0c704eb',
+        {
+            attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+            subdomains: 'abcd',
+            maxZoom: 20
+        }
+    );
 
-    var OSM_DarkNoLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
-        attribution: '© OpenStreetMap contributors'
-    })
+    // CARTO Dark - No Labels
+    var OSM_DarkNoLabels = L.tileLayer(
+        'https://{s}.basemaps.cartocdn.com/rastertiles/dark_nolabels/{z}/{x}/{y}{r}.png?key=cb1_3rf2_1_c7a722f3c2562261e0c704eb',
+        {
+            attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+            subdomains: 'abcd',
+            maxZoom: 20
+        }
+    );
     
     OSM_LightNoLabels.addTo(map);
 
@@ -1970,7 +1982,8 @@
         10: `./assets/pin_sets/${pinTheme}/pins/rainbow-10.png`,
     }
 
-    const colorOptions = ["red", "yellow", "blue", "green", "purple"];
+    const colorOptions = ["red", "yellow",];
+    //const colorOptions = ["red", "yellow", "blue", "green", "purple"];
     const slotOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     const heldPinImagesArray = {
         red: {
@@ -2072,57 +2085,37 @@
     }
     
     const regionIcons = {
-        alabama: `./assets/pin_sets/${pinTheme}/regions/us/region_alabama.png`,
-        alaska: `./assets/pin_sets/${pinTheme}/regions/us/region_alaska.png`,
-        arizona: `./assets/pin_sets/${pinTheme}/regions/us/region_arizona.png`,
-        arkansas: `./assets/pin_sets/${pinTheme}/regions/us/region_arkansas.png`,
-        california: `./assets/pin_sets/${pinTheme}/regions/us/region_california.png`,
-        colorado: `./assets/pin_sets/${pinTheme}/regions/us/region_colorado.png`,
-        connecticut: `./assets/pin_sets/${pinTheme}/regions/us/region_connecticut.png`,
-        delaware: `./assets/pin_sets/${pinTheme}/regions/us/region_delaware.png`,
-        florida: `./assets/pin_sets/${pinTheme}/regions/us/region_florida.png`,
-        georgia: `./assets/pin_sets/${pinTheme}/regions/us/region_georgia.png`,
-        hawaii: `./assets/pin_sets/${pinTheme}/regions/us/region_hawaii.png`,
-        idaho: `./assets/pin_sets/${pinTheme}/regions/us/region_idaho.png`,
-        illinois: `./assets/pin_sets/${pinTheme}/regions/us/region_illinois.png`,
-        indiana: `./assets/pin_sets/${pinTheme}/regions/us/region_indiana.png`,
-        iowa: `./assets/pin_sets/${pinTheme}/regions/us/region_iowa.png`,
-        kansas: `./assets/pin_sets/${pinTheme}/regions/us/region_kansas.png`,
-        kentucky: `./assets/pin_sets/${pinTheme}/regions/us/region_kentucky.png`,
-        louisiana: `./assets/pin_sets/${pinTheme}/regions/us/region_louisiana.png`,
-        maine: `./assets/pin_sets/${pinTheme}/regions/us/region_maine.png`,
-        maryland: `./assets/pin_sets/${pinTheme}/regions/us/region_maryland.png`,
-        massachusetts: `./assets/pin_sets/${pinTheme}/regions/us/region_massachusetts.png`,
-        michigan: `./assets/pin_sets/${pinTheme}/regions/us/region_michigan.png`,
-        minnesota: `./assets/pin_sets/${pinTheme}/regions/us/region_minnesota.png`,
-        mississippi: `./assets/pin_sets/${pinTheme}/regions/us/region_mississippi.png`,
-        missouri: `./assets/pin_sets/${pinTheme}/regions/us/region_missouri.png`,
-        montana: `./assets/pin_sets/${pinTheme}/regions/us/region_montana.png`,
-        nebraska: `./assets/pin_sets/${pinTheme}/regions/us/region_nebraska.png`,
-        nevada: `./assets/pin_sets/${pinTheme}/regions/us/region_nevada.png`,
-        newhampshire: `./assets/pin_sets/${pinTheme}/regions/us/region_newhampshire.png`,
-        newjersey: `./assets/pin_sets/${pinTheme}/regions/us/region_newjersey.png`,
-        newmexico: `./assets/pin_sets/${pinTheme}/regions/us/region_newmexico.png`,
-        newyork: `./assets/pin_sets/${pinTheme}/regions/us/region_newyork.png`,
-        northcarolina: `./assets/pin_sets/${pinTheme}/regions/us/region_northcarolina.png`,
-        northdakota: `./assets/pin_sets/${pinTheme}/regions/us/region_northdakota.png`,
-        ohio: `./assets/pin_sets/${pinTheme}/regions/us/region_ohio.png`,
-        oklahoma: `./assets/pin_sets/${pinTheme}/regions/us/region_oklahoma.png`,
-        oregon: `./assets/pin_sets/${pinTheme}/regions/us/region_oregon.png`,
-        pennsylvania: `./assets/pin_sets/${pinTheme}/regions/us/region_pennsylvania.png`,
-        rhodeisland: `./assets/pin_sets/${pinTheme}/regions/us/region_rhodeisland.png`,
-        southcarolina: `./assets/pin_sets/${pinTheme}/regions/us/region_southcarolina.png`,
-        southdakota: `./assets/pin_sets/${pinTheme}/regions/us/region_southdakota.png`,
-        tennessee: `./assets/pin_sets/${pinTheme}/regions/us/region_tennessee.png`,
-        texas: `./assets/pin_sets/${pinTheme}/regions/us/region_texas.png`,
-        utah: `./assets/pin_sets/${pinTheme}/regions/us/region_utah.png`,
-        vermont: `./assets/pin_sets/${pinTheme}/regions/us/region_vermont.png`,
-        virginia: `./assets/pin_sets/${pinTheme}/regions/us/region_virginia.png`,
-        washington: `./assets/pin_sets/${pinTheme}/regions/us/region_washington.png`,
-        westvirginia: `./assets/pin_sets/${pinTheme}/regions/us/region_westvirginia.png`,
-        wisconsin: `./assets/pin_sets/${pinTheme}/regions/us/region_wisconsin.png`,
-        wyoming: `./assets/pin_sets/${pinTheme}/regions/us/region_wyoming.png`,
-
+        alborz: `./assets/pin_sets/${pinTheme}/regions/iran/region_alborz.png`,
+        ardabil: `./assets/pin_sets/${pinTheme}/regions/iran/region_ardabil.png`,
+        azerbaijaneast: `./assets/pin_sets/${pinTheme}/regions/iran/region_azerbaijaneast.png`,
+        azerbaijanwest: `./assets/pin_sets/${pinTheme}/regions/iran/region_azerbaijanwest.png`,
+        bushehr: `./assets/pin_sets/${pinTheme}/regions/iran/region_bushehr.png`,
+        chaharmahalandbakhtiari: `./assets/pin_sets/${pinTheme}/regions/iran/region_chaharmahalandbakhtiari.png`,
+        fars: `./assets/pin_sets/${pinTheme}/regions/iran/region_fars.png`,
+        gilan: `./assets/pin_sets/${pinTheme}/regions/iran/region_gilan.png`,
+        golestan: `./assets/pin_sets/${pinTheme}/regions/iran/region_golestan.png`,
+        hamadan: `./assets/pin_sets/${pinTheme}/regions/iran/region_hamadan.png`,
+        hormozgan: `./assets/pin_sets/${pinTheme}/regions/iran/region_hormozgan.png`,
+        ilam: `./assets/pin_sets/${pinTheme}/regions/iran/region_ilam.png`,
+        isfahan: `./assets/pin_sets/${pinTheme}/regions/iran/region_isfahan.png`,
+        kerman: `./assets/pin_sets/${pinTheme}/regions/iran/region_kerman.png`,
+        kermanshah: `./assets/pin_sets/${pinTheme}/regions/iran/region_kermanshah.png`,
+        khorasannorth: `./assets/pin_sets/${pinTheme}/regions/iran/region_khorasannorth.png`,
+        khorasanrazavi: `./assets/pin_sets/${pinTheme}/regions/iran/region_khorasanrazavi.png`,
+        khorasansouth: `./assets/pin_sets/${pinTheme}/regions/iran/region_khorasansouth.png`,
+        khuzestan: `./assets/pin_sets/${pinTheme}/regions/iran/region_khuzestan.png`,
+        kohgiluyehandboyerahmad: `./assets/pin_sets/${pinTheme}/regions/iran/region_kohgiluyehandboyerahmad.png`,
+        kurdistan: `./assets/pin_sets/${pinTheme}/regions/iran/region_kurdistan.png`,
+        lorestan: `./assets/pin_sets/${pinTheme}/regions/iran/region_lorestan.png`,
+        markazi: `./assets/pin_sets/${pinTheme}/regions/iran/region_markazi.png`,
+        mazandaran: `./assets/pin_sets/${pinTheme}/regions/iran/region_mazandaran.png`,
+        qazvin: `./assets/pin_sets/${pinTheme}/regions/iran/region_qazvin.png`,
+        qom: `./assets/pin_sets/${pinTheme}/regions/iran/region_qom.png`,
+        semnan: `./assets/pin_sets/${pinTheme}/regions/iran/region_semnan.png`,
+        sistanandbaluchestan: `./assets/pin_sets/${pinTheme}/regions/iran/region_sistanandbaluchestan.png`,
+        tehran: `./assets/pin_sets/${pinTheme}/regions/iran/region_tehran.png`,
+        yazd: `./assets/pin_sets/${pinTheme}/regions/iran/region_yazd.png`,
+        zanjan: `./assets/pin_sets/${pinTheme}/regions/iran/region_zanjan.png`,
     } 
 
     // Site logo
